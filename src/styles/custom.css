@@ -1,0 +1,19 @@
+.custom-header header > ul {
+  width: 33.33%;
+}
+.custom-header header {
+  background-color: black;
+  height: 100% !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  
+  
+}
+.custom-header header .desktop-menu-item li a {
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+}
+.custom-header header .desktop-menu-item li a:hover{
+    color: #FC4242;
+}

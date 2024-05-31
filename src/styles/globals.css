@@ -2,5 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 @import url(./custom.css);
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 3%;
+}
 
+body {
+  font-family: "Instrument Sans", sans-serif;
+}
+h1 {
+  @apply lg:text-5xl text-3xl font-bold;
+}
+h2 {
+  @apply lg:text-5xl text-3xl;
+}
+h3 {
+  @apply lg:text-3xl text-2xl;
+}
+h4 {
+  @apply lg:text-xl text-lg font-medium;
+}
 
+.Toastify__progress-bar-theme--dark {
+  background: #3f7fae !important;
+}
+.pagelayout {
+  @apply flex flex-col gap-8 lg:gap-16;
+}
