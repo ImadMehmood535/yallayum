@@ -18,22 +18,26 @@ import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
-  const menuItems = [
+  const additionalMenuItems = [
     {
-        name : "Shop",
-        link : '/shop'
+      name: "Home",
+      link: "/",
     },
     {
-        name : "THINGS TO KNOW",
-        link : '/blogs'
+      name: "Shop",
+      link: "/shop",
     },
     {
-        name : "ABOUT US",
-        link : '/about-us'
+      name: "Things to know",
+      link: "/blogs",
     },
     {
-        name : "CONTACT US",
-        link : '/contact-us'
+      name: "About us",
+      link: "/about-us",
+    },
+    {
+      name: "Contact us",
+      link: "/contact-us",
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,19 +45,18 @@ const Header = () => {
     <Navbar
       maxWidth="full"
       isMenuOpen={isMenuOpen}
+      isBlurred
       onMenuOpenChange={setIsMenuOpen}
       className="flex justify-center items-center gap-3 custom-header"
     >
       <NavbarContent className="block sm:hidden" justify="start">
-        <NavbarMenuToggle  className="text-white "
+        <NavbarMenuToggle
+          className="text-white h-[40px] w-[40px]"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden sm:flex !justify-start gap-4 desktop-menu-item"
-        justify="center"
-      >
+      <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-evenly text-white text-base">
         {/* <NavbarBrand className="block md:hidden " >
           <p className="font-bold text-inherit">Yalla Yum</p>
         </NavbarBrand> */}
@@ -91,7 +94,7 @@ const Header = () => {
 
           <Input
             isClearable
-            width="18px" 
+            width="18px"
             radius="lg"
             classNames={{
               input: [
@@ -99,7 +102,7 @@ const Header = () => {
                 "text-black/90 bg-transparent",
                 "placeholder:text-default-700/50 dark:placeholder:text-white/60",
               ],
-              
+
               innerWrapper: "bg-transparent max-w-[100px]",
               inputWrapper: [
                 "shadow-xl",
@@ -112,6 +115,8 @@ const Header = () => {
                 "group-data-[focus=true]:bg-default-200/50",
                 "dark:group-data-[focus=true]:bg-default/60",
                 "!cursor-text",
+                "hidden",
+                "md:block",
               ],
             }}
             placeholder="Search"
@@ -122,7 +127,7 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu>
+      {/* <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
@@ -138,6 +143,15 @@ const Header = () => {
               size="lg"
             >
               {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu> */}
+      <NavbarMenu className="mt-9">
+        {additionalMenuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link className="w-full" href={item.link} size="lg">
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
