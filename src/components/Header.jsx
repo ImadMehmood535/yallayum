@@ -47,7 +47,7 @@ const Header = () => {
       isMenuOpen={isMenuOpen}
       isBlurred
       onMenuOpenChange={setIsMenuOpen}
-      className="flex justify-center items-center gap-3 custom-header"
+      className="flex justify-center items-center gap-3 custom-header relative"
     >
       <NavbarContent className="block sm:hidden" justify="start">
         <NavbarMenuToggle
@@ -56,7 +56,7 @@ const Header = () => {
         />
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-evenly text-white text-base">
+      <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
         {/* <NavbarBrand className="block md:hidden " >
           <p className="font-bold text-inherit">Yalla Yum</p>
         </NavbarBrand> */}
@@ -127,27 +127,7 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
 
-      {/* <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu> */}
-      <NavbarMenu className="mt-9">
+      <NavbarMenu className="mob-br">
         {additionalMenuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link className="w-full" href={item.link} size="lg">
