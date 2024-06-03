@@ -11,8 +11,8 @@ const ProductItem = ({ data, slider }) => {
           width={1000}
           height={1000}
           quality={100}
-          objectFit="contain"
-          layout="responsive"
+          // objectFit="contain"
+          // layout="responsive"
           className={`${slider ? "h-auto" : "  !max-w-auto !xl:max-h-[300px]"}`}
         />
         <h4 className="text-[#3C3C3B] font-normal text-lg text-center">

@@ -10,8 +10,8 @@ const BlogItem = ({ data }) => {
             src={data.image}
             alt={data.image}
             quality={100}
-            objectFit="cover"
-            layout="responsive"
+            // objectFit="cover"
+            // layout="responsive"
             width={800}
             height={700}
             className=" h-full min-h-[100%] group-hover:scale-75"

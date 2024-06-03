@@ -18,8 +18,8 @@ const ImpactItem = ({ position, image, subheading, title, text }) => {
             width={1000}
             height={1000}
             quality={100}
-            objectFit="contain"
-            layout="responsive"
+            // objectFit="contain"
+            // layout="responsive"
           />
         </div>
         <div className="content-wrapper w-full md:w-1/2 p-6 text-center ">

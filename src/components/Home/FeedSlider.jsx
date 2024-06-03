@@ -1,11 +1,11 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
-import Link from "next/link";
+import LinkButton from "../general/LinkButton";
 
 const FeedSlider = ({ feedlist }) => {
   return (
@@ -62,9 +62,7 @@ const FeedSlider = ({ feedlist }) => {
         </div>
         <div className="!pt-10">
           <div className="btn-area flex justify-center">
-            <Link href={"/"} className="cus-btn table text-center">
-              Follow us on Instagram
-            </Link>
+            <LinkButton text={"Follow us on Instagram"} />
           </div>
         </div>
       </div>

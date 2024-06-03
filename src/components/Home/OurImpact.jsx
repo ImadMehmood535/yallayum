@@ -20,7 +20,7 @@ const OurImpact = () => {
               <h2 className="text-5xl text-bold">Our Impact</h2>
               <p className="text-[#3C3C3B]">
                 Explore our latest articles and embark on a journey of culinary
-                discovery, health insights, and Dubai's vibrant culture. Stay
+                discovery, health insights, and Dubai&apos;s vibrant culture. Stay
                 informed, inspired, and engaged by subscribing to our blog
                 today.
               </p>
