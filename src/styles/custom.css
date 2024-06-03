@@ -75,3 +75,9 @@ html {
     transform: translateX(100%);
   }
 }
+
+.buttonShadow {
+  box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+  -webkit-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+  -moz-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+}
