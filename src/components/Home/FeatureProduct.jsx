@@ -45,7 +45,7 @@ const FeatureProduct = ({ data }) => {
             ))}
           </Swiper>
         ) : (
-          <div className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1  place-items-end  md:grid-cols-2 xl:grid-cols-6 gap-6">
             {data.map((item, key) => (
               <div className="item" key={key}>
                 <ProductItem data={item} slider={false} />

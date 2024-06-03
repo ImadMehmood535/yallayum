@@ -68,8 +68,8 @@ const Banner = () => {
                   <Image
                     src={Banner_slide_2}
                     alt={Banner_slide_2}
-                    width={1400}
-                    height={1400}
+                    width={1280}
+                    height={800}
                     quality={100}
                     // layout="responsive"
                     className="w-full h-full "

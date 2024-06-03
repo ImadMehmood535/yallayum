@@ -83,6 +83,8 @@ ul.mob-br {
 .ProductItem .item-wrapper:before {
   content: "";
   width: 100%;
+  min-height: 220px;
+  max-height: 220px;
   height: 80%;
   background-color: #fff5f5;
   position: absolute;
@@ -93,6 +95,7 @@ ul.mob-br {
   transition: 0.3s;
 }
 .ProductItem:hover .item-wrapper:before {
+  max-height: 280px;
   height: 100%;
 }
 .custom-shadow {
