@@ -130,7 +130,7 @@ const Header = () => {
       <NavbarMenu className="mob-br">
         {additionalMenuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href={item.link} size="lg">
+            <Link className="w-full text-black hover:text-[#FC4242]"  href={item.link} size="lg">
               {item.name}
             </Link>
           </NavbarMenuItem>

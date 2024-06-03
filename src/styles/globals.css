@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 @import url(./custom.css);
+
+@font-face {
+  font-family: "Fedra";
+  src: url("../assets/fonts/Fedra/Fedra-Sans-Arabic-ARLT.ttf");
+}
+@font-face {
+  font-family: "GeneralSans";
+  src: url("../assets/fonts/GeneralSans/General-Sans-Variable.ttf");
+}
+
 .container {
   width: 100%;
   max-width: 1920px;
@@ -10,10 +20,13 @@
 }
 
 body {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Fedra";
 }
+
+
 h1 {
   @apply lg:text-5xl text-3xl font-bold;
+  font-family: "Fedra", sans-serif;
 }
 h2 {
   @apply lg:text-5xl text-3xl;
@@ -25,9 +38,7 @@ h4 {
   @apply lg:text-xl text-lg font-medium;
 }
 
-.Toastify__progress-bar-theme--dark {
-  background: #3f7fae !important;
-}
-.pagelayout {
-  @apply flex flex-col gap-8 lg:gap-16;
+p {
+  font-family: "GeneralSans";
+  @apply text-[18px] leading-7 text-[#646A69]  font-normal;
 }

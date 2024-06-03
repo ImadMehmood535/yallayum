@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Ticker from "@/components/Ticker";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <Ticker/>
           <Header/>
           {children}
+          <Footer/>
         </Providers>
       </body>
     </html>
