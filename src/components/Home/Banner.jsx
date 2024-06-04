@@ -41,10 +41,14 @@ const Banner = () => {
                   <AnimatedButton text={"BUY NOW"} shop={true} />
                 </div>
                 <div className="w-full md:w-2/4 img-area">
-                  <img
-                    src={Banner_slide_1.src}
+                <Image
+                    src={Banner_slide_1}
                     alt={Banner_slide_1}
-                    className="w-full h-full"
+                    width={800}
+                    height={300}
+                    quality={100}
+                    // layout="responsive"
+                    className="w-full h-full "
                   />
                 </div>
               </div>
@@ -72,8 +76,8 @@ const Banner = () => {
                   <Image
                     src={Banner_slide_2}
                     alt={Banner_slide_2}
-                    width={1280}
-                    height={800}
+                    width={800}
+                    height={300}
                     quality={100}
                     // layout="responsive"
                     className="w-full h-full "
@@ -104,8 +108,8 @@ const Banner = () => {
                   <Image
                     src={Banner_slide_3}
                     alt={Banner_slide_3}
-                    width={1400}
-                    height={1400}
+                    width={800}
+                    height={300}
                     quality={100}
                     // layout="responsive"
                     className="w-full h-full "

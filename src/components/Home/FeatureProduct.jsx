@@ -9,7 +9,7 @@ import ProductItem from "../general/ProductItem";
 
 const FeatureProduct = ({ data }) => {
   return (
-    <div className="FeatureProduct pageLayout  px-0 md:px-[5%] mx-auto">
+    <div className="FeatureProduct pageLayout py-16 px-0 md:px-[5%] mx-auto">
       <div className="container">
         {data.length > 6 ? (
           <Swiper

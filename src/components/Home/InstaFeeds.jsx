@@ -1,16 +1,19 @@
 import React from "react";
 import { MdOutlineStar } from "react-icons/md";
 import ReviewSlider from "../general/ReviewSlider";
- 
+import { videoData } from "@/data/videosData";
+import VideoItem from "./VideoItem";
+import VideoSlider from "./VideoSlider";
+
 const InstaFeeds = ({ reviewData }) => {
   return (
     <div className="InstaFeeds  pageLayout px-0  mx-auto bg-[#FAF4FA]">
-      <div className="container">
+      <div className="container ">
         <div className="  !pb-10">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[770px] mx-auto">
-              <div className=" rounded-md  flex justify-center items-center mb-4">
-                <div className="bg-white py-2 px-6 flex items-center gap-2 rounded-md">
+              <div className=" rounded-md pt-16 flex justify-center items-center mb-4">
+                <div className="bg-white py-2 px-6 flex items-center gap-2 rounded-[8px] mb-3">
                   <ul className="flex gap-1">
                     <li>
                       <MdOutlineStar />
@@ -36,6 +39,9 @@ const InstaFeeds = ({ reviewData }) => {
               <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
                 they did freeze the tasteeeeee!
               </h2>
+            </div>
+            <div className="w-full pt-8 ">
+              <VideoSlider videoData={videoData} />
             </div>
           </div>
         </div>

@@ -22,13 +22,16 @@
 
 .container {
   width: 100%;
-  max-width: 1920px;
+  max-width: 94%;
   margin: 0 auto;
   padding: 0 3%;
 }
 
 body {
   font-family: "Fedra";
+}
+html {
+  zoom: 85%;
 }
 
 h1 {
