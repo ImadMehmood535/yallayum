@@ -2,6 +2,10 @@
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { FaTiktok } from "react-icons/fa";
+import { PiInstagramLogo } from "react-icons/pi";
+import { RiFacebookFill } from "react-icons/ri";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   const {
@@ -9,10 +13,10 @@ const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
   return (
-    <div className="Footer py-10 md:py-20 px-0 mx-auto bg-[#FFE6E6]">
+    <div className="Footer py-10 md:py-20 px-0 mx-auto bg-[#FFE6E6] before:content-['Yalla_Yum'] before:absolute   before:text-white before:top-[50%] before:left-50% before:-translate-x-1/2 before:-translate-y-1/2 ">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 ">
           <div className="useful-links">
@@ -131,23 +135,46 @@ const Footer = () => {
                   className="bg-white rounded-full py-3 px-6 focus:border-none focus:outline-none w-full"
                   placeholder="Email"
                   {...register("Email", {
-                    required: true,
+                    required: "Please enter an email",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Please enter a valid email address",
+                    },
                   })}
                 />
                 {errors.Email && (
-                  <span className="error text-red-600 text-sm ">
-                    enter a email
+                  <span className="error text-red-500 text-sm mt-1">
+                    {errors.Email.message}
                   </span>
                 )}
               </div>
-              <div className="button-wrapper">
+              <div className="button-wrapper flex justify-between items-center">
                 <input
                   type="submit"
-                  className="py-3 px-6 bg-black text-white rounded-full"
+                  className="py-3 px-6 bg-black text-white rounded-full login"
                   value="Sign me up"
                 />
+                <Link href={"/"} className="underline text-[#9A9A9A] text-sm">
+                  We respect your privacy.
+                </Link>
               </div>
             </form>
+            <div className="social-list mt-5">
+              <ul className="flex flex-row gap-2">
+                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                  <FaTiktok />
+                </li>
+                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                  <PiInstagramLogo  />
+                </li>
+                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                  <RiFacebookFill />
+                </li>
+                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                  <FaLinkedinIn />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="bottom-footer grid grid-cols-1 md:grid-cols-2">
