@@ -32,6 +32,8 @@ import bg1 from "./images/bg1.png";
 import pic4 from "./images/pic4.jpg";
 import pic5 from "./images/pic5.jpg";
 import pic6 from "./images/pic6.jpg";
+import FooterBg from "./images/FooterBg.png";
+import PaymentCards from "./images/PaymentCards.png";
 
 export {
   Banner_slide_1,
@@ -68,4 +70,6 @@ export {
   pic4,
   pic5,
   pic6,
+  FooterBg,
+  PaymentCards,
 };

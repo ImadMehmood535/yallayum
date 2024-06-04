@@ -101,30 +101,6 @@ ul.mob-br {
 .custom-shadow {
   box-shadow: 0px 3px 2px 0px rgb(176 81 172 / 35%);
 }
- 
-
-@media only screen and (max-width: 1024px) {
-  .custom-header header {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .ImpactItem:nth-child(odd) .item {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  .ImpactItem:nth-child(even) .item {
-    display: flex;
-    flex-direction: row;
-  }
-}
-@media only screen and (max-width: 560px) {
-  .ImpactItem .item {
-    flex-direction: column !important;
-  }
-}
 
 .ticker-wrapper {
   overflow: hidden;
@@ -175,4 +151,40 @@ ul.mob-br {
   box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
   -webkit-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
   -moz-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+}
+.Footer:after {
+  content: url("../assets/images/FooterBg.png");
+  width: 790px;
+  height: 360px;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1024px) {
+  .custom-header header {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .ImpactItem:nth-child(odd) .item {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .ImpactItem:nth-child(even) .item {
+    display: flex;
+    flex-direction: row;
+  }
+  .Footer:after {
+   content: none;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .ImpactItem .item {
+    flex-direction: column !important;
+  }
 }

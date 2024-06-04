@@ -6,6 +6,8 @@ import { FaTiktok } from "react-icons/fa";
 import { PiInstagramLogo } from "react-icons/pi";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
+import { PaymentCards } from "@/assets";
+import Image from "next/image";
 
 const Footer = () => {
   const {
@@ -16,9 +18,9 @@ const Footer = () => {
 
   const onSubmit = (data) => console.log(data);
   return (
-    <div className="Footer py-10 md:py-20 px-0 mx-auto bg-[#FFE6E6] before:content-['Yalla_Yum'] before:absolute   before:text-white before:top-[50%] before:left-50% before:-translate-x-1/2 before:-translate-y-1/2 ">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-4 ">
+    <div className="Footer overflow-hidden relative py-10 md:pt-20 md:pb:10 px-0 mx-auto bg-[#FFE6E6]">
+      <div className="container relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 pb-5 md:pb-10 ">
           <div className="useful-links">
             <h4 className="uppercase font-bold text-lg mb-4">USEFUL LINKS</h4>
             <ul className="flex flex-col gap-3 text-sm font-medium">
@@ -56,7 +58,7 @@ const Footer = () => {
                 stay up to date on our lastet products and promotions.
               </p>
               <div className="icon-list">
-                <ul className="flex flex-col gap-1 text-sm font-medium">
+                <ul className="flex flex-col gap-2 text-sm font-medium">
                   <li className="flex flex-row gap-1 items-center">
                     <svg
                       width="20"
@@ -148,7 +150,7 @@ const Footer = () => {
                   </span>
                 )}
               </div>
-              <div className="button-wrapper flex justify-between items-center">
+              <div className="button-wrapper flex flex-col lg:flex-row  items-center justify-start lg:justify-between ">
                 <input
                   type="submit"
                   className="py-3 px-6 bg-black text-white rounded-full login"
@@ -160,12 +162,12 @@ const Footer = () => {
               </div>
             </form>
             <div className="social-list mt-5">
-              <ul className="flex flex-row gap-2">
+              <ul className="flex flex-row gap-2 justify-center md:justify-start">
                 <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
                   <FaTiktok />
                 </li>
                 <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
-                  <PiInstagramLogo  />
+                  <PiInstagramLogo />
                 </li>
                 <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
                   <RiFacebookFill />
@@ -177,11 +179,35 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="bottom-footer grid grid-cols-1 md:grid-cols-2">
-          <div className="rights-text"></div>
-          <div className="payments">
-            <div className="link-list"></div>
-            <div className="card-list flex flex-row gap-1"></div>
+        <div className="bottom-footer w-full flex flex-col justify-between md:flex-row pt-5 md:pt-10  items-center">
+          <div className="rights-text">
+            <p className="flex flex-row gap-1 text-base">
+              <b>© YallaYum</b>
+              <span> All rights reserved | 2024</span>
+            </p>
+          </div>
+          <div className="payments flex flex-col-reverse md:flex-row gap-1 items-center justify-end">
+            <div className="link-list">
+              <ul className="flex flex-col md:flex-row gap-3 text-sm font-medium">
+                <li className="text-center">
+                  <Link href={"/"} className="">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li className="text-center">
+                  <Link href={"/"} className="">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="card-list">
+              <Image
+                src={PaymentCards}
+                alt={PaymentCards}
+                className="max-w-[210px]"
+              />
+            </div>
           </div>
         </div>
       </div>
