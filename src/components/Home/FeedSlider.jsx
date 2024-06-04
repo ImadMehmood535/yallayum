@@ -9,14 +9,14 @@ import LinkButton from "../general/LinkButton";
 
 const FeedSlider = ({ feedlist }) => {
   return (
-    <div className="FeedSlider py-10 md:py-20 px-0 mx-auto">
+    <div className="FeedSlider pageLayout  px-0 mx-auto">
       <div className="container">
         <div className="heading-area text-center mb-12">
           <div className="w-full md:max-w-[760px] mx-auto">
-            <h4 className="sub-heading text-[#B051AC] text-xl uppercase">
+            <h4 className="sub-heading kalamFont text-[#B051AC] text-xl uppercase">
               yalla yum on instagram
             </h4>
-            <h2 className="text-5xl text-bold mb-4">You + Yalla Yum!</h2>
+            <h2 className="text-5xl font-semibold mb-4">You + Yalla Yum!</h2>
           </div>
         </div>
         <div className="feeds">

@@ -57,9 +57,6 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
-        {/* <NavbarBrand className="block md:hidden " >
-          <p className="font-bold text-inherit">Yalla Yum</p>
-        </NavbarBrand> */}
         <NavbarItem>
           <Link href="/shop">Shop</Link>
         </NavbarItem>
@@ -94,34 +91,32 @@ const Header = () => {
 
           <Input
             isClearable
-            width="18px"
             radius="lg"
             classNames={{
               input: [
                 "bg-transparent",
                 "text-black/90 bg-transparent",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                "placeholder:text-white ",
+                "placeholder:text-[12px] ",
               ],
 
               innerWrapper: "bg-transparent max-w-[100px]",
               inputWrapper: [
-                "shadow-xl",
-                "bg-default-200/50",
                 "bg-transparent",
                 "backdrop-blur-xl",
-                "backdrop-saturate-200",
-                "hover:bg-default-200/70",
-                "dark:hover:bg-default/70",
                 "group-data-[focus=true]:bg-default-200/50",
                 "dark:group-data-[focus=true]:bg-default/60",
                 "!cursor-text",
                 "hidden",
                 "md:block",
+                "group-data-[focus=true]:w-[250px] transition-all",
+       
+
               ],
             }}
-            placeholder="Search"
+            placeholder="SEARCH"
             startContent={
-              <CiSearch className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+              <CiSearch className=" text-white w-8 h-8  hover:text-black " />
             }
           />
         </NavbarItem>
@@ -130,7 +125,11 @@ const Header = () => {
       <NavbarMenu className="mob-br">
         {additionalMenuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full text-black hover:text-[#FC4242]"  href={item.link} size="lg">
+            <Link
+              className="w-full text-black hover:text-[#FC4242]"
+              href={item.link}
+              size="lg"
+            >
               {item.name}
             </Link>
           </NavbarMenuItem>

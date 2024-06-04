@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const ImpactItem = ({ position, image, subheading, title, text }) => {
-  console.log(image.src, "image");
   return (
     <div className="ImpactItem item-wrapper">
       <div
@@ -11,15 +10,14 @@ const ImpactItem = ({ position, image, subheading, title, text }) => {
         }
             items-center bg-[#FFF5F5]`}
       >
-        <div className={`img-wrapper w-full md:w-1/2  `}>
+        <div className={`img-wrapper w-full md:w-1/2 overflow-hidden`}>
           <Image
             src={image}
             alt={image}
             width={1000}
             height={1000}
             quality={100}
-            // objectFit="contain"
-            // layout="responsive"
+            className="transition-transform  ease-in-out transform hover:scale-110"
           />
         </div>
         <div className="content-wrapper w-full md:w-1/2 p-6 text-center ">

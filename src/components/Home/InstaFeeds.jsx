@@ -4,7 +4,7 @@ import ReviewSlider from "../general/ReviewSlider";
  
 const InstaFeeds = ({ reviewData }) => {
   return (
-    <div className="InstaFeeds py-10 md:py-20 px-0  mx-auto bg-[#FAF4FA]">
+    <div className="InstaFeeds  pageLayout px-0  mx-auto bg-[#FAF4FA]">
       <div className="container">
         <div className="  !pb-10">
           <div className="heading-area text-center">
@@ -33,7 +33,7 @@ const InstaFeeds = ({ reviewData }) => {
                   </h4>
                 </div>
               </div>
-              <h2 className="text-4xl md:text-7xl text-bold uppercase font-bold ">
+              <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
                 they did freeze the tasteeeeee!
               </h2>
             </div>

@@ -11,11 +11,11 @@ import IconBox from "../Home/IconBox";
 
 const ProductFeature = () => {
   return (
-    <div className="ProductFeature py-10 md:py-20 px-0 mx-auto">
+    <div className="ProductFeature pageLayout  px-0 mx-auto">
       <div className="container">
         <div className="heading-area text-center">
           <div className="w-full md:max-w-[760px] mx-auto">
-            <h2 className="text-4xl md:text-7xl text-bold mb-6 text-[#FC4242]  uppercase">
+            <h2 className="text-4xl kalamFont md:text-7xl text-bold mb-6 text-[#FC4242]  uppercase">
               healthy snacks for happy people
             </h2>
             <p className="text-[#3C3C3B]">

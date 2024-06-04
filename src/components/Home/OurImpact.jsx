@@ -9,15 +9,15 @@ import ImpactItem from "./ImpactItem";
 
 const OurImpact = () => {
   return (
-    <div className="OurImpact py-10 md:py-20 px-0 mx-auto">
+    <div className="OurImpact pageLayout   px-0 mx-auto">
       <div className="container">
         <div className="  !pb-10">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[760px] mx-auto">
-              <h4 className="sub-heading text-[#B051AC] text-xl">
+              <h4 className="sub-heading kalamFont text-[#B051AC] text-xl">
                 We love what we do
               </h4>
-              <h2 className="text-5xl text-bold">Our Impact</h2>
+              <h2 className="text-5xl font-semibold">Our Impact</h2>
               <p className="text-[#3C3C3B]">
                 Explore our latest articles and embark on a journey of culinary
                 discovery, health insights, and Dubai&apos;s vibrant culture. Stay

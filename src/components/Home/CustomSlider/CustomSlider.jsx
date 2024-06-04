@@ -14,7 +14,7 @@ const CustomSlider = () => {
   };
 
   return (
-    <div className="h-full w-full max-w-[95%] flex flex-wrap md:flex-nowrap ml-auto  justify-start md:justify-end items-center ">
+    <div className="h-full pageLayout w-full max-w-[95%] flex flex-wrap md:flex-nowrap ml-auto  justify-start md:justify-end items-center ">
       <div className="md:max-w-[30%] w-full">
         <Details
           setSlidesData={setSlidesData}

@@ -11,6 +11,14 @@
   font-family: "GeneralSans";
   src: url("../assets/fonts/GeneralSans/General-Sans-Variable.ttf");
 }
+@font-face {
+  font-family: "Kalam";
+  src: url("../assets/fonts/Kalam/Kalam-Bold.ttf");
+}
+
+.kalamFont {
+  font-family: "Kalam", sans-serif;
+}
 
 .container {
   width: 100%;
@@ -22,7 +30,6 @@
 body {
   font-family: "Fedra";
 }
-
 
 h1 {
   @apply lg:text-5xl text-3xl font-bold;
@@ -38,4 +45,6 @@ h4 {
   @apply lg:text-xl text-lg font-medium;
 }
 
- 
+.pageLayout {
+  @apply pb-12 md:pb-20;
+}

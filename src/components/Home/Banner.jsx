@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
- import "swiper/css";
+import { Pagination , Autoplay } from "swiper/modules";
+import "swiper/css";
 import "swiper/css/pagination";
  import Image from "next/image";
-import { Banner_slide_1, Banner_slide_2, Banner_slide_3 } from "@/assets";
+import { Banner_slide_1, Banner_slide_2, Banner_slide_3, banner0 } from "@/assets";
 import Link from "next/link";
 import AnimatedButton from "../general/AnimatedButton";
 
@@ -16,9 +16,14 @@ const Banner = () => {
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination]}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+         }}
+        modules={[Pagination , Autoplay]}
         className="BannnerSwiper"
       >
+       
         <SwiperSlide>
           <div className="banner-item bg-[#F9F4ED]">
             <div className="container">
@@ -29,11 +34,11 @@ const Banner = () => {
                   </h1>
                   <p className="max-w-[560px] mb-6">
                     Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry&apos;s
-                    standard dummy text ever since the 1500s,
+                    typesetting industry. Lorem Ipsum has been the
+                    industry&apos;s standard dummy text ever since the 1500s,
                   </p>
 
-                  <AnimatedButton   text={"BUY NOW"} shop={true} />
+                  <AnimatedButton text={"BUY NOW"} shop={true} />
                 </div>
                 <div className="w-full md:w-2/4 img-area">
                   <img
@@ -56,13 +61,12 @@ const Banner = () => {
                   </h1>
                   <p className="max-w-[560px] mb-6  ">
                     Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry&apos;s
-                    standard dummy text ever since the 1500s,
+                    typesetting industry. Lorem Ipsum has been the
+                    industry&apos;s standard dummy text ever since the 1500s,
                   </p>
 
-                  <Link href={"/"} className="cus-btn table">
-                    Buy Now
-                  </Link>
+                  <AnimatedButton text={"BUY NOW"} shop={true} />
+
                 </div>
                 <div className="w-full md:w-2/4 img-area">
                   <Image
@@ -89,13 +93,12 @@ const Banner = () => {
                   </h1>
                   <p className="max-w-[560px] mb-6  ">
                     Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry&apos;s
-                    standard dummy text ever since the 1500s,
+                    typesetting industry. Lorem Ipsum has been the
+                    industry&apos;s standard dummy text ever since the 1500s,
                   </p>
 
-                  <Link href={"/"} className="cus-btn table">
-                    Buy Now
-                  </Link>
+                  <AnimatedButton text={"BUY NOW"} shop={true} />
+
                 </div>
                 <div className="w-full md:w-2/4 img-area">
                   <Image
