@@ -38,7 +38,4 @@ h4 {
   @apply lg:text-xl text-lg font-medium;
 }
 
-p {
-  font-family: "GeneralSans";
-  @apply text-[18px] leading-7 text-[#646A69]  font-normal;
-}
+ 

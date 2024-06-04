@@ -25,9 +25,15 @@ import FeedItem1 from "./images/FeedItem1.jpg";
 import FeedItem2 from "./images/FeedItem2.jpg";
 import FeedItem3 from "./images/FeedItem3.jpg";
 import FeedItem4 from "./images/FeedItem4.jpg";
+import pic1 from "./images/pic1.png";
+import pic2 from "./images/pic2.png";
+import pic3 from "./images/pic3.png";
+import bg1 from "./images/bg1.png";
+import pic4 from "./images/pic4.jpg";
+import pic5 from "./images/pic5.jpg";
+import pic6 from "./images/pic6.jpg";
 
 export {
-  Logo,
   Banner_slide_1,
   Banner_slide_2,
   Banner_slide_3,
@@ -54,4 +60,12 @@ export {
   FeedItem2,
   FeedItem3,
   FeedItem4,
+  Logo,
+  pic2,
+  pic3,
+  pic1,
+  bg1,
+  pic4,
+  pic5,
+  pic6,
 };

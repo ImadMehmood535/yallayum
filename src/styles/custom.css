@@ -1,3 +1,8 @@
+body,
+html {
+  overflow-x: hidden;
+}
+
 .custom-header header > ul {
   width: 33.33%;
 }
@@ -78,6 +83,8 @@ ul.mob-br {
 .ProductItem .item-wrapper:before {
   content: "";
   width: 100%;
+  min-height: 220px;
+  max-height: 220px;
   height: 80%;
   background-color: #fff5f5;
   position: absolute;
@@ -88,12 +95,14 @@ ul.mob-br {
   transition: 0.3s;
 }
 .ProductItem:hover .item-wrapper:before {
+  max-height: 280px;
   height: 100%;
 }
 .custom-shadow {
   box-shadow: 0px 3px 2px 0px rgb(176 81 172 / 35%);
 }
  
+
 @media only screen and (max-width: 1024px) {
   .custom-header header {
     padding-right: 10px;
@@ -116,4 +125,54 @@ ul.mob-br {
     flex-direction: column !important;
   }
 }
-/* media query end */
+
+.ticker-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker {
+  display: inline-block;
+  animation: ticker 50s linear infinite;
+}
+
+.swap-animation-left {
+  animation: swapAnimationLeft 1s ease-in-out;
+}
+
+.swap-animation-right {
+  animation: swapAnimationRight 1s ease-in-out;
+}
+
+@keyframes swapAnimationLeft {
+  0% {
+    width: 350px;
+
+    transform: translateX(0);
+  }
+
+  100% {
+    width: 500px;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes swapAnimationRight {
+  0% {
+    width: 500px;
+
+    transform: translateX(0);
+  }
+
+  100% {
+    width: 350px;
+
+    transform: translateX(100%);
+  }
+}
+
+.buttonShadow {
+  box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+  -webkit-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+  -moz-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
+}

@@ -1,26 +1,28 @@
-import Banner from "@/components/Banner";
-import Blogs from "@/components/Blogs";
-import FeatureProduct from "@/components/FeatureProduct";
-import FeedSlider from "@/components/FeedSlider";
-import InstaFeeds from "@/components/InstaFeeds";
-import OurImpact from "@/components/OurImpact";
-import ProductFeature from "@/components/ProductFeature";
+ 
 import { blogsData } from "@/data/blogsData";
 import { featurecollectionData } from "@/data/featurecollections";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
- 
+import Blogs from "@/components/Home/Blogs";
+import Banner from "@/components/Home/Banner";
+import FeatureProduct from "@/components/Home/FeatureProduct";
+import OurImpact from "@/components/Home/OurImpact";
+import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
+import InstaFeeds from "@/components/Home/InstaFeeds";
+import ProductFeature from "@/components/general/ProductFeature";
+import FeedSlider from "@/components/Home/FeedSlider";
 
 export default function Home() {
   return (
     <>
       <Banner />
-      <FeatureProduct data={featurecollectionData}  />
-      <OurImpact/>
-      <InstaFeeds reviewData={reviewData}/>
-      <Blogs blogsData={blogsData}/>
-      <ProductFeature/>
-      <FeedSlider feedlist={feedlist}/>
+      <FeatureProduct data={featurecollectionData} />
+      <OurImpact />
+      <CustomSlider />
+      <InstaFeeds reviewData={reviewData} />
+      <Blogs blogsData={blogsData} />
+      <ProductFeature />
+      <FeedSlider feedlist={feedlist} />
     </>
   );
 }
