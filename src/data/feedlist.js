@@ -17,6 +17,14 @@ const feedlist = [
     id: 4,
     image: FeedItem4,
   },
+  {
+    id: 5,
+    image: FeedItem1,
+  },
+  {
+    id: 6,
+    image: FeedItem3,
+  },
 ];
 
 export { feedlist };
