@@ -18,7 +18,7 @@ export default function Home() {
       <Banner />
       <FeatureProduct data={featurecollectionData} />
       <OurImpact />
-      <CustomSlider />
+      {/* <CustomSlider /> */}
       <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />

@@ -4,6 +4,7 @@ import {
   Banner_slide_2,
   Banner_slide_3,
   Banner_slide_4,
+  Banner_slide_5,
   pic1,
   pic2,
   pic3,
@@ -73,9 +74,9 @@ const slide2 = [
 
 const homeBannerSlide = [
   {
-    bgColor: "#559ad1d6",
+    bgColor: "#559ad100",
     firstimage  : Banner_heading,
-    imageSrc: Banner_slide_4,
+    imageSrc: Banner_slide_5,
   },
   {
     bgColor: "#F9F4ED",

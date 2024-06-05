@@ -29,16 +29,16 @@ const Banner = () => {
               style={{ backgroundColor: slide?.bgColor }}
             >
               <div className="container ">
-                <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-center gap-2 md:px-8 pt-16 md:pt-8">
-                  <div className="w-full md:w-2/4 content-area">
+                <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8 ">
+                  <div className="w-full md:w-2/4 content-area ">
                     {slide?.title ? (
-                      <>
+                      <div className="pb-[15%]">
                         <h1 className="font-bold mb-6">{slide?.title}</h1>
                         <p className="max-w-[560px] mb-6">
                           {slide?.description}
                         </p>
                         <AnimatedButton text={"BUY NOW"} shop={true} />
-                      </>
+                      </div>
                     ) : (
                       <Image
                         src={slide?.firstimage}
@@ -46,11 +46,12 @@ const Banner = () => {
                         width={630}
                         height={540}
                         quality={100}
+                        className="object-contain w-auto h-auto"
                       />
                     )}
                   </div>
 
-                  <div className="w-full  md:max-w-[600px] img-area">
+                  <div className="w-full  md:max-w-[600px] img-area  ">
                     <Image
                       src={slide?.imageSrc}
                       alt={slide?.imageSrc}

@@ -55,20 +55,31 @@ ul.mob-br {
   background-color: white;
   color: black;
 }
+.swiper.BannnerSwiper .swiper-wrapper .swiper-slide {
+  overflow: hidden;
+}
 .swiper.BannnerSwiper .swiper-wrapper:nth-child(1) .swiper-slide {
   position: relative;
 }
-
-/* .swiper.BannnerSwiper .swiper-wrapper:nth-child(1) .swiper-slide:before {
-  content: url("../assets/images/Banner-cloud.jpg");
+.swiper.BannnerSwiper .swiper-wrapper .swiper-slide:nth-child(1):before {
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover; 
-  background-position: center center;
+  background-image: url("../assets/images/Banner-cloud.jpg");
+  background-size: cover; /* Changed to cover for better aspect ratio handling */
+  object-fit: cover !important;
+  background-position: top;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
-} */
+  z-index: 0;
+}
+.swiper.BannnerSwiper .swiper-wrapper .swiper-slide .banner-item {
+  z-index: 10;
+  position: inherit;
+}
+
 .swiper.BannnerSwiper {
   padding-bottom: 40px;
 }
@@ -167,7 +178,6 @@ ul.mob-br {
   -moz-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
 }
 
- 
 .Footer:after {
   content: url("../assets/images/FooterBg.png");
   width: 790px;
@@ -196,7 +206,7 @@ ul.mob-br {
     flex-direction: row;
   }
   .Footer:after {
-   content: none;
+    content: none;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -204,8 +214,6 @@ ul.mob-br {
     flex-direction: column !important;
   }
 }
-
-
 
 .center-area:hover .relative {
   animation: moveUpDown 1.5s infinite alternate;

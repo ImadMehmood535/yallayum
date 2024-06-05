@@ -14,34 +14,36 @@ const CustomSlider = () => {
   };
 
   return (
-    <div className="h-full pageLayout w-full max-w-[95%] flex flex-wrap md:flex-nowrap ml-auto  justify-start md:justify-end items-center ">
-      <div className="md:max-w-[30%] w-full">
-        <Details
-          setSlidesData={setSlidesData}
-          setActiveSlides={setActiveSlides}
-          activeSlides={activeSlides}
-          slidesData={slidesData}
-          handleIndex={handleIndex}
-          currentIndex={currentIndex}
-        />
-      </div>
+    <div className="CustomSlider  ">
+      <div className="slider-wrapper flex justify-between items-end pl-[3%]">
+        <div className="w-full md:max-w-[30%]">
+          <Details
+            setSlidesData={setSlidesData}
+            setActiveSlides={setActiveSlides}
+            activeSlides={activeSlides}
+            slidesData={slidesData}
+            handleIndex={handleIndex}
+            currentIndex={currentIndex}
+          />
+        </div>
 
-      <div className="  flex w-full justify-center items-center">
-        {Array.from({ length: 3 }).map((_, idx) => {
-          const dataIndex = (currentIndex + idx) % slidesData?.length;
-          const size = 600 - idx * 150;
-          return (
-            <div key={dataIndex} className="flex flex-col select-none ">
-              <Image
-                src={slidesData[dataIndex]?.imageUrl}
-                alt={slidesData[dataIndex]?.name}
-                width={size}
-                height={size}
-                className={`w-[${size}px] select-none `}
-              />
-            </div>
-          );
-        })}
+        <div className="ze-image-area flex w-full justify-end items-end relative">
+          {Array.from({ length: 3 }).map((_, idx) => {
+            const dataIndex = (currentIndex + idx) % slidesData?.length;
+            const size = 600 - idx * 150;
+            return (
+              <div key={dataIndex} className="item flex flex-col select-none absolute">
+                <Image
+                  src={slidesData[dataIndex]?.imageUrl}
+                  alt={slidesData[dataIndex]?.name}
+                  width={size}
+                  height={size}
+                  className={`w-[${size}px] select-none `}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

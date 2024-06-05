@@ -4,6 +4,7 @@ import Banner_slide_1 from "./images/Banner-slide-1.png";
 import Banner_slide_2 from "./images/Banner-slide-2.png";
 import Banner_slide_3 from "./images/Banner-slide-3.png";
 import Banner_slide_4 from "./images/Banner-slide-4.png";
+import Banner_slide_5 from "./images/Banner-slide-5.png";
 import Yallayum_strawberry from "./images/Yallayum_strawberry.png";
 import Yallayum_Fig from "./images/Yallayum_Fig.png";
 import Yallayum_Peach from "./images/Yallayum_Peach.png";
@@ -48,6 +49,7 @@ export {
   Banner_slide_2,
   Banner_slide_3,
   Banner_slide_4,
+  Banner_slide_5,
   Yallayum_strawberry,
   Yallayum_Fig,
   Yallayum_Peach,
