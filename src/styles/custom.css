@@ -55,6 +55,9 @@ ul.mob-br {
   background-color: white;
   color: black;
 }
+.feature_product_slider .swiper-wrapper {
+  align-items: flex-end;
+}
 .swiper.BannnerSwiper .swiper-wrapper .swiper-slide {
   overflow: hidden;
 }
@@ -67,7 +70,7 @@ ul.mob-br {
   width: 100%;
   height: 100%;
   background-image: url("../assets/images/Banner-cloud.jpg");
-  background-size: cover; /* Changed to cover for better aspect ratio handling */
+  background-size: cover;
   object-fit: cover !important;
   background-position: top;
   background-repeat: no-repeat;
@@ -84,21 +87,20 @@ ul.mob-br {
   padding-bottom: 40px;
 }
 
-.swiper.BannnerSwiper .swiper-pagination {
+.swiper-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.swiper.BannnerSwiper .swiper-pagination span.swiper-pagination-bullet {
+.swiper-pagination span.swiper-pagination-bullet {
   background-color: #ffe6e6;
   width: 20px;
   height: 20px;
   opacity: 1;
 }
 
-.swiper.BannnerSwiper
-  .swiper-pagination
+.swiper-pagination
   span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 40px;
   background-color: #fc4242;
@@ -188,6 +190,26 @@ ul.mob-br {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.ze-image-area .item {
+  transition: 5s;
+}
+/* .ze-image-area .item.active {
+  z-index: 3;
+  transform: translateX(-90%);
+  transition: 3s;
+}
+
+.ze-image-area .item.next {
+  z-index: 2;
+  transform: translateX(-50%);
+  transition: 3s;
+}
+
+.ze-image-area .item.preview {
+  z-index: 1;
+  transform: translateX(0%);
+  transition: 3s;
+} */
 
 @media only screen and (max-width: 1024px) {
   .custom-header header {
@@ -212,6 +234,11 @@ ul.mob-br {
 @media only screen and (max-width: 560px) {
   .ImpactItem .item {
     flex-direction: column !important;
+  }
+  .feature_product_slider .swiper-wrapper .item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

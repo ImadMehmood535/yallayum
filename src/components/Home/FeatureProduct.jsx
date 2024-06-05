@@ -1,40 +1,41 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 
-import { Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+
 import ProductItem from "../general/ProductItem";
 
 const FeatureProduct = ({ data }) => {
   return (
     <div className="FeatureProduct pageLayout py-16 px-0 md:px-[5%] mx-auto">
       <div className="container">
-        {data.length > 6 ? (
+        {data.length > 4 ? (
           <Swiper
-            slidesPerView={5}
+            slidesPerView={1}
             spaceBetween={20}
             loop={true}
             pagination={{
               clickable: true,
             }}
             breakpoints={{
-                540: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 4,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 6,
-                  spaceBetween: 20,
-                },
-              }}
+              540: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+            }}
             navigation={true}
-            modules={[Navigation]}
+            modules={[Pagination, Autoplay]}
             className="feature_product_slider"
           >
             {data.map((item, key) => (
