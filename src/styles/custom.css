@@ -190,3 +190,18 @@ ul.mob-br {
     flex-direction: column !important;
   }
 }
+
+
+
+.center-area:hover .relative {
+  animation: moveUpDown 1.5s infinite alternate;
+}
+
+@keyframes moveUpDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}

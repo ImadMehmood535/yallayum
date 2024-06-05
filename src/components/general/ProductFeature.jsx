@@ -1,11 +1,14 @@
 import React from "react";
- import Image from "next/image";
+import Image from "next/image";
 import {
   Feature_area,
   GlutenFree,
   NoShugar,
   NonGmo,
   PremiumQuality,
+  pic1,
+  pic2,
+  pic3,
 } from "@/assets";
 import IconBox from "../Home/IconBox";
 
@@ -41,14 +44,37 @@ const ProductFeature = () => {
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
             />
           </div>
-          <div className="center-area col-span-2 px-8 o ">
-            <Image
-              src={Feature_area}
-              alt="Feature_area"
-              width={800}
-              height={800}
-              className="w-full h-full"
-            />
+          <div className=" center-area col-span-2 mx-auto   px-8 o ">
+            <div className="relative  group ">
+              <div className="relative  z-20">
+                <Image
+                  src={pic1}
+                  alt="Feature_area"
+                  width={400}
+                  height={400}
+                  className="w-full max-w-[400px] h-full "
+                />
+              </div>
+
+              <div className="absolute transition-all group-hover:rotate-[15deg]  right-[10%]   group-hover:-right-[25%]  bottom-[2%]">
+                <Image
+                  src={pic2}
+                  alt="Feature_area"
+                  width={300}
+                  height={300}
+                  className="w-full max-w-[250px] h-full"
+                />
+              </div>
+              <div className="absolute transition-all group-hover:-rotate-[15deg]  left-[10%]    group-hover:-left-[25%] bottom-[2%]">
+                <Image
+                  src={pic3}
+                  alt="Feature_area"
+                  width={300}
+                  height={300}
+                  className="w-full max-w-[250px] h-full"
+                />
+              </div>
+            </div>
           </div>
           <div className="feature-box flex flex-col h-full justify-between gap-4 mx-auto max-w-[350px] lg:w-full  ">
             <IconBox
