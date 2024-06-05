@@ -8,6 +8,7 @@ import { RiFacebookFill } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
 import { PaymentCards } from "@/assets";
 import Image from "next/image";
+import { Input } from "@nextui-org/react";
 
 const Footer = () => {
   const {
@@ -133,7 +134,7 @@ const Footer = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="field-wrapper mb-4">
                 <input
-                  type="email"
+                  type="text"
                   className="bg-white rounded-full py-3 px-6 focus:border-none focus:outline-none w-full"
                   placeholder="Email"
                   {...register("Email", {
@@ -150,11 +151,11 @@ const Footer = () => {
                   </span>
                 )}
               </div>
-              <div className="button-wrapper flex flex-col lg:flex-row  items-center justify-start lg:justify-between ">
+              <div className="button-wrapper flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between ">
                 <input
                   type="submit"
-                  className="py-3 px-6 bg-black text-white rounded-full login"
-                  value="Sign me up"
+                  className="bg-black  rounded-full font-medium text-white  max-w-[170px] w-full py-3  " // Added pr-6 for right padding
+                  value="Sign me up     ➜ " // HTML entity for arrow
                 />
                 <Link href={"/"} className="underline text-[#9A9A9A] text-sm">
                   We respect your privacy.

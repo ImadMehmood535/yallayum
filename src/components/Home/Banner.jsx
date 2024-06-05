@@ -9,30 +9,42 @@ import AnimatedButton from "../general/AnimatedButton";
 import { homeBannerSlide } from "@/data/slides";
 
 const Banner = () => {
+  let slidesData = [...homeBannerSlide];
   return (
     <div className="Banner">
       <Swiper
         pagination={{
           dynamicBullets: true,
+          clickable:true
         }}
         loop={true}
-        // autoplay={{
-        //delay: 2500,
-        // }}
+        autoplay={{
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          delay: 5000,
+        }}
         modules={[Pagination, Autoplay]}
         className="BannnerSwiper"
       >
-        {homeBannerSlide?.map((slide, index) => (
+        {slidesData?.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
               className="banner-item"
-              style={{ backgroundColor: slide?.bgColor }}
+              style={{
+                backgroundColor: slide?.bgColor,
+                backgroundImage: slide?.bannerBackground
+                  ? `url(${slide?.bannerBackground?.src})`
+                  : null,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
             >
-              <div className="container ">
-                <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8 ">
-                  <div className="w-full md:w-2/4 content-area ">
+              <div className="container">
+                <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8">
+                  <div className="w-full md:w-2/4 content-area">
                     {slide?.title ? (
-                      <div className="pb-[15%]">
+                      <div className="pb-[15%]  ">
                         <h1 className="font-bold mb-6">{slide?.title}</h1>
                         <p className="max-w-[560px] mb-6">
                           {slide?.description}
@@ -51,7 +63,7 @@ const Banner = () => {
                     )}
                   </div>
 
-                  <div className="w-full  md:max-w-[600px] img-area  ">
+                  <div className="w-full md:max-w-[570px] img-area">
                     <Image
                       src={slide?.imageSrc}
                       alt={slide?.imageSrc}

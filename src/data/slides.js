@@ -5,6 +5,7 @@ import {
   Banner_slide_3,
   Banner_slide_4,
   Banner_slide_5,
+  bannerBg,
   pic1,
   pic2,
   pic3,
@@ -74,11 +75,6 @@ const slide2 = [
 
 const homeBannerSlide = [
   {
-    bgColor: "#559ad100",
-    firstimage  : Banner_heading,
-    imageSrc: Banner_slide_5,
-  },
-  {
     bgColor: "#F9F4ED",
     imageSrc: Banner_slide_1,
     title: "Experience a timeless delight with freeze-dried fruits",
@@ -98,6 +94,11 @@ const homeBannerSlide = [
     title: "Experience a timeless delight with freeze-dried fruits",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  },
+  {
+    firstimage: Banner_heading,
+    imageSrc: Banner_slide_5,
+    bannerBackground: bannerBg,
   },
 ];
 

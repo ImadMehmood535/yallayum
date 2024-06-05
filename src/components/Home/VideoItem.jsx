@@ -38,13 +38,13 @@ const VideoItem = ({ videoData }) => {
         {isPlaying ? <FaPause /> : <FaPlay />}
       </div>
       {!isPlaying && (
-        <div className="absolute top-0 left-0 right-0 z-20">
+        <div className="absolute top-0 left-0 right-0 z-20 rounded-[15px] border-5 border-white">
           <Image
             src={videoData?.thumbnail}
             alt={"alt"}
             width={320}
             height={420}
-            className="object-cover object-center rounded-[15px] h-[420px]  "
+            className="object-cover object-center rounded-[15px]  h-[420px]  "
           />
         </div>
       )}

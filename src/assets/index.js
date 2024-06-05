@@ -42,6 +42,8 @@ import video1 from "./images/video1.png"
 import video2 from "./images/video2.png"
 import video3 from "./images/video3.png"
 import video4 from "./images/video4.png"
+import bannerBg from "./images/Banner-cloud.jpg"
+
 
 export {
   Banner_heading,
@@ -88,5 +90,6 @@ export {
   video2,
   video3,
   video4,
+  bannerBg,
 
 };
