@@ -9,10 +9,10 @@ const Blogs = ({ blogsData }) => {
         <div className=" !pb-24">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[760px] mx-auto">
-              <h4 className="kalamFont sub-heading text-[#B051AC] text-xl">
+              <h4 className="kalamFont uppercase sub-heading text-[#B051AC] text-xl">
                 sharing is caring
               </h4>
-              <h2 className="text-5xl font-semibold">Explore Our Articles</h2>
+              <h2 className="text-5xl font-semibold mb-7 ">Explore Our Articles</h2>
               <p className="text-[#3C3C3B]">
                 Explore our latest articles and embark on a journey of culinary
                 discovery, health insights, and Dubai&apos;s vibrant culture. Stay

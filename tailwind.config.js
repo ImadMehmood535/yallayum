@@ -18,6 +18,8 @@ module.exports = {
 
       colors: {
         themeGray: ["#F5F6F7"],
+        themePrimary: ["#FFF5F5"],
+        themeHover: ["#F9F4ED"],
       },
     },
   },
