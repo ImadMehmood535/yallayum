@@ -1,7 +1,9 @@
 import Logo from "./images/Logo.png";
+import Banner_heading from "./images/Banner-heading.png";
 import Banner_slide_1 from "./images/Banner-slide-1.png";
 import Banner_slide_2 from "./images/Banner-slide-2.png";
 import Banner_slide_3 from "./images/Banner-slide-3.png";
+import Banner_slide_4 from "./images/Banner-slide-4.png";
 import Yallayum_strawberry from "./images/Yallayum_strawberry.png";
 import Yallayum_Fig from "./images/Yallayum_Fig.png";
 import Yallayum_Peach from "./images/Yallayum_Peach.png";
@@ -41,9 +43,11 @@ import video3 from "./images/video3.png"
 import video4 from "./images/video4.png"
 
 export {
+  Banner_heading,
   Banner_slide_1,
   Banner_slide_2,
   Banner_slide_3,
+  Banner_slide_4,
   Yallayum_strawberry,
   Yallayum_Fig,
   Yallayum_Peach,

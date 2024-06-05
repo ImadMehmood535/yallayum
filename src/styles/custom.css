@@ -55,6 +55,20 @@ ul.mob-br {
   background-color: white;
   color: black;
 }
+.swiper.BannnerSwiper .swiper-wrapper:nth-child(1) .swiper-slide {
+  position: relative;
+}
+
+/* .swiper.BannnerSwiper .swiper-wrapper:nth-child(1) .swiper-slide:before {
+  content: url("../assets/images/Banner-cloud.jpg");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-position: center center;
+  top: 0;
+  left: 0;
+} */
 .swiper.BannnerSwiper {
   padding-bottom: 40px;
 }
