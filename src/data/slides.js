@@ -1,4 +1,4 @@
-import { pic1, pic2, pic3, pic4, pic5, pic6 } from "@/assets";
+import { Banner_slide_1, Banner_slide_2, Banner_slide_3, pic1, pic2, pic3, pic4, pic5, pic6 } from "@/assets";
 
 const slide1 = [
   {
@@ -59,4 +59,29 @@ const slide2 = [
   },
 ];
 
-export { slide1, slide2 };
+
+const homeBannerSlide = [
+  {
+    bgColor: "#F9F4ED",
+    imageSrc: Banner_slide_1,
+    title: "Experience a timeless delight with freeze-dried fruits",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  },
+  {
+    bgColor: "#FAF4FA",
+    imageSrc: Banner_slide_2,
+    title: "Experience a timeless delight with freeze-dried fruits",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  },
+  {
+    bgColor: "#FFF5F5",
+    imageSrc: Banner_slide_3,
+    title: "Experience a timeless delight with freeze-dried fruits",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  },
+];
+
+export { slide1, slide2  , homeBannerSlide};
