@@ -23,18 +23,22 @@ const FeedSlider = ({ feedlist }) => {
       <div className="feeds">
         <Swiper
           slidesPerView={1}
-          freeMode={true}
-          className="mySwiper"
+          freeMode={false}
+          loop={2}
+          centeredSlides={true}
+          className="feed-slider"
           breakpoints={{
             499: {
               slidesPerView: 1,
+              spaceBetween:10,
             },
-            768: {
+            580: {
               slidesPerView: 2,
+              spaceBetween:20,
             },
             1024: {
-              slidesPerView: 3,
-              spaceBetween:10
+              slidesPerView: 4,
+              spaceBetween:20,
             },
           }}
           modules={[FreeMode]}
@@ -42,14 +46,14 @@ const FeedSlider = ({ feedlist }) => {
         >
           {feedlist?.map((feed, key) => (
             <SwiperSlide key={key}>
-              <div className="item-wrapper group max-w-[500px] 2xl:max-w-[700px] w-full border rounded-[24px] overflow-hidden">
+              <div className="item-wrapper group  w-full border rounded-[24px] overflow-hidden">
                 <Image
                   src={feed?.image}
                   alt={feed?.image}
                   quality={100}
                   width={700}
                   height={440}
-                  className="h-full  group-hover:scale-125 transition-all max-h-[440px] object-fit object-center"
+                  className="h-full  group-hover:scale-125 transition-all object-fit object-center"
                 />
               </div>
             </SwiperSlide>
