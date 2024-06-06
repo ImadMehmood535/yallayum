@@ -7,7 +7,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #000000;
+  background-color: #FFF5F5;
    
   
 }
@@ -15,7 +15,8 @@
 ::-webkit-scrollbar-thumb {
   
   
-  background: #F9F1F8; 
+  background: #ecb0b0; 
+  /* background: #FFF5F5;  */
 }
 
 @font-face {
