@@ -191,7 +191,10 @@ ul.mob-br {
   transition: 0.5s;
 }
 .bg-image {
-  background-size: contain;
+  background-size: fit;
+  height: 80vh;
+  width: 70vw;
+  background-position: center;
   background-position: top right;
   background-repeat: no-repeat;
   background-image: url("../assets/images/custon-slider-bg1.png");
@@ -229,14 +232,11 @@ ul.mob-br {
   align-items: flex-end !important;
 }
 .feed-slider:first-child .swiper-wrapper {
-   
   margin-left: -10% !important;
 }
 .feed-slider:last-child .swiper-wrapper {
-   
   margin-left: -10% !important;
 }
-
 
 /* media query start */
 @media only screen and (max-width: 1024px) {
