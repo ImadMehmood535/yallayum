@@ -7,14 +7,15 @@ import Details from "./Details";
 const CustomSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesData, setSlidesData] = useState(slide1);
+  const [activeSlides, setActiveSlides] = useState(1);
 
   const handleIndex = () => {
     setCurrentIndex((currentIndex + 1) % slidesData.length);
   };
 
-  const handlePrevIndex = () => {
-    setCurrentIndex((currentIndex - 1 + slidesData.length) % slidesData.length);
-  };
+  // const handlePrevIndex = () => {
+  //   setCurrentIndex((currentIndex - 1 + slidesData.length) % slidesData.length);
+  // };
 
   const getClassName = (index) => {
     if (index === currentIndex) {
@@ -29,7 +30,8 @@ const CustomSlider = () => {
     return "";
   };
   const getBackgroundClass = (index) => {
-    return `bg-image bg-item-${index}`;
+    const id = index != 0 ? 1 : 0 
+    return `bg-image bg-item-${id}`;
   };
 
   return (
@@ -38,15 +40,24 @@ const CustomSlider = () => {
         <div className="w-full md:max-w-[30%]">
           <Details
             setSlidesData={setSlidesData}
+            setActiveSlides={setActiveSlides}
+            activeSlides={activeSlides}
             slidesData={slidesData}
             handleIndex={handleIndex}
             currentIndex={currentIndex}
           />
         </div>
 
-        <div className={`ze-image-area flex w-full justify-end items-center relative min-h-[500px] ${getBackgroundClass(currentIndex)}`}>
-          {slidesData.map((slide, index) => (
-            <div key={index} className={`item absolute right-0 ${getClassName(index)}`}>
+        <div
+          className={`ze-image-area flex w-full justify-end items-center relative min-h-[500px] ${getBackgroundClass(
+            currentIndex
+          )}`}
+        >
+          {slidesData?.map((slide, index) => (
+            <div
+              key={index}
+              className={`item absolute right-0 ${getClassName(index)}`}
+            >
               <Image
                 src={slide?.imageUrl}
                 alt={slide?.name}

@@ -194,13 +194,12 @@ ul.mob-br {
   background-size: contain;
   background-position: top right;
   background-repeat: no-repeat;
-  background-image: url('../assets/images/custon-slider-bg1.png');
-  transition: 0.3s;
-   
+  background-image: url("../assets/images/custon-slider-bg1.png");
+  transition: 0.2s;
 }
-.bg-item-1{
-  background-image: url('../assets/images/custon-slider-bg2.png');
-} 
+.bg-item-1 {
+  background-image: url("../assets/images/custon-slider-bg2.png");
+}
 @media only screen and (max-width: 1024px) {
   .custom-header header {
     padding-right: 10px;
