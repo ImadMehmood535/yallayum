@@ -18,11 +18,11 @@ const Banner = () => {
           clickable:true
         }}
         loop={true}
-        autoplay={{
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-          delay: 5000,
-        }}
+        // autoplay={{
+        //   disableOnInteraction: false,
+        //   pauseOnMouseEnter: true,
+        //   delay: 5000,
+        // }}
         modules={[Pagination, Autoplay]}
         className="BannnerSwiper"
       >
@@ -45,8 +45,8 @@ const Banner = () => {
                   <div className="w-full md:w-2/4 content-area">
                     {slide?.title ? (
                       <div className="pb-[15%]  ">
-                        <h1 className="font-bold mb-6">{slide?.title}</h1>
-                        <p className="max-w-[560px] mb-6">
+                        <h1 className="font-bold mb-6 Fedra-700">{slide?.title}</h1>
+                        <p className="max-w-[560px] mb-6 GeneralSans">
                           {slide?.description}
                         </p>
                         <AnimatedButton text={"BUY NOW"} shop={true} />

@@ -21,7 +21,7 @@ const ProductFeature = () => {
             <h2 className="text-4xl kalamFont md:text-7xl text-bold mb-6 text-[#FC4242]  uppercase">
               healthy snacks for happy people
             </h2>
-            <p className="text-[#3C3C3B]">
+            <p className="text-[#3C3C3B] GeneralSans  font-regular">
               Our freeze-dried fruits are carefully crafted to retain their
               original flavor and nutrition, making them a healthy and delicious
               snack option. With no added sugars or preservatives, you can

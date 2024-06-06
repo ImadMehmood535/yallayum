@@ -12,8 +12,8 @@ const Blogs = ({ blogsData }) => {
               <h4 className="kalamFont uppercase sub-heading text-[#B051AC] text-xl">
                 sharing is caring
               </h4>
-              <h2 className="text-5xl font-semibold mb-7 ">Explore Our Articles</h2>
-              <p className="text-[#3C3C3B]">
+              <h2 className="text-5xl GeneralSans font-medium mb-7 ">Explore Our Articles</h2>
+              <p className="text-[#3C3C3B] GeneralSans  font-regular">
                 Explore our latest articles and embark on a journey of culinary
                 discovery, health insights, and Dubai&apos;s vibrant culture. Stay
                 informed, inspired, and engaged by subscribing to our blog

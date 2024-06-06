@@ -21,7 +21,7 @@ const Details = ({
         activeSlides={activeSlides}
       />
       <div>
-        <h1 className="text-6xl font-bold">{slidesData[currentIndex]?.name}</h1>
+        <h1 className="text-6xl GeneralSans font-semibold">{slidesData[currentIndex]?.name}</h1>
       </div>
       <div>
         <CustomSliderReview
@@ -30,7 +30,7 @@ const Details = ({
         />
       </div>
       <div>
-        <p className="text-[16px]">{slidesData[currentIndex]?.details}</p>
+        <p className="text-[16px] GeneralSans font-medium">{slidesData[currentIndex]?.details}</p>
       </div>
       <AnimatedButton text={"BUY NOW"} />
       <div className="flex justify-start px-3 items-center gap-4">

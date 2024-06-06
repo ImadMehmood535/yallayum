@@ -12,10 +12,10 @@ const Ticker = () => {
               <>
                 {wordlist.map((word, idx) => (
                   <React.Fragment key={`${word}-${index}-${idx}`}>
-                    <span className="text-[#3C3C3B] text-sm font-normal w-full">
+                    <span className="text-[#3C3C3B] text-sm w-full GeneralSans font-medium min-w-[220px]">
                       {word}
                     </span>
-                    <span className="font-bold text-2xl w-full">·</span>
+                    <span className="font-bold text-2xl w-full min-w-[220px]">·</span>
                   </React.Fragment>
                 ))}
               </>
