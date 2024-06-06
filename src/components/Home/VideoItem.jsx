@@ -25,7 +25,7 @@ const VideoItem = ({ videoData }) => {
         height="420"
         preload="none"
         controls={false}
-        className="max-w-[250px] z-20 w-full h-[420px] object-cover object-center rounded-[15px] border-5 border-white"
+        className=" z-20 w-full h-[420px] aspect-video object-cover object-center rounded-[15px] border-5 border-white"
       >
         <source src={videoData?.videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
