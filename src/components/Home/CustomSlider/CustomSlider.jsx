@@ -65,6 +65,7 @@ const CustomSlider = () => {
                 height={300}
                 className={`w-[300px] select-none`}
               />
+              {slide.name}
             </div>
           ))}
         </div>
