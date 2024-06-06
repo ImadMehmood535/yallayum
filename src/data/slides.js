@@ -17,7 +17,7 @@ import {
 const slide1 = [
   {
     index: 1,
-    name: "Crunchy Strawberry",
+    name: "Crunchy Strawberry1",
     imageUrl: pic1,
     stars: 3,
     reviews: 120,
