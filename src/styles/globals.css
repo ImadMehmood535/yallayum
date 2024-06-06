@@ -2,23 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 @import url(./custom.css);
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+   
+  
+}
+
+::-webkit-scrollbar-thumb {
+  
+  
+  background: #F9F1F8; 
+}
 
 @font-face {
-  font-family: "Fedra";
-  src: url("../assets/fonts/Fedra/Fedra-Sans-Arabic-ARLT.ttf");
+  font-family: "Fedra-100";
+  src: url("../assets/fonts/Fedra/Fedra-Sans\ AR\ +\ LT\ 2.ttf");
+}
+@font-face {
+  font-family: "Fedra-400";
+  src: url("../assets/fonts/Fedra/Fedra-Sans\ AR\ +\ LT\ 3.ttf");
+}
+@font-face {
+  font-family: "Fedra-700";
+  src: url("../assets/fonts/Fedra/Fedra-Sans\ AR\ +\ LT\ 5.ttf");
+}
+@font-face {
+  font-family: "Fedra-900";
+  src: url("../assets/fonts/Fedra/Fedra-Sans\ AR\ +\ LT\ 4.ttf");
 }
 @font-face {
   font-family: "GeneralSans";
-  src: url("../assets/fonts/GeneralSans/General-Sans-Variable.ttf");
+  src: url("../assets/fonts/GeneralSans/GeneralSans-Variable.ttf");
 }
 @font-face {
   font-family: "Kalam";
   src: url("../assets/fonts/Kalam/Kalam-Bold.ttf");
 }
-
+.Fedra-100 {
+  font-family: "Fedra-100";
+}
+.Fedra-400 {
+  font-family: "Fedra-400";
+}
+.Fedra-700 {
+  font-family: "Fedra-700";
+  font-weight: 700;
+}
+.Fedra-00 {
+  font-family: "Fedra-00";
+}
 .kalamFont {
   font-family: "Kalam", sans-serif;
 }
+.GeneralSans {
+  font-family: "GeneralSans";
+}
+
 
 .container {
   width: 100%;

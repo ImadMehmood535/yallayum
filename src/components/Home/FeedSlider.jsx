@@ -17,7 +17,7 @@ const FeedSlider = ({ feedlist }) => {
           <h4 className="sub-heading kalamFont text-[#B051AC] text-xl uppercase">
             yalla yum on instagram
           </h4>
-          <h2 className="text-5xl font-semibold mb-4">You + Yalla Yum!</h2>
+          <h2 className="GeneralSans text-5xl font-medium mb-4">You + Yalla Yum!</h2>
         </div>
       </div>
       <div className="feeds">

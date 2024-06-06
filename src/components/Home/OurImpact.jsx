@@ -17,8 +17,8 @@ const OurImpact = () => {
               <h4 className="sub-heading uppercase kalamFont text-[#B051AC] text-xl">
                 We love what we do
               </h4>
-              <h2 className="text-5xl font-semibold mb-7">Our Impact</h2>
-              <p className="text-[#3C3C3B]">
+              <h2 className="text-5xl GeneralSans font-medium mb-7">Our Impact</h2>
+              <p className="text-[#3C3C3B] font-regular GeneralSans">
                 Explore our latest articles and embark on a journey of culinary
                 discovery, health insights, and Dubai&apos;s vibrant culture. Stay
                 informed, inspired, and engaged by subscribing to our blog

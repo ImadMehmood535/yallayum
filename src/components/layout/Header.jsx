@@ -18,6 +18,24 @@ import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
+  const DeskTopMenuItem = [
+    {
+      name: "Shop",
+      link: "/shop",
+    },
+    {
+      name: "Things to know",
+      link: "/blogs",
+    },
+    {
+      name: "About us",
+      link: "/about-us",
+    },
+    {
+      name: "Contact us",
+      link: "/contact-us",
+    },
+  ];
   const additionalMenuItems = [
     {
       name: "Home",
@@ -57,20 +75,13 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
-        <NavbarItem>
-          <Link href="/shop">Shop</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#" aria-current="/blogs">
-            Things To Know
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="about-us">About Us</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/contact-us">Contact Us</Link>
-        </NavbarItem>
+        {DeskTopMenuItem.map((item, key) => (
+          <NavbarItem key={key}>
+            <Link href={item.name} className="GeneralSans text-sm font-medium">
+              {item.name}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent className="flex  desktop-menu items-center">
@@ -97,7 +108,8 @@ const Header = () => {
                 "bg-transparent",
                 "text-black/90 bg-transparent",
                 "placeholder:text-white ",
-                "placeholder:text-[12px] ",
+                "placeholder:text-[12px]",
+                "GeneralSans text-sm font-medium",
               ],
 
               innerWrapper: "bg-transparent max-w-[100px]",
@@ -110,8 +122,6 @@ const Header = () => {
                 "hidden",
                 "md:block",
                 "group-data-[focus=true]:w-[250px] transition-all",
-       
-
               ],
             }}
             placeholder="SEARCH"

@@ -15,7 +15,7 @@ const ProductItem = ({ data, slider }) => {
           // layout="responsive"
           className={`${slider ? "h-auto md:h-[230px] 2xl:h-auto " : "  "}`}
         />
-        <h4 className="text-[#3C3C3B] font-normal text-lg text-center whitespace-nowrap">
+        <h4 className="text-[#3C3C3B] GeneralSans font-normal text-lg text-center whitespace-nowrap">
           {data?.title}
         </h4>
       </div>

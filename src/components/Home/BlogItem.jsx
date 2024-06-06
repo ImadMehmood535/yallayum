@@ -19,11 +19,11 @@ const BlogItem = ({ data }) => {
         </div>
         <div className="hidden group-hover:flex content-area  flex-col justify-between h-full text-white">
           <div className="header-area">
-            <h4 className="title text-xl">{data.title}</h4>
+            <h4 className="title text-xl font-normal GeneralSans">{data.title}</h4>
           </div>
           <div className="footer-area">
-            <h6 className="author text-lg">by {data.author}</h6>
-            <p className="text-white text-base">{data.date}</p>
+            <h6 className="author text-lg font-medium GeneralSans">by {data.author}</h6>
+            <p className="text-white text-sm GeneralSans">{data.date}</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const InstaFeeds = ({ reviewData }) => {
             <div className="w-full md:max-w-[770px] mx-auto">
               <div className=" rounded-md pt-16 flex justify-center items-center mb-4">
                 <div className="bg-white py-2 px-6 flex items-center gap-2 rounded-[8px] mb-3">
-                  <ul className="flex gap-1">
+                  <ul className="flex">
                     <li>
                       <MdOutlineStar />
                     </li>
@@ -31,7 +31,7 @@ const InstaFeeds = ({ reviewData }) => {
                       <MdOutlineStar />
                     </li>
                   </ul>
-                  <h4 className="sub-heading text-sm ">
+                  <h4 className="sub-heading text-sm GeneralSans ">
                     <b>Over 100,000</b> happy customers
                   </h4>
                 </div>

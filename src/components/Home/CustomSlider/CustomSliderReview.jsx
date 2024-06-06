@@ -3,13 +3,13 @@ import React from "react";
 
 const CustomSliderReview = ({ stars, reviews }) => {
   return (
-    <div className="w-full flex justify-start items-center gap-4">
+    <div className="w-full flex justify-start items-center gap-2">
       <div className="flex ">
         {Array.from({ length: stars }).map((_, index) => (
           <StarIcon key={index} />
         ))}
       </div>
-      <p>
+      <p className="GeneralSans text-sm">
         ({reviews} Reviews)
       </p>
     </div>

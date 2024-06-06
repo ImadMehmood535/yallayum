@@ -8,7 +8,7 @@ const AnimatedButton = ({ text, shop }) => {
     <div
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className={`group max-w-[160px] ${
+      className={`group max-w-[160px] Fedra-400 ${
         shop ? "hover:max-w-[200px] " : "max-w-[130px]  "
       }    transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
         active ? "buttonShadow" : ""

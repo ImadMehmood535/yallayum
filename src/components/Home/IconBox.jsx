@@ -17,8 +17,8 @@ const IconBox = ({ position, icon, title, content }) => {
           position ? `text-center lg:text-left` : `text-center lg:text-right`
         }`}
       >
-        <h4 className="mb-4 text-2xl font-bold">{title}</h4>
-        <p className="text-lg">{content}</p>
+        <h4 className="GeneralSans mb-4 text-2xl font-medium">{title}</h4>
+        <p className="GeneralSans text-base leading-5">{content}</p>
       </div>
     </div>
   );

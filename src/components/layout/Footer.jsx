@@ -11,6 +11,28 @@ import Image from "next/image";
 import { Input } from "@nextui-org/react";
 
 const Footer = () => {
+  const GeneralSans = [
+    {
+      name: "Privacy Policy",
+      link: "/",
+    },
+    {
+      name: "Return & Shipping Policy",
+      link: "/",
+    },
+    {
+      name: "Terms & Conditions",
+      link: "/",
+    },
+    {
+      name: "About Us",
+      link: "/",
+    },
+    {
+      name: "Return & Shipping Policy",
+      link: "/",
+    },
+  ];
   const {
     register,
     handleSubmit,
@@ -23,38 +45,22 @@ const Footer = () => {
       <div className="container relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-4 pb-5 md:pb-10 ">
           <div className="useful-links">
-            <h4 className="uppercase font-bold text-lg mb-4">USEFUL LINKS</h4>
+            <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
+              USEFUL LINKS
+            </h4>
             <ul className="flex flex-col gap-3 text-sm font-medium">
-              <li>
-                <Link href={"/"} className="">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="">
-                  Return & Shipping Policy
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="">
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="">
-                  Return & Shipping Policy
-                </Link>
-              </li>
+              {GeneralSans.map((item, key) => (
+                <li key={key}>
+                  <Link href={item.link} className="GeneralSans text-sm font-medium">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="about-site col-span-2 flex flex-col justify-center">
             <div className="max-w-[520px]">
-              <p className="mb-3 font-medium text-base text-black">
+              <p className="mb-3 GeneralSans font-medium text-base text-black">
                 Thank you for choosing YallaYum. Follow us on social media to
                 stay up to date on our lastet products and promotions.
               </p>
@@ -76,7 +82,7 @@ const Footer = () => {
                         />
                       </g>
                     </svg>
-                    <Link href={"/"} className="">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium">
                       86 Street, DIP 1, Dubai, UAE
                     </Link>
                   </li>
@@ -97,7 +103,7 @@ const Footer = () => {
                       </g>
                     </svg>
 
-                    <Link href={"/"} className="">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium">
                       Phone: (971) 527254899
                     </Link>
                   </li>
@@ -118,7 +124,7 @@ const Footer = () => {
                       </g>
                     </svg>
 
-                    <Link href={"/"} className="">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium">
                       Mail: info@yallayum.ae
                     </Link>
                   </li>
@@ -127,16 +133,16 @@ const Footer = () => {
             </div>
           </div>
           <div className="newsletter">
-            <h4 className="uppercase font-bold text-lg mb-4">Newsletter</h4>
-            <p className="mb-3 font-medium text-base text-black">
+            <h4 className="uppercase GeneralSans font-bold text-lg mb-4">Newsletter</h4>
+            <p className="mb-3 GeneralSans font-medium text-base text-black">
               Join us on social media to get info, wellness tips & more.
             </p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="field-wrapper mb-4">
                 <input
                   type="text"
-                  className="bg-white rounded-full py-3 px-6 focus:border-none focus:outline-none w-full"
-                  placeholder="Email"
+                  className="bg-white GeneralSans rounded-full py-3 px-6 focus:border-none focus:outline-none w-full"
+                  placeholder="Your email, please"
                   {...register("Email", {
                     required: "Please enter an email",
                     pattern: {
@@ -151,13 +157,13 @@ const Footer = () => {
                   </span>
                 )}
               </div>
-              <div className="button-wrapper flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between ">
+              <div className="button-wrapper GeneralSans flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between ">
                 <input
                   type="submit"
                   className="bg-black  rounded-full font-medium text-white  max-w-[170px] w-full py-3  " // Added pr-6 for right padding
                   value="Sign me up     ➜ " // HTML entity for arrow
                 />
-                <Link href={"/"} className="underline text-[#9A9A9A] text-sm">
+                <Link href={"/"} className="GeneralSans  pb-1 underline text-[#9A9A9A] text-sm">
                   We respect your privacy.
                 </Link>
               </div>
@@ -182,8 +188,8 @@ const Footer = () => {
         </div>
         <div className="bottom-footer w-full flex flex-col justify-between md:flex-row pt-5 md:pt-10  items-center">
           <div className="rights-text">
-            <p className="flex flex-row gap-1 text-base">
-              <b>© YallaYum</b>
+            <p className="GeneralSans flex flex-row gap-4 text-base">
+              <span className="font-semibold">© YallaYum</span>
               <span> All rights reserved | 2024</span>
             </p>
           </div>
@@ -191,12 +197,12 @@ const Footer = () => {
             <div className="link-list">
               <ul className="flex flex-col md:flex-row gap-3 text-sm font-medium">
                 <li className="text-center">
-                  <Link href={"/"} className="">
+                  <Link href={"/"} className="GeneralSans text-sm font-medium">
                     Terms of Service
                   </Link>
                 </li>
                 <li className="text-center">
-                  <Link href={"/"} className="">
+                  <Link href={"/"} className="GeneralSans text-sm font-medium">
                     Privacy Policy
                   </Link>
                 </li>

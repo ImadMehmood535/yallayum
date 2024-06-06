@@ -12,8 +12,8 @@ const LinkButton = ({ text, href = "/" }) => {
       href={href}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className={`group  w-fit
-        transition-all  text-[16px] hover:px-12 font-semibold  rounded-full text-center flex justify-center items-center    bg-black h-10 px-8   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
+      className={`group GeneralSans  w-fit
+        transition-all  text-[16px] hover:px-12 font-medium  rounded-full text-center flex justify-center items-center    bg-black h-12 px-8   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
           active ? "buttonShadow" : ""
         }   `}
     >
