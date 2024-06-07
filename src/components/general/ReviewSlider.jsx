@@ -45,7 +45,7 @@ const ReviewSlider = ({ reviewData }) => {
                     />
                   ))}
                 </div>
-                <p className="text-[#2E2E27] GeneralSans font-normal text-sm leading-5 mb-4">"{review.comment}"</p>
+                <p className="text-[#2E2E27] GeneralSans font-normal text-sm leading-5 mb-4">&quot;{review.comment}&quot;</p>
                 <h6 className="font-bold text-base Fedra-400">{review.username}</h6>
               </div>
             </SwiperSlide>
