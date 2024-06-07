@@ -1,7 +1,3 @@
-body,
-html {
-}
-
 .custom-header header > ul {
   width: 33.33%;
 }
@@ -236,7 +232,7 @@ ul.mob-br {
 .feed-slider:last-child .swiper-wrapper {
   margin-left: -10% !important;
 }
- 
+
 .flip-contain {
   position: relative;
   transition: 0.5s;
@@ -294,3 +290,4 @@ ul.mob-br {
   }
 }
 /* media query end */
+ 

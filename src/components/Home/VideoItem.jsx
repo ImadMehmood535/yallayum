@@ -35,7 +35,7 @@ const VideoItem = ({ videoData }) => {
           </video>
 
           <div
-            className="w-12 h-12 rounded-full bg-white absolute top-6 right-5 z-30 flex justify-center items-center cursor-pointer"
+            className="w-12 h-12 rounded-full bg-white absolute top-6 right-6 z-30 flex justify-center items-center cursor-pointer"
             onClick={handlePlayPause}
           >
             {isPlaying ? <FaPause /> : <FaPlay />}
