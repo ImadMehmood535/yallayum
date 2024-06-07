@@ -11,6 +11,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+
 import { AcmeLogo } from "./AcmeLogo";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { LuUser2 } from "react-icons/lu";
@@ -65,7 +66,8 @@ const Header = () => {
       isMenuOpen={isMenuOpen}
       isBlurred
       onMenuOpenChange={setIsMenuOpen}
-      className="flex justify-center items-center gap-3 custom-header relative"
+      className="flex justify-center items-center gap-3 custom-header"
+      
     >
       <NavbarContent className="block sm:hidden" justify="start">
         <NavbarMenuToggle
