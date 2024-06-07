@@ -1,5 +1,5 @@
 import React from "react";
- import {
+import {
   Healthiest_Snacking,
   Supporting_Dubai,
   Sustainable_Sourcing,
@@ -17,11 +17,13 @@ const OurImpact = () => {
               <h4 className="sub-heading uppercase kalamFont text-[#B051AC] text-xl">
                 We love what we do
               </h4>
-              <h2 className="text-5xl GeneralSans font-medium mb-7">Our Impact</h2>
+              <h2 className="text-5xl GeneralSans font-medium mb-7">
+                Our Impact
+              </h2>
               <p className="text-[#3C3C3B] font-regular GeneralSans">
                 Explore our latest articles and embark on a journey of culinary
-                discovery, health insights, and Dubai&apos;s vibrant culture. Stay
-                informed, inspired, and engaged by subscribing to our blog
+                discovery, health insights, and Dubai&apos;s vibrant culture.
+                Stay informed, inspired, and engaged by subscribing to our blog
                 today.
               </p>
             </div>
@@ -29,7 +31,7 @@ const OurImpact = () => {
         </div>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <ImpactItem 
+            <ImpactItem
               position={true}
               image={Sustainable_Sourcing}
               subheading="01"

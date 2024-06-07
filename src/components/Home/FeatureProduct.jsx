@@ -8,7 +8,7 @@ import ProductItem from "../general/ProductItem";
 
 const FeatureProduct = ({ data }) => {
   return (
-    <div className="FeatureProduct pageLayout py-16 px-0 md:px-[5%] mx-auto">
+    <div className="FeatureProduct py-10 md:py-20 md:pb-10   px-0 md:px-[5%] mx-auto">
       <div className="container">
         <Swiper
           pagination={{
@@ -24,10 +24,14 @@ const FeatureProduct = ({ data }) => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 4,
+              slidesPerView: 2,
               spaceBetween: 20,
             },
             1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            1440: {
               slidesPerView: 6,
               spaceBetween: 20,
             },

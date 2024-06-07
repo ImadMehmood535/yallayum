@@ -9,7 +9,7 @@ const InstaFeeds = ({ reviewData }) => {
   return (
     <div className="InstaFeeds  pageLayout px-0  mx-auto bg-[#FAF4FA]">
       <div className="container ">
-        <div className="  !pb-10">
+        <div className="!pb-10">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[770px] mx-auto">
               <div className=" rounded-md pt-16 flex justify-center items-center mb-4">
@@ -47,7 +47,7 @@ const InstaFeeds = ({ reviewData }) => {
         </div>
 
         <div className=""></div>
-        <div className="-mb-[9%]">
+        <div className="mb-0 md:-mb-[9%]">
           <ReviewSlider reviewData={reviewData} />
         </div>
       </div>

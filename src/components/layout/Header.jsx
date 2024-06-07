@@ -64,7 +64,7 @@ const Header = () => {
     <Navbar
       maxWidth="full"
       isMenuOpen={isMenuOpen}
-      isBlurred
+      isBlurred = {true}
       onMenuOpenChange={setIsMenuOpen}
       className="flex justify-center items-center gap-3 custom-header"
       

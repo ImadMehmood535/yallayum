@@ -51,7 +51,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-3 text-sm font-medium">
               {GeneralSans.map((item, key) => (
                 <li key={key}>
-                  <Link href={item.link} className="GeneralSans text-sm font-medium">
+                  <Link href={item.link} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                     {item.name}
                   </Link>
                 </li>
@@ -82,7 +82,7 @@ const Footer = () => {
                         />
                       </g>
                     </svg>
-                    <Link href={"/"} className="GeneralSans text-sm font-medium">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                       86 Street, DIP 1, Dubai, UAE
                     </Link>
                   </li>
@@ -103,7 +103,7 @@ const Footer = () => {
                       </g>
                     </svg>
 
-                    <Link href={"/"} className="GeneralSans text-sm font-medium">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                       Phone: (971) 527254899
                     </Link>
                   </li>
@@ -124,7 +124,7 @@ const Footer = () => {
                       </g>
                     </svg>
 
-                    <Link href={"/"} className="GeneralSans text-sm font-medium">
+                    <Link href={"/"} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                       Mail: info@yallayum.ae
                     </Link>
                   </li>
@@ -160,26 +160,26 @@ const Footer = () => {
               <div className="button-wrapper GeneralSans flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between ">
                 <input
                   type="submit"
-                  className="bg-black  rounded-full font-medium text-white  max-w-[170px] w-full py-3  " // Added pr-6 for right padding
-                  value="Sign me up     ➜ " // HTML entity for arrow
+                  className="bg-black  rounded-full font-medium text-white  max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer hover:bg-[#fc4242] " 
+                  value="Sign me up     ➜ "  
                 />
-                <Link href={"/"} className="GeneralSans  pb-1 underline text-[#9A9A9A] text-sm">
+                <Link href={"/"} className="GeneralSans  pb-1 underline text-[#9A9A9A] text-sm hover:text-[#fc4242]">
                   We respect your privacy.
                 </Link>
               </div>
             </form>
             <div className="social-list mt-5">
               <ul className="flex flex-row gap-2 justify-center md:justify-start">
-                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                <li className="bg-white p-3 rounded-full hover:bg-[#fc4242] hover:text-white transition-all duration-200">
                   <FaTiktok />
                 </li>
-                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                <li className="bg-white p-3 rounded-full hover:bg-[#fc4242] hover:text-white transition-all duration-200">
                   <PiInstagramLogo />
                 </li>
-                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                <li className="bg-white p-3 rounded-full hover:bg-[#fc4242] hover:text-white transition-all duration-200">
                   <RiFacebookFill />
                 </li>
-                <li className="bg-white p-3 rounded-full hover:bg-black hover:text-white transition-all duration-200">
+                <li className="bg-white p-3 rounded-full hover:bg-[#fc4242] hover:text-white transition-all duration-200">
                   <FaLinkedinIn />
                 </li>
               </ul>
@@ -197,12 +197,12 @@ const Footer = () => {
             <div className="link-list">
               <ul className="flex flex-col md:flex-row gap-3 text-sm font-medium">
                 <li className="text-center">
-                  <Link href={"/"} className="GeneralSans text-sm font-medium">
+                  <Link href={"/"} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                     Terms of Service
                   </Link>
                 </li>
                 <li className="text-center">
-                  <Link href={"/"} className="GeneralSans text-sm font-medium">
+                  <Link href={"/"} className="GeneralSans text-sm font-medium hover:text-[#fc4242]">
                     Privacy Policy
                   </Link>
                 </li>

@@ -36,7 +36,7 @@ const CustomSlider = () => {
   };
 
   return (
-    <div className="CustomSlider pageLayout !py-20 px-0 mx-auto overflow-x-hidden">
+    <div className="CustomSlider pageLayout  px-0 mx-auto overflow-x-hidden">
       <div className="container !px-0">
         <div className="slider-wrapper flex flex-col lg:flex-row justify-between items-center pl-[3%] pr-[3%] lg:pr-0">
           <div className="w-full lg:max-w-[30%]">
@@ -51,9 +51,16 @@ const CustomSlider = () => {
             />
           </div>
 
-          <div className={`ze-image-area flex w-full justify-end items-center relative min-h-[500px] ${getBackgroundClass(currentIndex)}`}>
+          <div
+            className={`ze-image-area flex w-full justify-end items-center relative min-h-[500px] ${getBackgroundClass(
+              currentIndex
+            )}`}
+          >
             {slidesData?.map((slide, index) => (
-              <div key={index} className={`item absolute right-0 ${getClassName(index)}`}>
+              <div
+                key={index}
+                className={`item absolute right-0 ${getClassName(index)}`}
+              >
                 <Image
                   src={slide?.imageUrl}
                   alt={slide?.name}

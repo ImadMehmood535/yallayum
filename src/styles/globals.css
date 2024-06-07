@@ -93,5 +93,5 @@ h4 {
 }
 
 .pageLayout {
-  @apply pb-12 md:pb-20;
+  @apply py-10 md:py-20;
 }

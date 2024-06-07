@@ -4,8 +4,8 @@ import LinkButton from "../general/LinkButton";
 
 const Blogs = ({ blogsData }) => {
   return (
-    <div className="Blogs  pageLayout md:mt-28 px-0 mx-auto">
-      <div className="container">
+    <div className="Blogs  pageLayout  md:mt-28 px-0 mx-auto">
+      <div className="container bg-gradent">
         <div className=" !pb-24">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[760px] mx-auto">
