@@ -14,7 +14,7 @@ import IconBox from "../Home/IconBox";
 
 const ProductFeature = () => {
   return (
-    <div className="ProductFeature pageLayout px-0 mx-auto">
+    <div className="ProductFeature px-0 mx-auto">
       <div className="container">
         <div className="heading-area text-center">
           <div className="w-full md:max-w-[760px] mx-auto">
@@ -44,7 +44,6 @@ const ProductFeature = () => {
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
             />
           </div>
-
 
           <div className=" center-area col-span-2 mx-auto   px-8 o ">
             <div className="relative  group ">
@@ -78,7 +77,6 @@ const ProductFeature = () => {
               </div>
             </div>
           </div>
-
 
           <div className="feature-box flex flex-col h-full justify-between gap-4 mx-auto max-w-[350px] lg:w-full  ">
             <IconBox

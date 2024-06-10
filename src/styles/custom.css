@@ -243,6 +243,13 @@ ul.mob-br {
 .flip-container.hover .flip-contain {
   transform: rotateY(180deg);
 }
+.custom-input-design{
+  border-radius: 50px;
+}
+.view-list button {
+  padding: 6px;
+}
+ 
 
 /* media query start */
 @media only screen and (max-width: 1024px) {

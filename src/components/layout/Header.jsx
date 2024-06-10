@@ -79,7 +79,7 @@ const Header = () => {
       <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
         {DeskTopMenuItem.map((item, key) => (
           <NavbarItem key={key}>
-            <Link href={item.name} className="GeneralSans text-sm font-medium">
+            <Link href={item.link} className="GeneralSans text-sm font-medium">
               {item.name}
             </Link>
           </NavbarItem>

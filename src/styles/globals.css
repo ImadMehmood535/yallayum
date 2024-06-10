@@ -8,13 +8,9 @@
 
 ::-webkit-scrollbar-track {
   background-color: #FFF5F5;
-   
-  
 }
 
 ::-webkit-scrollbar-thumb {
-  
-  
   background: #ecb0b0; 
   /* background: #FFF5F5;  */
 }
@@ -63,7 +59,6 @@
   font-family: "GeneralSans";
 }
 
-
 .container {
   width: 100%;
   max-width: 1920px;
@@ -83,13 +78,16 @@ h1 {
   font-family: "Fedra", sans-serif;
 }
 h2 {
-  @apply lg:text-5xl text-3xl;
+  @apply GeneralSans text-2xl font-medium;
 }
 h3 {
   @apply lg:text-3xl text-2xl;
 }
 h4 {
-  @apply lg:text-xl text-lg font-medium;
+  @apply lg:text-xl text-lg font-medium GeneralSans;
+}
+p{
+  @apply GeneralSans text-base md:text-lg font-normal;
 }
 
 .pageLayout {

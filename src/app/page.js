@@ -1,6 +1,5 @@
  
 import { blogsData } from "@/data/blogsData";
-import { featurecollectionData } from "@/data/featurecollections";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
 import Blogs from "@/components/Home/Blogs";
@@ -11,12 +10,13 @@ import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
 import InstaFeeds from "@/components/Home/InstaFeeds";
 import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
+import { productData } from "@/data/productData";
 
 export default function Home() {
   return (
     <>
       <Banner />
-      <FeatureProduct data={featurecollectionData} />
+      <FeatureProduct data={productData} />
       <OurImpact />
       <CustomSlider />
       <InstaFeeds reviewData={reviewData} />

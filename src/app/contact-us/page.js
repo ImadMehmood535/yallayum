@@ -1,3 +1,5 @@
+import ContactForm from "@/components/Contact/ContactForm";
+import InnerpageHeader from "@/components/general/InnerpageHeader";
 import React from "react";
 
 export const metadata = {
@@ -7,8 +9,9 @@ export const metadata = {
 
 const Index = () => {
   return (
-    <div>
-      contact
+    <div className="contact">
+      <InnerpageHeader pagetitle="Contact Us"/>
+      <ContactForm/>
     </div>
   );
 };

@@ -43,6 +43,16 @@ import video2 from "./images/video2.png"
 import video3 from "./images/video3.png"
 import video4 from "./images/video4.png"
 import bannerBg from "./images/Banner-cloud.jpg"
+import about_image_1 from "./images/about-image-1.jpg"
+import about_image_2 from "./images/about-image-2.jpg"
+import grid_col from "./images/grid-col.svg"
+import grid_list from "./images/grid-list.svg"
+import productvar1 from "./images/productvar1.png"
+import productvar2 from "./images/productvar2.png"
+import product2var1 from "./images/product2var1.png"
+import product2var2 from "./images/product2var2.png"
+import product3var1 from "./images/product3var1.png"
+import product3var2 from "./images/product3var2.png"
 
 
 export {
@@ -91,5 +101,14 @@ export {
   video3,
   video4,
   bannerBg,
-
+  about_image_1,
+  about_image_2,
+  grid_col,
+  grid_list,
+  productvar1,
+  productvar2,
+  product2var1,
+  product2var2,
+  product3var1,
+  product3var2,
 };
