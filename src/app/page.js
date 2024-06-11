@@ -16,7 +16,7 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 export default function Home() {
   return (
     <>
-      {/* <Banner /> */}
+      <Banner />
       <FeatureProduct data={productData} />
       <OurImpact />
       <CustomSlider />
