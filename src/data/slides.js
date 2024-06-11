@@ -74,11 +74,7 @@ const slide2 = [
 ];
 
 const homeBannerSlide = [
-  {
-    firstimage: Banner_heading,
-    imageSrc: Banner_slide_5,
-    bannerBackground: bannerBg,
-  },
+
   {
     bgColor: "#F9F4ED",
     imageSrc: Banner_slide_1,
@@ -99,6 +95,12 @@ const homeBannerSlide = [
     title: "Experience a timeless delight with freeze-dried fruits",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  },
+
+  {
+    firstimage: Banner_heading,
+    imageSrc: Banner_slide_5,
+    bannerBackground: bannerBg,
   },
   
 ];
