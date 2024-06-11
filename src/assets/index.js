@@ -53,6 +53,11 @@ import product2var1 from "./images/product2var1.png"
 import product2var2 from "./images/product2var2.png"
 import product3var1 from "./images/product3var1.png"
 import product3var2 from "./images/product3var2.png"
+import gallery1 from "./images/gallery1.jpg"
+import gallery2 from "./images/gallery2.jpg"
+import purity_icon from "./images/purity_icon.svg";
+import guarantee_icon from "./images/guarantee_icon.svg";
+import shipping_icon from "./images/shipping_icon.svg";
 
 
 export {
@@ -111,4 +116,9 @@ export {
   product2var2,
   product3var1,
   product3var2,
+  gallery1,
+  gallery2,
+  purity_icon,
+  guarantee_icon,
+  shipping_icon,
 };

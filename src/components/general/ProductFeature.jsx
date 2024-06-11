@@ -32,13 +32,15 @@ const ProductFeature = () => {
         <div className="grid  grid-cols-1 lg:grid-cols-4 items-center mt-14">
           <div className="feature-box flex flex-col h-full justify-between gap-4 mx-auto max-w-[350px] lg:w-full  ">
             <IconBox
-              position={true}
+              position="start"
+              textposition="left"
               icon={NoShugar}
               title="No Added Sugar"
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
             />
             <IconBox
-              position={true}
+              position="start"
+              textposition="left"
               icon={PremiumQuality}
               title="Premium Quality"
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
@@ -80,13 +82,15 @@ const ProductFeature = () => {
 
           <div className="feature-box flex flex-col h-full justify-between gap-4 mx-auto max-w-[350px] lg:w-full  ">
             <IconBox
-              position={false}
+              position="end"
+              textposition="right"
               icon={NonGmo}
               title="Non-GMO"
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
             />
             <IconBox
-              position={false}
+              position="end"
+              textposition="right"
               icon={GlutenFree}
               title="Gluten Free"
               content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."

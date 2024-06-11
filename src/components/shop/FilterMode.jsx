@@ -10,7 +10,7 @@ const FilterMode = ({ setFilter, activeFilter }) => {
           activeFilter === "Packet" ? "bg-black" : "bg-transparent"
         }`}
       >
-        <Slide1SVG color={activeFilter === "Packet" ? "#ffff  " : "#000 "} />
+        <Slide1SVG color={activeFilter === "Packet" ? "#ffff" : "#cccccc"} />
       </div>
       <div
         onClick={() => setFilter("Box")}
@@ -18,7 +18,7 @@ const FilterMode = ({ setFilter, activeFilter }) => {
           activeFilter === "Box" ? "bg-black" : "bg-transparent"
         }`}
       >
-        <Slide2SVG color={activeFilter === "Box" ? "#ffff  " : "#000 "} />
+        <Slide2SVG color={activeFilter === "Box" ? "#ffff" : "#cccccc"} />
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <div className="Footer overflow-hidden relative py-10 md:pt-20 md:pb:10 px-0 mx-auto bg-[#FFE6E6]">
       <div className="container relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 pb-5 md:pb-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 pb-5 md:pb-10 gap-6">
           <div className="useful-links">
             <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
               USEFUL LINKS

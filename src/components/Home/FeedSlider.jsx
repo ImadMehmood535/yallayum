@@ -17,7 +17,9 @@ const FeedSlider = ({ feedlist }) => {
           <h4 className="sub-heading kalamFont text-[#B051AC] text-xl uppercase">
             yalla yum on instagram
           </h4>
-          <h2 className="GeneralSans text-5xl font-medium mb-4">You + Yalla Yum!</h2>
+          <h2 className="GeneralSans text-5xl font-medium mb-4">
+            You + Yalla Yum!
+          </h2>
         </div>
       </div>
       <div className="feeds">
@@ -30,15 +32,15 @@ const FeedSlider = ({ feedlist }) => {
           breakpoints={{
             499: {
               slidesPerView: 1,
-              spaceBetween:10,
+              spaceBetween: 20,
             },
             580: {
               slidesPerView: 2,
-              spaceBetween:20,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween:20,
+              spaceBetween: 20,
             },
           }}
           modules={[FreeMode]}

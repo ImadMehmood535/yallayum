@@ -1,22 +1,12 @@
 import React from "react";
 
-const IconBox = ({ position, icon, title, content }) => {
+const IconBox = ({ position, textposition, icon, title, content }) => {
   return (
     <div className="IconBox">
-      <div
-        className={`icon-area mb-6 flex ${
-          position
-            ? `justify-center lg:justify-start `
-            : `justify-center lg:justify-end`
-        }`}
-      >
+      <div className={`icon-area mb-6 flex justify-center md:justify-${position}`}>
         <img src={icon.src} alt={title} className="w-[90px] h-[90px]" />
       </div>
-      <div
-        className={`content-area ${
-          position ? `text-center lg:text-left` : `text-center lg:text-right`
-        }`}
-      >
+      <div className={`content-area text-center  md:text-${textposition}`}>
         <h4 className="GeneralSans mb-4 text-2xl font-medium">{title}</h4>
         <p className="GeneralSans text-base leading-5">{content}</p>
       </div>

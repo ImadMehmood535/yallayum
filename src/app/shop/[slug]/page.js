@@ -9,7 +9,7 @@ const Page = ({ params }) => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const variationType = searchParams.get("variation");
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState(variationType);
 
   const product = productData.find((product) => product.id === parseInt(id));
 

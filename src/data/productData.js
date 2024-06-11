@@ -5,6 +5,8 @@ const {
   product2var2,
   product3var1,
   product3var2,
+  gallery1,
+  gallery2,
 } = require("@/assets");
 
 const productData = [
@@ -16,17 +18,20 @@ const productData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     longDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    gallery: [gallery1, gallery2],
     variation: [
       {
         variationId: 1,
         variationType: "Packet",
         variationPrice: 96.0,
+        variationSalePrice: 90.0,
         variationImage: productvar1,
       },
       {
         variationId: 2,
         variationType: "Box",
         variationPrice: 106.0,
+        variationSalePrice: 101.0,
         variationImage: productvar2,
       },
     ],
@@ -39,6 +44,7 @@ const productData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     longDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    gallery: [gallery1, gallery2],
     variation: [
       {
         variationId: 1,
@@ -62,6 +68,7 @@ const productData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     longDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+     
     variation: [
       {
         variationId: 1,

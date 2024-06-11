@@ -64,10 +64,9 @@ const Header = () => {
     <Navbar
       maxWidth="full"
       isMenuOpen={isMenuOpen}
-      isBlurred = {true}
+      isBlurred={true}
       onMenuOpenChange={setIsMenuOpen}
       className="flex justify-center items-center gap-3 custom-header"
-      
     >
       <NavbarContent className="block sm:hidden" justify="start">
         <NavbarMenuToggle
@@ -88,7 +87,9 @@ const Header = () => {
 
       <NavbarContent className="flex  desktop-menu items-center">
         <NavbarBrand className="flex justify-center py-2xxx">
-          <AcmeLogo className="table" />
+          <Link href="/">
+            <AcmeLogo className="table" />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
