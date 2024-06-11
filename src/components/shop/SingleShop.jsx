@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import FilterMode from "./FilterMode";
 import QuantitySelector from "../general/QuantitySelector";
 import Image from "next/image";
+import ProductInfoTabs from "./ProductInfoTabs";
+import AddCartBtn from "./AddCartBtn";
+import ProductStoreFeature from "./ProductStoreFeature";
 
 const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
-  const [selectedImage, setSelectedImage] = useState(selectedVariation.variationImage);
+  const [selectedImage, setSelectedImage] = useState(
+    selectedVariation.variationImage
+  );
   const [currentVariation, setCurrentVariation] = useState(selectedVariation);
 
   useEffect(() => {
@@ -85,13 +90,32 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
               </p>
             </div>
             <div className="quantity-variation-container my-6 flex flex-row gap-6">
-              <FilterMode
-                setFilter={handleFilterChange}
-                activeFilter={currentVariation.variationType}
-              />
-              <QuantitySelector />
+              <div className="flex flex-col gap-2">
+                <span className="GeneralSans text-lg font-normal">
+                  Packages:
+                </span>
+                <FilterMode
+                  setFilter={handleFilterChange}
+                  activeFilter={currentVariation.variationType}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="GeneralSans text-lg font-normal">
+                  Quantity:
+                </span>
+                <QuantitySelector />
+              </div>
+            </div>
+            <div className="btn-area">
+              <AddCartBtn />
+            </div>
+            <div className="feature mt-6">
+              <ProductStoreFeature/>
             </div>
           </div>
+        </div>
+        <div className="tabs-area">
+          <ProductInfoTabs data={data} />
         </div>
       </div>
     </div>
