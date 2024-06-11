@@ -19,7 +19,7 @@ const QuantitySelector = () => {
       <div className="w-fit rounded-full flex justify-center items-center gap-2 px-2 py-1 bg-themeGray-0 border-[2.5px] border-[#E4E7ED]">
         <button
           type="button"
-          className={`group transition-all cursor-pointer w-[50px] h-[50px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
+          className={`group transition-all cursor-pointer w-[55px] h-[55px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
           onClick={decrementQuantity}
         >
           <FaMinus className="text-[#FC4242] group-hover:text-white" />
@@ -32,7 +32,7 @@ const QuantitySelector = () => {
         />
         <button
           type="button"
-          className={`group transition-all cursor-pointer w-[50px] h-[50px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
+          className={`group transition-all cursor-pointer w-[55px] h-[55px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
           onClick={incrementQuantity}
         >
           <FaPlus className="text-[#FC4242] group-hover:text-white" />
