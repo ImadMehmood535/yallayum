@@ -10,12 +10,17 @@ import InstaFeeds from "@/components/Home/InstaFeeds";
 import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
-import StoreFeatures from "@/components/general/StoreFeatures";
+import dynamic from "next/dynamic";
+
+const StoreFeatures = dynamic(
+  () => import("@/components/general/StoreFeatures"),
+  { ssr: true }
+);
 
 export default function Home() {
   return (
     <>
-       <Banner />
+      <Banner />
       <FeatureProduct data={productData} />
       <div className="md:block hidden">
         <OurImpact />
@@ -25,7 +30,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      {/* <StoreFeatures/> */}
+      <StoreFeatures />
     </>
   );
 }
