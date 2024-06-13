@@ -7,20 +7,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { homeBannerSlide } from "@/data/slides";
-import Head from 'next/head';
-
+import AnimatedButton from "../general/AnimatedButton";
+ 
 // Dynamically import the AnimatedButton to defer its loading
-const AnimatedButton = dynamic(() => import('../general/AnimatedButton'), {
-  ssr: false,
-});
+ 
 
 const Banner = () => {
   let slidesData = [...homeBannerSlide];
   return (
     <div className="Banner">
-      <Head>
-        <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      </Head>
+ 
       <Swiper
         pagination={{
           dynamicBullets: true,
