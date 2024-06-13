@@ -39,20 +39,36 @@ const Banner = () => {
               className="banner-item"
               style={{
                 backgroundColor: slide?.bgColor,
- 
+                backgroundImage: slide?.bannerBackground
+                  ? `url(${slide?.bannerBackground?.src})`
+                  : null,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
               }}
             >
               <div className="container">
                 <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8">
                   <div className="w-full md:w-2/4 content-area">
-                       <div className="pb-[15%]  ">
+                    {slide?.title ? (
+                      <div className="pb-[15%]  ">
                         <h1 className="font-bold mb-6 Fedra-700">{slide?.title}</h1>
                         <p className="max-w-[560px] mb-6 GeneralSans">
                           {slide?.description}
                         </p>
                         <AnimatedButton text={"BUY NOW"} shop={true} />
                       </div>
-                
+                    ) : (
+                      <Image
+                        src={slide?.firstimage}
+                        alt={"Slide Image"}
+                        width={630}
+                        height={540}
+                        quality={100}
+                        className="object-contain w-auto h-auto"
+                        loading="eager" // Ensure key images are loaded eagerly
+                      />
+                    )}
                   </div>
 
                   <div className="w-full md:max-w-[570px] img-area">
