@@ -18,8 +18,8 @@ export default function Home() {
     <>
       <Banner />
       <FeatureProduct data={productData} />
-      {/* <OurImpact />
-      <CustomSlider />
+      <OurImpact />
+      {/* <CustomSlider />
       <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
