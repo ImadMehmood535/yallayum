@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -9,7 +9,8 @@ import { homeBannerSlide } from "@/data/slides";
 import AnimatedButton from "../general/AnimatedButton";
 
 const Banner = () => {
-  let slidesData = [...homeBannerSlide];
+  const slidesData = useMemo(() => [...homeBannerSlide], [homeBannerSlide]);
+
   return (
     <div className="Banner">
       <Swiper
@@ -24,9 +25,9 @@ const Banner = () => {
           delay: 5000,
         }}
         modules={[Pagination, Autoplay]}
-        className="BannnerSwiper"
+        className="BannerSwiper"
       >
-        {slidesData?.map((slide, index) => (
+        {slidesData.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
               className="banner-item"
@@ -60,9 +61,9 @@ const Banner = () => {
                         width={630}
                         height={540}
                         quality={100}
-                        loading="eager"
+                        loading="lazy" // Change to lazy loading for non-critical images
                         className="object-contain w-auto h-auto"
-                        priority // Ensure key images are loaded eagerly
+                        priority={false} // Not a high priority image
                       />
                     )}
                   </div>
@@ -74,9 +75,10 @@ const Banner = () => {
                       width={800}
                       height={300}
                       quality={100}
-                      loading="eager"
+                      loading="eager" // Load eagerly for LCP
+                      fetchpriority="high" // High priority for LCP
+                      decoding="async"
                       className="w-full h-full"
-                      priority // Ensure key images are loaded eagerly
                     />
                   </div>
                 </div>
