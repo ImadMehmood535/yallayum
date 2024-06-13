@@ -25,7 +25,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures/>
+      {/* <StoreFeatures/> */}
     </>
   );
 }
