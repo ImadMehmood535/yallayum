@@ -1,19 +1,17 @@
-import React from "react";
-import dynamic from 'next/dynamic';
-import { productData } from "@/data/productData";
+ 
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
+import Blogs from "@/components/Home/Blogs";
 import Banner from "@/components/Home/Banner";
-
- const FeatureProduct = dynamic(() => import('@/components/Home/FeatureProduct'));
-const OurImpact = dynamic(() => import('@/components/Home/OurImpact'));
-const CustomSlider = dynamic(() => import('@/components/Home/CustomSlider/CustomSlider'));
-const InstaFeeds = dynamic(() => import('@/components/Home/InstaFeeds'));
-const Blogs = dynamic(() => import('@/components/Home/Blogs'));
-const ProductFeature = dynamic(() => import('@/components/general/ProductFeature'));
-const FeedSlider = dynamic(() => import('@/components/Home/FeedSlider'));
-const StoreFeatures = dynamic(() => import('@/components/general/StoreFeatures'));
+import FeatureProduct from "@/components/Home/FeatureProduct";
+import OurImpact from "@/components/Home/OurImpact";
+import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
+import InstaFeeds from "@/components/Home/InstaFeeds";
+import ProductFeature from "@/components/general/ProductFeature";
+import FeedSlider from "@/components/Home/FeedSlider";
+import { productData } from "@/data/productData";
+import StoreFeatures from "@/components/general/StoreFeatures";
 
 export default function Home() {
   return (
@@ -26,7 +24,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures />
+      <StoreFeatures/>
     </>
   );
 }
