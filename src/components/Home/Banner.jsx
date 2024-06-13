@@ -1,9 +1,10 @@
 "use client";
 import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Lazy } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/lazy";
 import Image from "next/image";
 import { homeBannerSlide } from "@/data/slides";
 import AnimatedButton from "../general/AnimatedButton";
@@ -24,7 +25,8 @@ const Banner = () => {
           pauseOnMouseEnter: true,
           delay: 5000,
         }}
-        modules={[Pagination, Autoplay]}
+        lazy={true} // Enable lazy loading
+        modules={[Pagination, Autoplay, Lazy]} // Add Lazy module
         className="BannerSwiper"
       >
         {slidesData.map((slide, index) => (
@@ -63,7 +65,6 @@ const Banner = () => {
                         quality={100}
                         loading="lazy" // Change to lazy loading for non-critical images
                         className="object-contain w-auto h-auto"
-                        priority={false} // Not a high priority image
                       />
                     )}
                   </div>
