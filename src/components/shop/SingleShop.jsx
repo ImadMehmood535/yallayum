@@ -54,7 +54,7 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
                 ))}
               </div>
               <div className="feature-area w-full md:w-5/6 mx-auto">
-                <img
+              <Image  
                   src={selectedImage.src || selectedImage}
                   alt={data.title}
                   width={400}

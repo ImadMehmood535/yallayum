@@ -2,6 +2,7 @@ import React from "react";
 import FilterMode from "./FilterMode";
 import { grid_col, grid_list } from "@/assets";
 import { Button } from "@nextui-org/react";
+import Image from "next/image";
 
 const Filterbar = ({ filter, setFilter, setOption, option }) => {
   return (
@@ -20,10 +21,11 @@ const Filterbar = ({ filter, setFilter, setOption, option }) => {
                 }`}
                 onClick={() => setOption(1)}
               >
-                <img
+                <Image
+                  height={30}
+                  width={30}
                   src={grid_list.src}
                   alt="Grid_2"
-                  width={30}
                   className=" pr-1 w-auto h-full  "
                 />
               </Button>
@@ -34,7 +36,8 @@ const Filterbar = ({ filter, setFilter, setOption, option }) => {
                 }`}
                 type="button"
               >
-                <img
+                  <Image
+                 
                   src={grid_col.src}
                   alt="Grid_3"
                   width={30}
