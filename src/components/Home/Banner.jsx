@@ -11,7 +11,7 @@ import Head from 'next/head';
 
 // Dynamically import the AnimatedButton to defer its loading
 const AnimatedButton = dynamic(() => import('../general/AnimatedButton'), {
-  ssr: false,
+  ssr: true,
 });
 
 const Banner = () => {
