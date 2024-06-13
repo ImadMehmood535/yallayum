@@ -10,13 +10,8 @@ import InstaFeeds from "@/components/Home/InstaFeeds";
 import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
-import dynamic from "next/dynamic";
-
-const StoreFeatures = dynamic(
-  () => import("@/components/general/StoreFeatures"),
-  { ssr: true }
-);
-
+import StoreFeatures from "@/components/general/StoreFeatures";
+ 
 export default function Home() {
   return (
     <>
