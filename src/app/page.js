@@ -1,4 +1,3 @@
- 
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
@@ -18,7 +17,9 @@ export default function Home() {
     <>
       <Banner />
       <FeatureProduct data={productData} />
-      <OurImpact />
+      <div className="md:block hidden">
+        <OurImpact />
+      </div>
       {/* <CustomSlider />
       <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
