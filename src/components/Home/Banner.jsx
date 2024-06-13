@@ -60,6 +60,7 @@ const Banner = () => {
                         width={630}
                         height={540}
                         quality={100}
+                        loading="eager"
                         className="object-contain w-auto h-auto"
                         priority // Ensure key images are loaded eagerly
                       />
@@ -73,6 +74,7 @@ const Banner = () => {
                       width={800}
                       height={300}
                       quality={100}
+                      loading="eager"
                       className="w-full h-full"
                       priority // Ensure key images are loaded eagerly
                     />
