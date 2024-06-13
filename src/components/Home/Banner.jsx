@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { homeBannerSlide } from "@/data/slides";
-import Head from 'next/head';
+import Head from "next/head";
 
 // Dynamically import the AnimatedButton to defer its loading
-const AnimatedButton = dynamic(() => import('../general/AnimatedButton'), {
+const AnimatedButton = dynamic(() => import("../general/AnimatedButton"), {
   ssr: false,
 });
 
@@ -18,11 +18,10 @@ const Banner = () => {
   let slidesData = [...homeBannerSlide];
   return (
     <div className="Banner">
- 
       <Swiper
         pagination={{
           dynamicBullets: true,
-          clickable: true
+          clickable: true,
         }}
         loop={true}
         autoplay={{
@@ -52,7 +51,9 @@ const Banner = () => {
                   <div className="w-full md:w-2/4 content-area">
                     {slide?.title ? (
                       <div className="pb-[15%]  ">
-                        <h1 className="font-bold mb-6 Fedra-700">{slide?.title}</h1>
+                        <h1 className="font-bold mb-6 Fedra-700">
+                          {slide?.title}
+                        </h1>
                         <p className="max-w-[560px] mb-6 GeneralSans">
                           {slide?.description}
                         </p>
@@ -64,7 +65,6 @@ const Banner = () => {
                         alt={"Slide Image"}
                         width={630}
                         height={540}
-                        quality={100}
                         className="object-contain w-auto h-auto"
                         loading="eager" // Ensure key images are loaded eagerly
                       />
@@ -77,7 +77,6 @@ const Banner = () => {
                       alt={"Banner Image"}
                       width={800}
                       height={300}
-                      quality={100}
                       className="w-full h-full"
                       loading="eager" // Ensure key images are loaded eagerly
                     />
