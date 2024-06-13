@@ -59,28 +59,12 @@ const Banner = () => {
                         <AnimatedButton text={"BUY NOW"} shop={true} />
                       </div>
                     ) : (
-                      <Image
-                        src={slide?.firstimage}
-                        alt={"Slide Image"}
-                        width={630}
-                        height={540}
-                        quality={100}
-                        className="object-contain w-auto h-auto"
-                        loading="eager" // Ensure key images are loaded eagerly
-                      />
+                     null
                     )}
                   </div>
 
                   <div className="w-full md:max-w-[570px] img-area">
-                    <Image
-                      src={slide?.imageSrc}
-                      alt={"Banner Image"}
-                      width={800}
-                      height={300}
-                      quality={100}
-                      className="w-full h-full"
-                      loading="eager" // Ensure key images are loaded eagerly
-                    />
+                    null
                   </div>
                 </div>
               </div>
