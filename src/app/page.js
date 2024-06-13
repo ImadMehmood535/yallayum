@@ -1,4 +1,3 @@
- 
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
@@ -16,7 +15,13 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 export default function Home() {
   return (
     <>
-      <Banner />
+      <div className="hidden md:block">
+        <Banner />
+      </div>
+      <div className="block md:hidden h-[100vh] bg-themeHover-0 ">
+        <h2 className="text-center ">Testing me</h2>
+
+      </div>
       <FeatureProduct data={productData} />
       <OurImpact />
       <CustomSlider />
@@ -24,7 +29,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures/>
+      <StoreFeatures />
     </>
   );
 }
