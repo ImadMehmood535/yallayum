@@ -21,11 +21,11 @@ export default function Home() {
         <OurImpact />
       </div>
       <CustomSlider />
-      <InstaFeeds reviewData={reviewData} />
+      {/* <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      {/* <StoreFeatures /> */}
+      <StoreFeatures /> */}
     </>
   );
 }
