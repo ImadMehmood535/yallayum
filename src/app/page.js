@@ -15,15 +15,13 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 export default function Home() {
   return (
     <>
-      <div className="md:block hidden">
-        <Banner />
-      </div>
+       <Banner />
       <FeatureProduct data={productData} />
       <div className="md:block hidden">
         <OurImpact />
       </div>
-      {/* <CustomSlider />
-      <InstaFeeds reviewData={reviewData} />
+      <CustomSlider />
+      {/* <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
