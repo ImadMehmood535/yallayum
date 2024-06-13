@@ -7,11 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { homeBannerSlide } from "@/data/slides";
- 
-// Dynamically import the AnimatedButton to defer its loading
-const AnimatedButton = dynamic(() => import("../general/AnimatedButton"), {
-  ssr: false,
-});
+import AnimatedButton from "../general/AnimatedButton";
 
 const Banner = () => {
   let slidesData = [...homeBannerSlide];

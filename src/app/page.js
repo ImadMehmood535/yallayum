@@ -1,7 +1,9 @@
+ 
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
 import Blogs from "@/components/Home/Blogs";
+import Banner from "@/components/Home/Banner";
 import FeatureProduct from "@/components/Home/FeatureProduct";
 import OurImpact from "@/components/Home/OurImpact";
 import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
@@ -10,11 +12,7 @@ import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
 import StoreFeatures from "@/components/general/StoreFeatures";
-import dynamic from "next/dynamic";
 
-const Banner = dynamic(() => import("../components/Home/Banner"), {
-  ssr: false,
-});
 export default function Home() {
   return (
     <>
@@ -26,7 +24,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures />
+      <StoreFeatures/>
     </>
   );
 }
