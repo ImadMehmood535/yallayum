@@ -16,7 +16,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Providers>
+          <div className="hidden md:block"> 
           <Ticker />
+            </div>
+
           <Header />
           {children}
           <Footer />
