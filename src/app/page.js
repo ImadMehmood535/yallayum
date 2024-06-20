@@ -24,6 +24,7 @@ export default function Home() {
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
       <StoreFeatures />
+      
     </>
   );
 }
