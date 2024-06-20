@@ -14,27 +14,34 @@ const productData = [
     id: 1,
     title: "Strawberry Crunchy",
     slug: "strawberry-crunchy",
-    shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    shortDescription: `The crispy vegetable chips for a conscious diet. 100% yellow beetroot, 0% fat, 0% additives.
+    <ul>
+    <li>made from 100% ripe vegetables</li>
+    <li>made from 100% ripe vegetables</li>
+    <li>made from 100% ripe vegetables</li>
+    <li>made from 100% ripe vegetables</li>
+    </ul>`,
     longDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Indulge in the natural sweetness of our freeze-dried strawberries. Handpicked at their peak ripeness, these ruby-red gems are transformed into delicate, crisp bites that burst with flavor. Packed with antioxidants and high in fiber, our freeze-dried strawberries are a guilt-free delight that adds a touch of freshness to your snacking experience. Taste the essence of Dubai’s vibrant culture with every irresistible bite.",
     ingredients:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Indulge in the natural sweetness of our freeze-dried strawberries. Handpicked at their peak ripeness, these ruby-red gems are transformed into delicate, crisp bites that burst with flavor. Packed with antioxidants and high in fiber, our freeze-dried strawberries are a guilt-free delight that adds a touch of freshness to your snacking experience. Taste the essence of Dubai’s vibrant culture with every irresistible bite.",
     gallery: [gallery1, gallery2],
     variation: [
       {
         variationId: 1,
         variationType: "Packet",
-        variationPrice: 96.0,
-        variationSalePrice: 90.0,
+        variationPrice: 96.00,
+        variationSalePrice: 90.00,
         variationImage: productvar1,
+        variationWeight: 20,
       },
       {
         variationId: 2,
         variationType: "Box",
-        variationPrice: 106.0,
-        variationSalePrice: 101.0,
+        variationPrice: 106.00,
+        variationSalePrice: 101.00,
         variationImage: productvar2,
+        variationWeight: 100,
       },
     ],
   },
@@ -53,12 +60,14 @@ const productData = [
         variationType: "Packet",
         variationPrice: 107.0,
         variationImage: product2var1,
+        variationWeight: 20,
       },
       {
         variationId: 2,
         variationType: "Box",
         variationPrice: 208.0,
         variationImage: product2var2,
+        variationWeight: 100,
       },
     ],
   },
@@ -77,12 +86,14 @@ const productData = [
         variationType: "Packet",
         variationPrice: 209.0,
         variationImage: product3var1,
+        variationWeight: 20,
       },
       {
         variationId: 2,
         variationType: "Box",
         variationPrice: 309.0,
         variationImage: product3var2,
+        variationWeight: 100,
       },
     ],
   },

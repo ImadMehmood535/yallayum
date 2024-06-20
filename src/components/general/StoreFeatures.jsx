@@ -4,7 +4,7 @@ import { guarantee_icon, purity_icon, shipping_icon } from "@/assets";
 
 const StoreFeatures = () => {
   return (
-    <div className="StoreFeatures pageLayout px-0 mx-auto bg-[#F9F4ED]">
+    <div className="StoreFeatures pageLayout px-0 mx-auto bg-[#F9F1F8]">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureIconBox

@@ -42,7 +42,7 @@ const ContactFormComponent = () => {
         className="w-full max-w-[900px] mx-auto"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
           <InputField
             label="Your Name"
             type="text"
@@ -60,7 +60,7 @@ const ContactFormComponent = () => {
             register={register}
           />
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
           <InputField
             label="Your Phone"
             type="tel"

@@ -6,6 +6,10 @@ import React, { useEffect, useState } from "react";
 import Filterbar from "@/components/shop/Filterbar";
 import { productData } from "@/data/productData";
 
+import CategoryList from "@/components/shop/CategoryList";
+import { CategoryData } from "@/data/CategoryData";
+
+
 const Index = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filter, setFilter] = useState("Packet");
@@ -25,22 +29,25 @@ const Index = () => {
 
   return (
     <div className="shop-page">
-      <InnerpageHeader pagetitle="Shop" />
+      {/* <InnerpageHeader pagetitle="Shop" /> */}
       <div className="shop-body pageLayout px-0 mx-auto">
-        <Filterbar
-          filter={filter}
-          setFilter={setFilter}
-          filterProducts={filterProductsByVariationType}
-          option={option}
-          setOption={setOption}
-        />
-        <ProductList
-          filteredProducts={filteredProducts}
-          selectedVariationType={filter}
-          option={option}
-        />
+        <div className="pb-10 md:pb-20">
+          <CategoryList itemCount={3} data={CategoryData} />
+          <Filterbar
+            filter={filter}
+            setFilter={setFilter}
+            filterProducts={filterProductsByVariationType}
+            option={option}
+            setOption={setOption}
+          />
+          <ProductList
+            filteredProducts={filteredProducts}
+            selectedVariationType={filter}
+            option={option}
+          />
+        </div>
+        <ProductFeature />
       </div>
-      <ProductFeature />
     </div>
   );
 };

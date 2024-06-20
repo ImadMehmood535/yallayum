@@ -26,7 +26,7 @@ const Header = () => {
     },
     {
       name: "Things to know",
-      link: "/blogs",
+      link: "/recipes",
     },
     {
       name: "About us",
@@ -35,6 +35,10 @@ const Header = () => {
     {
       name: "Contact us",
       link: "/contact-us",
+    },
+    {
+      name: "Make Your Pack",
+      link: "/custom-product",
     },
   ];
   const additionalMenuItems = [
@@ -48,7 +52,7 @@ const Header = () => {
     },
     {
       name: "Things to know",
-      link: "/blogs",
+      link: "/recipes",
     },
     {
       name: "About us",
@@ -57,6 +61,10 @@ const Header = () => {
     {
       name: "Contact us",
       link: "/contact-us",
+    },
+    {
+      name: "Make Your Mix",
+      link: "/custom-product",
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,7 +107,7 @@ const Header = () => {
           <Link href="/cart">
             <LiaShoppingBagSolid className="text-white" />
           </Link>
-          <Link href="/cart">
+          <Link href="/login">
             <LuUser2 className="text-white" />
           </Link>
 

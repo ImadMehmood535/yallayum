@@ -24,19 +24,19 @@ const ProductItem = ({ data, variation, selectedVariationType, option }) => {
               : `max-w-[200px] flip-container`
           } mx-auto`}
         >
-          <div className="flip-contain">
+          <div className={`flip-contain ${ option == 1 ? `w-[20%]` : `w-full` }`}>
             <Image
               src={variationImage}
               alt={data?.title}
               width={350}
               height={350}
               quality={100}
-              className="h-auto md:h-[230px] 2xl:h-auto"
+              className="h-auto  md:h-[230px] 2xl:h-auto"
             />
           </div>
           <div
-            className={`content-area ${
-              option == 1 ? `text-center md:text-left` : `text-center`
+            className={`content-area  ${
+              option == 1 ? `text-center md:text-left w-[75%]` : `text-center w-full`
             }`}
           >
             <h4

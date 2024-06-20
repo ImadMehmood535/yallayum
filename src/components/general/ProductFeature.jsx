@@ -14,7 +14,7 @@ import IconBox from "../Home/IconBox";
 
 const ProductFeature = () => {
   return (
-    <div className="ProductFeature px-0 mx-auto">
+    <div className="ProductFeature pageLayout px-0 mx-auto">
       <div className="container">
         <div className="heading-area text-center">
           <div className="w-full md:max-w-[760px] mx-auto">

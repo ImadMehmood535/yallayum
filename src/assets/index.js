@@ -58,6 +58,12 @@ import gallery2 from "./images/gallery2.jpg"
 import purity_icon from "./images/purity_icon.svg";
 import guarantee_icon from "./images/guarantee_icon.svg";
 import shipping_icon from "./images/shipping_icon.svg";
+import recipes_1_image from "./images/recipes_1_image.png";
+import Strawberry_icon from "./images/Strawberry_icon.png";
+import Apricot_icon from "./images/Apricot_icon.png";
+import Fig_icon from "./images/Fig_icon.png";
+import Mango_icon from "./images/Mango_icon.png";
+import Mulberry_icon from "./images/Mulberry_icon.png";
 
 
 export {
@@ -121,4 +127,10 @@ export {
   purity_icon,
   guarantee_icon,
   shipping_icon,
+  recipes_1_image,
+  Strawberry_icon,
+  Apricot_icon,
+  Fig_icon,
+  Mango_icon,
+  Mulberry_icon,
 };

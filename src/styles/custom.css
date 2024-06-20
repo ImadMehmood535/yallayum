@@ -56,12 +56,8 @@ ul.mob-br {
 .swiper.BannnerSwiper .swiper-wrapper .swiper-slide {
   overflow: hidden;
 }
-.swiper.BannnerSwiper .swiper-wrapper:nth-child(1) .swiper-slide {
+.swiper.Bannner-wrapper:nth-child(1)Swiper .swiper .swiper-slide {
   position: relative;
-}
-.swiper.BannnerSwiper .swiper-wrapper .swiper-slide .banner-item {
-  z-index: 10;
-  position: inherit;
 }
 
 .swiper.BannnerSwiper {
@@ -94,13 +90,28 @@ ul.mob-br {
   min-height: 80%;
   max-height: 80%;
   height: 80%;
-  background-color: #fff5f5;
+
   position: absolute;
   border-radius: 25px;
   z-index: -1;
   left: 0;
   bottom: 0;
   transition: 0.3s;
+}
+
+.ProductItem:nth-child(1) .item-wrapper:before {
+  background-color: #fff5f5;
+}
+
+.ProductItem:nth-child(2) .item-wrapper:before {
+  background-color: #e9ddeb;
+}
+
+.ProductItem:nth-child(3) .item-wrapper:before {
+  background-color: #faf1dc;
+}
+.ProductItem:nth-child(4) .item-wrapper:before {
+  background-color: #ffe9e9;
 }
 
 .ProductItem:hover .item-wrapper:before {
@@ -274,8 +285,85 @@ ul.mob-br {
     transform: none;
   }
 }
+.custom-accrodian-group {
+  gap: 20px !important;
+}
+.custom-accrodian-group > div {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  border: 1px solid #fc4242;
+  background-color: #fc4242 !important;
+  color: white;
+}
+.custom-accrodian-group > div[data-open="true"] {
+  background-color: transparent !important;
+  color: black;
+}
+.custom-accrodian-group > div[data-open="true"] .tab-title {
+  color: black;
+}
+.custom-accrodian-group > div .tab-title {
+  color: white;
+}
+.custom-accrodian-group > div data-[open="true"] {
+  background-color: red !important;
+}
+.field-wrapper {
+  margin-bottom: 15px;
+}
 
-/* media query start */
+.field-container input {
+  width: 100%;
+}
+input:focus-visible {
+  border: none !important;
+  box-shadow: none;
+  outline: none !important;
+}
+
+/* range selector style start */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  height: 4px;
+  background: #fc4242;
+}
+
+.progress::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #fc4242;
+  border: 1px solid white;
+}
+/* .progress{
+  position: relative;
+}
+.progress:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fc4242;
+  border: 1px solid white;
+  position: absolute;
+  top: 0; 
+  left: 0;
+} */
+.CreateProduct .product-tabs .tab.active {
+  background-color: #fc4242;
+  border: #fc4242;
+  color: white;
+}
+
 @media only screen and (max-width: 1024px) {
   .custom-header header {
     padding-right: 10px;

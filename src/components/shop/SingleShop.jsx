@@ -5,8 +5,9 @@ import Image from "next/image";
 import ProductInfoTabs from "./ProductInfoTabs";
 import AddCartBtn from "./AddCartBtn";
 import ProductStoreFeature from "./ProductStoreFeature";
+import RatingNoOfReview from "./RatingNoOfReview";
 
-const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
+const SingleShop = ({ data, selectedVariation, setFilter, filter, rating, total_review }) => {
   const [selectedImage, setSelectedImage] = useState(
     selectedVariation.variationImage
   );
@@ -31,7 +32,7 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
   ];
 
   return (
-    <div className="SingleShop pb-10 md:pb-20">
+    <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="image-area">
@@ -66,10 +67,21 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
           </div>
           <div className="content-area py-6">
             <div className="product-info">
-              <h2 className="kalamFont text-4xl font-semibold mb-4">
+              <h2 className="kalamFont uppercase text-5xl font-semibold">
                 {data.title}
               </h2>
-              <div className="mb-4 font-semibold GeneralSans flex flex-row gap-2">
+              <div className="rating-area my-4">
+                <RatingNoOfReview avgrating={rating} totalReview={total_review} />
+              </div>
+
+              {/* <p className="GeneralSans text-lg font-normal">
+                {data.shortDescription}
+              </p> */}
+              <div
+                className="GeneralSans text-lg font-normal"
+                dangerouslySetInnerHTML={{ __html: data.shortDescription }}
+              />
+              <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">
                 {currentVariation.variationSalePrice ? (
                   <div className="price-area gap-6 flex flex-row items-end">
                     <span className="sale-price text-[#FC4242] text-3xl">
@@ -84,12 +96,10 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
                     AED {currentVariation.variationPrice}
                   </span>
                 )}
+                <p>({currentVariation.variationWeight} gram)</p>
               </div>
-              <p className="GeneralSans text-lg font-normal">
-                {data.shortDescription}
-              </p>
             </div>
-            <div className="quantity-variation-container my-6 flex flex-row gap-6">
+            <div className="quantity-variation-container my-6 flex flex-col md:flex-row gap-6">
               <div className="flex flex-col gap-2">
                 <span className="GeneralSans text-lg font-normal">
                   Packages:
@@ -110,7 +120,7 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter }) => {
               <AddCartBtn />
             </div>
             <div className="feature mt-6">
-              <ProductStoreFeature/>
+              <ProductStoreFeature />
             </div>
           </div>
         </div>
