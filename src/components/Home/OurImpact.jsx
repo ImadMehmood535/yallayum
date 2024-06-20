@@ -29,7 +29,8 @@ const OurImpact = () => {
             </div>
           </div>
         </div>
-           <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             <ImpactItem
               position={true}
               image={Sustainable_Sourcing}
@@ -59,7 +60,8 @@ const OurImpact = () => {
               text="At YallaYum, we’re committed to responsible sourcing practices."
             />
           </div>
-       </div>
+        </div>
+      </div>
     </div>
   );
 };
