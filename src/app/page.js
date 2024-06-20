@@ -21,7 +21,10 @@ export default function Home() {
         <OurImpact />
       </div>
       <CustomSlider />
-      <InstaFeeds reviewData={reviewData} />
+      <div className="hidden md:block">
+        <InstaFeeds reviewData={reviewData} />
+      </div>
+
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
