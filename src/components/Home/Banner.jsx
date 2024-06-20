@@ -1,28 +1,33 @@
 "use client";
 import React from "react";
+import dynamic from 'next/dynamic';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import AnimatedButton from "../general/AnimatedButton";
 import { homeBannerSlide } from "@/data/slides";
+import AnimatedButton from "../general/AnimatedButton";
+ 
+// Dynamically import the AnimatedButton to defer its loading
+ 
 
 const Banner = () => {
   let slidesData = [...homeBannerSlide];
   return (
     <div className="Banner">
+ 
       <Swiper
         pagination={{
           dynamicBullets: true,
-          clickable:true
+          clickable: true
         }}
         loop={true}
-        // autoplay={{
-        //   disableOnInteraction: false,
-        //   pauseOnMouseEnter: true,
-        //   delay: 5000,
-        // }}
+        autoplay={{
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          delay: 5000,
+        }}
         modules={[Pagination, Autoplay]}
         className="BannnerSwiper"
       >
@@ -54,11 +59,12 @@ const Banner = () => {
                     ) : (
                       <Image
                         src={slide?.firstimage}
-                        alt={slide?.firstimage}
+                        alt={"Slide Image"}
                         width={630}
                         height={540}
                         quality={100}
                         className="object-contain w-auto h-auto"
+                        loading="eager" // Ensure key images are loaded eagerly
                       />
                     )}
                   </div>
@@ -66,11 +72,12 @@ const Banner = () => {
                   <div className="w-full md:max-w-[570px] img-area">
                     <Image
                       src={slide?.imageSrc}
-                      alt={slide?.imageSrc}
+                      alt={"Banner Image"}
                       width={800}
                       height={300}
                       quality={100}
                       className="w-full h-full"
+                      loading="eager" // Ensure key images are loaded eagerly
                     />
                   </div>
                 </div>

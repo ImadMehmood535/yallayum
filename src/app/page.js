@@ -1,4 +1,3 @@
- 
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
@@ -12,19 +11,21 @@ import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
 import StoreFeatures from "@/components/general/StoreFeatures";
-
+ 
 export default function Home() {
   return (
     <>
       <Banner />
       <FeatureProduct data={productData} />
-      <OurImpact />
+      <div className="md:block hidden">
+        <OurImpact />
+      </div>
       <CustomSlider />
-      <InstaFeeds reviewData={reviewData} />
+      {/* <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures/>
+      <StoreFeatures /> */}
     </>
   );
 }

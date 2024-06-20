@@ -6,7 +6,7 @@ const ImpactItem = ({ position, image, subheading, title, text }) => {
       <div
         className={`item flex flex-row ${
           position ? `flex-row` : `flex-row-reverse`
-        } items-center bg-themePrimary-0 hover:bg-themeHover-0 group items-stretch`}
+        }   bg-themePrimary-0 hover:bg-themeHover-0 group items-stretch`}
       >
         <div className="relative w-full h-[400px] sm:h-auto  md:w-1/2 overflow-hidden">
           <div
