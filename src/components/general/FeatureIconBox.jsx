@@ -12,7 +12,7 @@ const FeatureIconBox = ({ position, textposition, icon, title, content }) => {
           width={500}
           src={icon}
           alt={title}
-          loading="eager" // Ensure key images are loaded eagerly
+          loading="eager"  
           className="w-[120px] h-[120px] bg-white rounded-full p-6"
         />
       </div>

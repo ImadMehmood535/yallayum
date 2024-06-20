@@ -9,8 +9,7 @@ import Image from "next/image";
 import { homeBannerSlide } from "@/data/slides";
 import AnimatedButton from "../general/AnimatedButton";
  
-// Dynamically import the AnimatedButton to defer its loading
- 
+  
 
 const Banner = () => {
   let slidesData = [...homeBannerSlide];
@@ -64,7 +63,7 @@ const Banner = () => {
                         height={540}
                         quality={100}
                         className="object-contain w-auto h-auto"
-                        loading="eager" // Ensure key images are loaded eagerly
+                        loading="eager"  
                       />
                     )}
                   </div>
@@ -77,7 +76,7 @@ const Banner = () => {
                       height={300}
                       quality={100}
                       className="w-full h-full"
-                      loading="eager" // Ensure key images are loaded eagerly
+                      loading="eager"  
                     />
                   </div>
                 </div>

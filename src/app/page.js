@@ -17,14 +17,15 @@ export default function Home() {
     <>
       <Banner />
       <FeatureProduct data={productData} />
-      <OurImpact />
+      <div className="hidden md:block">
+        <OurImpact />
+      </div>
       <CustomSlider />
       <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
       <StoreFeatures />
-      
     </>
   );
 }
