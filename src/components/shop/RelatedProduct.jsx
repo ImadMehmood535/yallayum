@@ -1,5 +1,6 @@
 import React from "react";
 import RecipesItem from "../recipes/RecipesItem";
+import Link from "next/link";
 
 const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
   return (

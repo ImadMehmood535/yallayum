@@ -113,7 +113,7 @@ const LoginForm = () => {
                   <label className="block text-[#A0A0A0] font-normal mt-4 ">
                     <span className="py-2 text-sm  leading-snug  ">
                       {" "}
-                      Don't have an account?{" "}
+                      Don&apos;t have an account?{" "}
                     </span>
                   </label>
                   <label className="block text-gray-500  mt-4">

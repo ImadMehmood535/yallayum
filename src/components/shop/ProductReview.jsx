@@ -31,7 +31,7 @@ const ProductReview = ({ data }) => {
           </div>
         </div>
         {data.reviews.map((item, key) => (
-          <div className="review border-t-1 grid grid-cols-1 md:grid-cols-5">
+          <div key={key} className="review border-t-1 grid grid-cols-1 md:grid-cols-5">
             <div className="user-info md:border-r-1 py-4 px-0 md:p-10 pl-0">
               {item.userProfile ? (
                 <img
