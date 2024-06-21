@@ -18,14 +18,18 @@ export default function Home() {
     <>
       <Banner />
       <FeatureProduct data={productData} />
-      <OurImpact />
+      <div className="hidden md:block">
+        <OurImpact />
+      </div>
       <CustomSlider />
-      <InstaFeeds reviewData={reviewData} />
+      <div className="hidden md:block">
+        <InstaFeeds reviewData={reviewData} />
+      </div>
+
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
       <StoreFeatures />
-      
     </>
   );
 }
