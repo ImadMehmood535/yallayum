@@ -114,10 +114,20 @@ const StoreDetails = () => {
                     <li>Contact : 000000000000</li>
                   </ul>
                 </AccordionItem>
-                <AccordionItem key="2" aria-label="Store 2" title="Store 2" hideIndicator>
+                <AccordionItem
+                  key="2"
+                  aria-label="Store 2"
+                  title="Store 2"
+                  hideIndicator
+                >
                   {defaultContent}
                 </AccordionItem>
-                <AccordionItem key="3" aria-label="Store 3" title="Store 3" hideIndicator>
+                <AccordionItem
+                  key="3"
+                  aria-label="Store 3"
+                  title="Store 3"
+                  hideIndicator
+                >
                   {defaultContent}
                 </AccordionItem>
               </Accordion>

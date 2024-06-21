@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ProductItem from "../general/ProductItem";
 
-const ProductList = ({ filteredProducts, selectedVariationType, option }) => {
+const ProductList = ({ filteredProducts, selectedVariationType, option, btnAllow }) => {
   const [screenSize, setScreenSize] = useState(null);
 
   useEffect(() => {
@@ -46,6 +46,7 @@ const ProductList = ({ filteredProducts, selectedVariationType, option }) => {
                 data={item}
                 selectedVariationType={selectedVariationType}
                 option={option}
+                btnAllow={btnAllow}
               />
             ))}
           </div>

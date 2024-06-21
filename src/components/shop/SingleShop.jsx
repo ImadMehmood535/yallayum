@@ -6,8 +6,18 @@ import ProductInfoTabs from "./ProductInfoTabs";
 import AddCartBtn from "./AddCartBtn";
 import ProductStoreFeature from "./ProductStoreFeature";
 import RatingNoOfReview from "./RatingNoOfReview";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 
-const SingleShop = ({ data, selectedVariation, setFilter, filter, rating, total_review }) => {
+const SingleShop = ({
+  data,
+  selectedVariation,
+  setFilter,
+  filter,
+  rating,
+  total_review,
+}) => {
   const [selectedImage, setSelectedImage] = useState(
     selectedVariation.variationImage
   );
@@ -36,32 +46,51 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter, rating, total_
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="image-area">
-            <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col-reverse md:flex-row">
-              <div className="gallery-area w-full md:w-1/6 justify-evenly md:justify-start flex flex-row md:flex-col">
-                {allImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className="thumbnail"
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <Image
-                      src={image}
-                      alt={`${data.title} thumbnail ${index}`}
-                      width={100}
-                      height={100}
-                      className="cursor-pointer mb-4 w-full rounded-2xl max-h-[200px]"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="feature-area w-full md:w-5/6 mx-auto">
-              <Image  
-                  src={selectedImage.src || selectedImage}
-                  alt={data.title}
-                  width={400}
-                  height={500}
-                  className="w-full mx-auto rounded-2xl"
-                />
+            <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
+              <div
+                className="feature-area w-full mx-auto bg-contain bg-center bg-no-repeat w-full h-[500px] bg-[#FAF1DC] rounded-2xl"
+                style={{
+                  backgroundImage: `url( ${
+                    selectedImage.src || selectedImage
+                  }) `,
+                }}
+              ></div>
+              <div className="w-full  ">
+                <Swiper
+                  pagination={{
+                    dynamicBullets: true,
+                    clickable: true,
+                  }}
+                  slidesPerView={1}
+                  spaceBetween={20}
+                  loop={true}
+                  breakpoints={{
+                    540: {
+                      slidesPerView: 3,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                      spaceBetween: 20,
+                    },
+                  }}
+                  className="gallery-slider"
+                >
+                  {allImages.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <div
+                        key={index}
+                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] bg-[length:150px_160px] bg-[#FAF1DC] rounded-2xl w-full"
+                        style={{ backgroundImage: `url(${image.src})` }}
+                        onClick={() => setSelectedImage(image)}
+                      ></div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
           </div>
@@ -71,12 +100,12 @@ const SingleShop = ({ data, selectedVariation, setFilter, filter, rating, total_
                 {data.title}
               </h2>
               <div className="rating-area my-4">
-                <RatingNoOfReview avgrating={rating} totalReview={total_review} />
+                <RatingNoOfReview
+                  avgrating={rating}
+                  totalReview={total_review}
+                />
               </div>
 
-              {/* <p className="GeneralSans text-lg font-normal">
-                {data.shortDescription}
-              </p> */}
               <div
                 className="GeneralSans text-lg font-normal"
                 dangerouslySetInnerHTML={{ __html: data.shortDescription }}

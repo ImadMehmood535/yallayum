@@ -5,10 +5,8 @@ import ProductList from "@/components/shop/ProductList";
 import React, { useEffect, useState } from "react";
 import Filterbar from "@/components/shop/Filterbar";
 import { productData } from "@/data/productData";
-
 import CategoryList from "@/components/shop/CategoryList";
 import { CategoryData } from "@/data/CategoryData";
-
 
 const Index = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -44,6 +42,7 @@ const Index = () => {
             filteredProducts={filteredProducts}
             selectedVariationType={filter}
             option={option}
+            btnAllow={true}
           />
         </div>
         <ProductFeature />

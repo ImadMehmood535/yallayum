@@ -1,3 +1,24 @@
+.CartSideBar {
+  z-index: 999 !important;
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+}
+.translate-x-0 {
+  transform: translateX(0);
+}
+.translate-x-full {
+  transform: translateX(100%);
+}
+.transition-transform {
+  transition-property: transform;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.ease-in-out {
+  transition-timing-function: ease-in-out;
+}
 .custom-header header > ul {
   width: 33.33%;
 }
@@ -294,6 +315,13 @@ ul.mob-br {
   border: 1px solid #fc4242;
   background-color: #fc4242 !important;
   color: white;
+  padding: 0px !important;
+}
+.custom-accrodian-group > div button{
+  padding: 20px !important;
+}
+.custom-accrodian-group > div section div {
+  padding: 10px 20px;
 }
 .custom-accrodian-group > div[data-open="true"] {
   background-color: transparent !important;
@@ -363,6 +391,7 @@ input[type="range"] {
   border: #fc4242;
   color: white;
 }
+
 
 @media only screen and (max-width: 1024px) {
   .custom-header header {

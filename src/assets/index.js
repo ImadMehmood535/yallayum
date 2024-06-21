@@ -64,6 +64,7 @@ import Apricot_icon from "./images/Apricot_icon.png";
 import Fig_icon from "./images/Fig_icon.png";
 import Mango_icon from "./images/Mango_icon.png";
 import Mulberry_icon from "./images/Mulberry_icon.png";
+import single_product_image from "./images/single_product_image.png";
 
 
 export {
@@ -133,4 +134,5 @@ export {
   Fig_icon,
   Mango_icon,
   Mulberry_icon,
+  single_product_image,
 };

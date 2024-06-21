@@ -24,7 +24,7 @@ const AboutItem = ({ data, isEven }) => {
             isEven ? `pt-10 md:pl-12` : `pt-10 md:pr-12`
           } `}
         >
-          <h2 className="mb-3">{data.title}</h2>
+          <h2 className="mb-3 font-medium">{data.title}</h2>
           <h4 className="GeneralSans text-[#FC4242] text-2xl mb-4 font-medium">
             {data.subtitle}
           </h4>

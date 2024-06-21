@@ -11,6 +11,7 @@ import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
 import StoreFeatures from "@/components/general/StoreFeatures";
+ 
 
 export default function Home() {
   return (

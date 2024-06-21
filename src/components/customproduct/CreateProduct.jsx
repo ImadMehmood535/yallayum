@@ -30,13 +30,17 @@ const CreateProduct = ({ variations }) => {
     <div className="CreateProduct pageLayout px-0 mx-auto">
       <div className="container">
         <div className="w-full md:max-w-[760px] mx-auto">
-          <VariationsWeightArea
-            setQuantities={setQuantities}
-            setCurrentIndex={setCurrentIndex}
-            variations={variations}
-            currentIndex={currentIndex}
-          />
-          <ProgressBarArea filledPercentage={filledPercentage} />
+          <section>
+            <VariationsWeightArea
+              setQuantities={setQuantities}
+              setCurrentIndex={setCurrentIndex}
+              variations={variations}
+              currentIndex={currentIndex}
+            />
+          </section>
+          <section>
+            <ProgressBarArea filledPercentage={filledPercentage} />
+          </section>
           <FlavourWrapper
             variations={variations}
             currentIndex={currentIndex}
@@ -44,7 +48,10 @@ const CreateProduct = ({ variations }) => {
             quantities={quantities}
             setQuantities={setQuantities}
           />
-          <FooterArea calculateTotalAmount={calculateTotalAmount} />
+          <section></section>
+          <section>
+            <FooterArea calculateTotalAmount={calculateTotalAmount} />
+          </section>
         </div>
       </div>
     </div>

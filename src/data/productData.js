@@ -7,6 +7,7 @@ const {
   product3var2,
   gallery1,
   gallery2,
+  single_product_image,
 } = require("@/assets");
 
 const productData = [
@@ -25,7 +26,7 @@ const productData = [
       "Indulge in the natural sweetness of our freeze-dried strawberries. Handpicked at their peak ripeness, these ruby-red gems are transformed into delicate, crisp bites that burst with flavor. Packed with antioxidants and high in fiber, our freeze-dried strawberries are a guilt-free delight that adds a touch of freshness to your snacking experience. Taste the essence of Dubai’s vibrant culture with every irresistible bite.",
     ingredients:
       "Indulge in the natural sweetness of our freeze-dried strawberries. Handpicked at their peak ripeness, these ruby-red gems are transformed into delicate, crisp bites that burst with flavor. Packed with antioxidants and high in fiber, our freeze-dried strawberries are a guilt-free delight that adds a touch of freshness to your snacking experience. Taste the essence of Dubai’s vibrant culture with every irresistible bite.",
-    gallery: [gallery1, gallery2],
+    gallery: [single_product_image, single_product_image],
     variation: [
       {
         variationId: 1,
@@ -53,7 +54,7 @@ const productData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     longDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    gallery: [gallery1, gallery2],
+    gallery: [single_product_image, single_product_image],
     variation: [
       {
         variationId: 1,
