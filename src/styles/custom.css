@@ -317,7 +317,7 @@ ul.mob-br {
   color: white;
   padding: 0px !important;
 }
-.custom-accrodian-group > div button{
+.custom-accrodian-group > div button {
   padding: 20px !important;
 }
 .custom-accrodian-group > div section div {
@@ -371,27 +371,18 @@ input[type="range"] {
   background: #fc4242;
   border: 1px solid white;
 }
-/* .progress{
-  position: relative;
-}
-.progress:before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: #fc4242;
-  border: 1px solid white;
-  position: absolute;
-  top: 0; 
-  left: 0;
-} */
+
 .CreateProduct .product-tabs .tab.active {
   background-color: #fc4242;
   border: #fc4242;
   color: white;
 }
-
+.select-wrapper button {
+  border-radius: 50px;
+  padding: 15px 25px !important;
+  height: auto !important;
+  min-height: auto;
+}
 
 @media only screen and (max-width: 1024px) {
   .custom-header header {

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 const CartSideBar = ({ isOpen, onClose }) => {
   return (
@@ -72,7 +73,7 @@ const CartSideBar = ({ isOpen, onClose }) => {
                   </div>
                   <p className="mt-0.5 text-base md:text-lg font-medium">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
-                    <a href="#" className="flex GeneralSans text-xl items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-white shadow-sm bg-black">Checkout</a>
+                    <Link href="/cart" className="flex GeneralSans  items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-white shadow-sm bg-black">Cart</Link>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>
