@@ -8,7 +8,7 @@ import VideoItem from "./VideoItem";
 
 const VideoSlider = ({ videoData }) => {
   return (
-    <div className="    mx-auto max-w-[77%]  flex justify-center items-center    w-full">
+    <div className="mx-auto w-full sm:max-w-[77%] flex justify-center items-center">
       <div className="container w-full">
         <div className="feeds">
           <Swiper

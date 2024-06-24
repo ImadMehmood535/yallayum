@@ -11,8 +11,6 @@ import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
 import { productData } from "@/data/productData";
 import StoreFeatures from "@/components/general/StoreFeatures";
- 
-
 
 export default function Home() {
   return (
@@ -23,10 +21,7 @@ export default function Home() {
         <OurImpact />
       </div>
       <CustomSlider />
-      <div className="hidden md:block">
-        <InstaFeeds reviewData={reviewData} />
-      </div>
-
+      <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
