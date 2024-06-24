@@ -83,7 +83,7 @@ const Footer = () => {
                     Thank you for choosing YallaYum. Follow us on social media
                     to stay up to date on our latest products and promotions.
                   </p>
-                  <div className="icon-list">
+                  <div className="icon-list  list">
                     <ul className="flex flex-col gap-2 text-sm font-medium">
                       <li className="flex flex-row gap-1 items-center">
                         <svg
