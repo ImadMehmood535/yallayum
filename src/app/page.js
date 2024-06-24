@@ -15,6 +15,7 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 export default function Home() {
   return (
     <>
+    
       <Banner />
       <FeatureProduct data={productData} />
       <div className="hidden md:block">
