@@ -153,7 +153,7 @@ const SingleShop = ({
             </div>
           </div>
         </div>
-        <div className="tabs-area">
+        <div className=" mt-6">
           <ProductInfoTabs data={data} />
         </div>
       </div>
