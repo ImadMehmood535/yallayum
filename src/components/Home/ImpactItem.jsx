@@ -19,7 +19,7 @@ const ImpactItem = ({ position, image, subheading, title, text }) => {
             <h4 className="sub-heading GeneralSans text-[#3C3C3B] text-lg font-medium mb-2 transition-all duration-500 lg:translate-y-4 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
               No. {subheading}
             </h4>
-            <h2 className="heading GeneralSans font-bold text-2xl text-[#403D3D] mb-2 transition-all duration-500 delay-100">
+            <h2 className="heading Fedra-900 font-bold text-2xl text-[#403D3D] mb-2 transition-all duration-500 delay-100">
               {title}
             </h2>
             <p className="text-[#3C3C3B] GeneralSans text-base transition-all duration-500 delay-200 lg:translate-y-6 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">

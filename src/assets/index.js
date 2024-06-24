@@ -38,6 +38,7 @@ import pic6 from "./images/pic6.jpg";
 import banner0 from "./images/banner0.png"
 import FooterBg from "./images/FooterBg.png";
 import PaymentCards from "./images/PaymentCards.png";
+import PaymentCards2 from "./images/PaymentCards2.png";
 import video1 from "./images/video1.png"
 import video2 from "./images/video2.png"
 import video3 from "./images/video3.png"
@@ -108,6 +109,7 @@ export {
   banner0,
   FooterBg,
   PaymentCards,
+  PaymentCards2,
   video1,
   video2,
   video3,

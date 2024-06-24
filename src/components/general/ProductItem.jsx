@@ -13,19 +13,15 @@ const ProductItem = ({
   option,
   btnAllow,
 }) => {
-  const selectedVariation =
-    variation ||
-    data?.variation.find(
-      (variation) => variation.variationType === selectedVariationType
-    );
-
-  const variationImage = selectedVariation?.variationImage.src;
-  const variationPrice = selectedVariation?.variationPrice;
+  
+ 
 
   const [isOpen, setIsOpen] = useState(false);
   const modalDisplay = () => {
     setIsOpen(!isOpen);
   };
+
+  console.log(data , "final data")
 
   return (
     <div
@@ -40,10 +36,10 @@ const ProductItem = ({
       >
         <div className={`flip-contain ${option == 1 ? `w-[20%]` : `w-full`}`}>
           <Link
-            href={`/shop/${data?.slug}?variation=${selectedVariation?.variationType}&id=${data.id}`}
+            href={`/shop/${data?.slug}?variation=${data?.variationType}&id=${data.id}`}
           >
             <Image
-              src={variationImage}
+              src={data?.gallery[0]}
               alt={data?.title}
               width={350}
               height={350}
@@ -72,13 +68,13 @@ const ProductItem = ({
           {option === 1 && <p>{data?.longDescription}</p>}
 
           <h6 className={`text-[#FC4242] GeneralSans font-semibold text-lg`}>
-            AED {variationPrice}
+            AED {data?.variationPrice}
           </h6>
 
           {btnAllow && (
             <div
               // onClick={modalDisplay}
-              className={`group/btn max-w-[160px] Fedra-400  hover:max-w-[200px] max-w-[130px]  transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap    `}
+              className={`group/btn max-w-[160px] Fedra-400  hover:max-w-[200px]   transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap    `}
             >
               <div className="group-hover/btn:h-[24px]  h-0 transition-all">
                 <ShoppingBag width={20} />

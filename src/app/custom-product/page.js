@@ -6,7 +6,7 @@ import React from "react";
 const page = () => {
   return (
     <div className="custom-product-page">
-      <InnerpageHeader pagetitle="Make your mix" />
+      <InnerpageHeader pagetitle="Make your mix" font={true} />
       <CreateProduct variations={variations}/>
     </div>
   );

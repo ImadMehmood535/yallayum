@@ -21,7 +21,7 @@ const VariationsWeightArea = ({variations, setCurrentIndex, setQuantities, curre
                 );
               }}
               key={key}
-              className={`tab py-10 px-4 flex justify-center items-center flex-col border-2 border-black rounded-xl min-w-[180px] max-h-[200px] cursor-pointer hover:bg-[#FC4242] hover:border-[#FC4242] hover:text-white ${
+              className={`tab py-10 px-4 flex justify-center items-center flex-col border-2 border-black rounded-xl min-w-[180px] max-h-[200px] cursor-pointer hover:bg-[#FC4242] hover:border-[#FC4242] hover:text-white  ${
                 currentIndex === item ? "active" : "nonactive"
               }`}
             >

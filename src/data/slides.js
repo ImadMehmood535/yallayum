@@ -41,7 +41,7 @@ const slide1 = [
     reviews: 420,
     details:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-  }, 
+  },
 ];
 const slide2 = [
   {
@@ -74,7 +74,12 @@ const slide2 = [
 ];
 
 const homeBannerSlide = [
-
+  {
+    bgColor: "#FFE6E6",
+    firstimage: Banner_heading,
+    imageSrc: Banner_slide_5,
+     
+  },
   {
     bgColor: "#F9F4ED",
     imageSrc: Banner_slide_1,
@@ -95,10 +100,8 @@ const homeBannerSlide = [
     title: "Experience a timeless delight with freeze-dried fruits",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  },
-
+  }
  
-  
 ];
 
 export { slide1, slide2, homeBannerSlide };

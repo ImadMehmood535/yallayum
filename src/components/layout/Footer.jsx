@@ -6,12 +6,12 @@ import { FaTiktok } from "react-icons/fa";
 import { PiInstagramLogo } from "react-icons/pi";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa";
-import { PaymentCards } from "@/assets";
+import { PaymentCards2 } from "@/assets";
 import Image from "next/image";
 import { Input } from "@nextui-org/react";
 
 const Footer = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const useful_links = [
     { name: "Privacy Policy", link: "/" },
@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <div
       className={`Footer overflow-hidden relative py-10 md:pt-20 md:pb-10 px-0 mx-auto ${
-        isDarkMode ? "bg-black text-white" : "bg-white text-black"
+        isDarkMode ? "bg-black text-white" : "bg-[#FAF7F4] text-black"
       }`}
     >
       <div className="container relative z-20">
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="left-area w-full md:w-2/4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="useful-links">
-                <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
+                <h4 className="uppercase GeneralSans font-semibold text-lg mb-4">
                   USEFUL LINKS
                 </h4>
                 <ul className="flex flex-col gap-3 text-sm font-medium">
@@ -57,7 +57,7 @@ const Footer = () => {
               </div>
 
               <div className="useful-links">
-                <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
+                <h4 className="uppercase GeneralSans font-semibold text-lg mb-4">
                   USEFUL LINKS
                 </h4>
                 <ul className="flex flex-col gap-3 text-sm font-medium">
@@ -76,12 +76,11 @@ const Footer = () => {
 
               <div className="about-site col-span-2">
                 <div className="max-w-[520px]">
-                  <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
+                  <h4 className="uppercase GeneralSans font-semibold text-lg mb-4">
                     CONTACT INFORMATION
                   </h4>
                   <p className="mb-3 GeneralSans font-medium text-base">
-                    Thank you for choosing YallaYum. Follow us on social media
-                    to stay up to date on our latest products and promotions.
+                    Thank you for choosing YallaYum. Follow us on social media to stay up to date on our latest products and promotions.
                   </p>
                   <div className="icon-list  list">
                     <ul className="flex flex-col gap-2 text-sm font-medium">
@@ -162,7 +161,7 @@ const Footer = () => {
           </div>
           <div className="right-area w-full md:w-1/4">
             <div className="newsletter">
-              <h4 className="uppercase GeneralSans font-bold text-lg mb-4">
+              <h4 className="uppercase GeneralSans font-semibold text-lg mb-4">
                 Newsletter
               </h4>
               <p className="mb-3 GeneralSans font-medium text-base">
@@ -175,7 +174,7 @@ const Footer = () => {
                     className={`GeneralSans rounded-full py-3 px-6 focus:border-none focus:outline-none w-full ${
                       isDarkMode
                         ? "bg-white text-black"
-                        : "bg-black text-white"
+                        : "bg-white text-white"
                     }`}
                     placeholder="Your email, please"
                     {...register("Email", {
@@ -195,35 +194,35 @@ const Footer = () => {
                 <div className="button-wrapper GeneralSans flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between">
                   <input
                     type="submit"
-                    className="bg-[#fc4242] rounded-full font-medium text-white max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer hover:bg-[#cccccc]"
-                    value="Sign me up     ➜ "
+                    className="bg-[#fc4242] rounded-full font-medium text-white max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer hover:bg-black"
+                    value="Subscribe"
                   />
-                  <Link
+                  {/* <Link
                     href={"/"}
                     className="GeneralSans pb-1 underline text-[#9A9A9A] text-sm hover:text-[#fc4242]"
                   >
                     We respect your privacy.
-                  </Link>
+                  </Link> */}
                 </div>
               </form>
               <div className="social-list mt-5">
                 <ul className="flex flex-row gap-2 justify-center md:justify-start">
                   <li
-                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-[#ccc]   transition-all duration-200 ${
+                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-white   transition-all duration-200 ${
                       isDarkMode ? `black` : `white`
                     }`}
                   >
                     <FaTiktok />
                   </li>
                   <li
-                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-[#ccc]   transition-all duration-200 ${
+                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-white   transition-all duration-200 ${
                       isDarkMode ? `black` : `white`
                     }`}
                   >
                     <PiInstagramLogo />
                   </li>
                   <li
-                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-[#ccc]   transition-all duration-200 ${
+                    className={`p-3 rounded-full bg-white hover:bg-[#fc4242] text-[#fc4242] hover:text-white   transition-all duration-200 ${
                       isDarkMode ? `black` : `white`
                     }`}
                   >
@@ -244,14 +243,14 @@ const Footer = () => {
 
         <div className="bottom-footer w-full flex flex-col justify-between md:flex-row pt-10 md:pt-36 items-center">
           <div className="rights-text">
-            <p className="GeneralSans flex flex-row gap-4 text-base">
-              <span className="font-semibold">© YallaYum</span>
-              <span> All rights reserved | 2024</span>
+            <p className="GeneralSans flex flex-col md:flex-row gap-4 text-base">
+              <span className="font-semibold">© 2024 YallaYum</span>
+              <span> All Rights Reserved |  Developed by Clicktap Digital</span>
             </p>
           </div>
-          <div className="payments flex flex-col-reverse md:flex-row gap-1 items-center justify-end">
+          <div className="payments flex flex-col-reverse md:flex-row gap-3 items-center justify-end">
             <div className="link-list">
-              <ul className="flex flex-col md:flex-row gap-3 text-sm font-medium">
+              <ul className="flex  flex-row gap-3 text-sm font-medium">
                 <li className="text-center">
                   <Link
                     href={"/"}
@@ -272,8 +271,8 @@ const Footer = () => {
             </div>
             <div className="card-list">
               <Image
-                src={PaymentCards}
-                alt={PaymentCards}
+                src={PaymentCards2}
+                alt={PaymentCards2}
                 className="max-w-[210px]"
               />
             </div>

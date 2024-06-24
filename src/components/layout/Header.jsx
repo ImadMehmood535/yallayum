@@ -82,6 +82,7 @@ const Header = () => {
   return (
     <>
       <Navbar
+        position="sticky"
         maxWidth="full"
         isMenuOpen={isMenuOpen}
         isBlurred={true}
@@ -117,8 +118,7 @@ const Header = () => {
         </NavbarContent>
 
         <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex"></NavbarItem>
-          <NavbarItem className="flex items-center flex-row-reverse md:gap-2">
+          <NavbarItem className="flex items-center flex-row-reverse gap-4">
             <LiaShoppingBagSolid
               className="text-white text-5xl md:text-2xl cursor-pointer"
               onClick={handleCartClick}
@@ -163,7 +163,7 @@ const Header = () => {
           {additionalMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                className="w-full text-black hover:text-[#FC4242]"
+                className="GeneralSans w-full text-black hover:text-[#FC4242]"
                 href={item.link}
                 size="lg"
               >

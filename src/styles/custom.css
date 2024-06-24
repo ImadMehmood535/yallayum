@@ -38,8 +38,12 @@
 .custom-header header .desktop-menu-item li a:hover {
   color: #fc4242;
 }
-ul.mob-br {
+/* ul.mob-br {
   --navbar-height: 147px !important;
+} */
+ul.mob-br{
+  top: 90px;
+  width: 100%;
 }
 @keyframes ticker {
   0% {
@@ -105,6 +109,15 @@ ul.mob-br {
   height: 10px;
   border-radius: 20px;
 }
+/* .BannnerSwiper .swiper-wrapper .swiper-slide {
+  height: 100% !important;
+  min-height: 640px !important;
+}
+.BannnerSwiper .swiper-wrapper .swiper-slide .banner-item {
+  height: 100% !important;
+  min-height: 650px;
+} */
+
 .ProductItem .item-wrapper:before {
   content: "";
   width: 100%;
@@ -133,6 +146,12 @@ ul.mob-br {
 }
 .ProductItem:nth-child(4) .item-wrapper:before {
   background-color: #ffe9e9;
+}
+.ProductItem:nth-child(5) .item-wrapper:before {
+  background-color: #FAF1DC;
+}
+.ProductItem:nth-child(6) .item-wrapper:before {
+  background-color: #FFE9E9;
 }
 
 .ProductItem:hover .item-wrapper:before {
@@ -197,7 +216,7 @@ ul.mob-br {
 }
 
 .Footer:after {
-  content: url("../assets/images/FooterBg.png");
+  content: url("../assets/images/FooterBg2.png");
   width: 790px;
   height: 360px;
   position: absolute;
@@ -382,6 +401,9 @@ input[type="range"] {
   padding: 15px 25px !important;
   height: auto !important;
   min-height: auto;
+}
+.tab:hover svg path {
+  fill: white;
 }
 
 @media only screen and (max-width: 1024px) {
