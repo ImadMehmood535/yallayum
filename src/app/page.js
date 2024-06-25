@@ -1,3 +1,4 @@
+'use client'
 import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
@@ -19,10 +20,9 @@ export default function Home() {
     <>
     
       <Banner />
-      <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
+      {/* <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
         <CategoryList itemCount={4} data={CategoryData} />
-        {/* <FeatureProduct data={productData} /> */}
-      </div>
+       </div>
       <div className="hidden md:block">
         <OurImpact />
       </div>
@@ -31,7 +31,7 @@ export default function Home() {
       <Blogs blogsData={blogsData} />
       <ProductFeature />
       <FeedSlider feedlist={feedlist} />
-      <StoreFeatures />
+      <StoreFeatures /> */}
     </>
   );
 }
