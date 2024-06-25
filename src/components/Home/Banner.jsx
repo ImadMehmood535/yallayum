@@ -12,7 +12,7 @@ import AnimatedButton from "../general/AnimatedButton";
 const Banner = () => {
   let slidesData = [...homeBannerSlide];
   return (
-    <div className="Banner h-[80vh] sm:h-[60vh]">
+    <div className="Banner h-[80vh]  sm:h-[60vh]">
       <Swiper
         pagination={{
           dynamicBullets: true,
