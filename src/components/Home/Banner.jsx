@@ -12,7 +12,7 @@ import AnimatedButton from "../general/AnimatedButton";
 const Banner = () => {
   let slidesData = [...homeBannerSlide];
   return (
-    <div className="Banner h-[80vh]  sm:h-[60vh]">
+    <div className="Banner h-[40vh]  sm:h-[60vh]">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -68,7 +68,7 @@ const Banner = () => {
                   </div>
 
                   <div
-                    className={`w-full h-[400px] md:h-[600px] img-area  ${
+                    className={`w-full h-[150px] md:h-[600px] img-area  ${
                       slide?.firstimage ? `md:w-2/4` : `md:max-w-[570px]`
                     }`}
                   >
