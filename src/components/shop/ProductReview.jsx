@@ -34,7 +34,7 @@ const ProductReview = ({ data }) => {
           <div key={key} className="review border-t-1 grid grid-cols-1 md:grid-cols-5">
             <div className="user-info md:border-r-1 py-4 px-0 md:p-10 pl-0">
               {item.userProfile ? (
-                <img
+                <Image
                   src={item.userProfile.src}
                   alt={item.userProfile}
                   width={96}
@@ -64,8 +64,8 @@ const ProductReview = ({ data }) => {
                 </p>
                 <div className="comment-reply flex flex-row items-center mt-4 gap-4">
                   <div className="profile bg-black rounded-full p-2 w-[50px] md:w-[96px] h-[50px] md:h-[96px] flex justify-center items-center">
-                    <img
-                      src={Logo.src}
+                    <Image
+                      src={Logo}
                       alt={Logo}
                       width={50}
                       height={96}

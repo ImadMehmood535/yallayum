@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -6,8 +7,8 @@ const RecipesItem = ({ data }) => {
     <div className="RecipesItem">
       <Link href={`/recipes/${data.slug}`}>
         <div className="image-area">
-          <img
-            src={data.image.src}
+          <Image
+            src={data.image}
             alt={data.title}
             width={550}
             height={450}

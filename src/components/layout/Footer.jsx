@@ -245,7 +245,7 @@ const Footer = () => {
           <div className="rights-text">
             <p className="GeneralSans flex flex-col md:flex-row gap-4 text-base">
               <span className="font-semibold">© 2024 YallaYum</span>
-              <span> All Rights Reserved |  Developed by Clicktap Digital</span>
+              <span> All Rights Reserved |  Developed by <Link href="https://www.clicktap.ae/" target="_blank" className="text-[#fc4242] font-bold">Clicktap Digital</Link></span>
             </p>
           </div>
           <div className="payments flex flex-col-reverse md:flex-row gap-3 items-center justify-end">

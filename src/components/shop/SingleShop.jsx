@@ -48,7 +48,7 @@ const SingleShop = ({
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div
-                className="feature-area w-full mx-auto bg-contain bg-center bg-no-repeat w-full h-[500px] bg-[#FAF1DC] rounded-2xl"
+                className="feature-area w-full mx-auto bg-center bg-[length:400px_420px] bg-no-repeat  h-[500px] bg-[#FAF1DC] rounded-2xl"
                 style={{
                   backgroundImage: `url( ${
                     selectedImage.src || selectedImage
@@ -84,7 +84,7 @@ const SingleShop = ({
                     <SwiperSlide key={index}>
                       <div
                         key={index}
-                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] bg-[length:150px_160px] bg-[#FAF1DC] rounded-2xl w-full"
+                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] bg-[length:100px_140px] bg-[#FAF1DC] rounded-2xl w-full"
                         style={{ backgroundImage: `url(${image.src})` }}
                         onClick={() => setSelectedImage(image)}
                       ></div>

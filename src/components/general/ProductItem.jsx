@@ -21,7 +21,7 @@ const ProductItem = ({
     setIsOpen(!isOpen);
   };
 
-  console.log(data , "final data")
+ 
 
   return (
     <div

@@ -19,11 +19,11 @@ const Banner = () => {
           clickable: true,
         }}
         loop={true}
-        // autoplay={{
-        //   disableOnInteraction: false,
-        //   pauseOnMouseEnter: true,
-        //   delay: 5000,
-        // }}
+        autoplay={{
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          delay: 5000,
+        }}
         modules={[Pagination, Autoplay]}
         className="BannnerSwiper"
       >

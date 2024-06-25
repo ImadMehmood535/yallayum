@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const FlavourWrapper = ({
@@ -35,8 +36,8 @@ const FlavourWrapper = ({
             >
               <div className="flavour-image-area w-full sm:w-1/6 flex justify-center">
                 <div className="border border-black p-4 rounded-lg">
-                  <img
-                    src={variation.image.src}
+                  <Image
+                    src={variation.image}
                     alt={variation.variationsName}
                     className="h-20 w-auto object-cover"
                   />

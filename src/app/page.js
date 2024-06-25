@@ -17,7 +17,6 @@ import CategoryList from "@/components/shop/CategoryList";
 export default function Home() {
   return (
     <>
-    
       <Banner />
       <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
         <CategoryList itemCount={4} data={CategoryData} />
