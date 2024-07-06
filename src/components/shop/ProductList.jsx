@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import ProductItem from "../general/ProductItem";
 
 const ProductList = ({ filteredProducts, selectedVariationType, option, btnAllow }) => {
-  const [screenSize, setScreenSize] = useState(null);
+
+   const [screenSize, setScreenSize] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,7 +41,7 @@ const ProductList = ({ filteredProducts, selectedVariationType, option, btnAllow
                   }`
             } gap-8`}
           >
-            {filteredProducts.map((item, key) => (
+            {filteredProducts?.map((item, key) => (
               <ProductItem
                 key={key}
                 data={item}

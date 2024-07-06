@@ -6,22 +6,11 @@ import AnimatedButton from "./AnimatedButton";
 import Popup from "./Popup";
 import { ShoppingBag } from "@/data/allSvgs";
 
-const ProductItem = ({
-  data,
-  variation,
-  selectedVariationType,
-  option,
-  btnAllow,
-}) => {
-  
- 
-
+const ProductItem = ({ data, option, btnAllow }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalDisplay = () => {
     setIsOpen(!isOpen);
   };
-
- 
 
   return (
     <div
@@ -36,11 +25,11 @@ const ProductItem = ({
       >
         <div className={`flip-contain ${option == 1 ? `w-[20%]` : `w-full`}`}>
           <Link
-            href={`/shop/${data?.slug}?variation=${data?.variationType}&id=${data.id}`}
+            href={`/shop/${data?.slug}?variationId=${data?.variationId}&id=${data.id}`}
           >
             <Image
-              src={data?.gallery[0]}
-              alt={data?.title}
+              src={data?.imageUrl}
+              alt={data?.name}
               width={350}
               height={350}
               quality={100}
@@ -62,13 +51,13 @@ const ProductItem = ({
                 : `font-medium text-lg`
             }`}
           >
-            {data?.title}
+            {data?.name}
           </h4>
 
           {option === 1 && <p>{data?.longDescription}</p>}
 
           <h6 className={`text-[#FC4242] GeneralSans font-semibold text-lg`}>
-            AED {data?.variationPrice}
+            AED {data?.salePrice}
           </h6>
 
           {btnAllow && (

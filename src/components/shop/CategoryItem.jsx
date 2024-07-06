@@ -21,7 +21,7 @@ const CategoryItem = ({ data, setFilter }) => {
       <div className="image-area flex justify-center mb-6">
         <Image
           src={data?.imageUrl}
-          alt={data?.title}
+          alt={data?.name}
           width={250}
           height={450}
           className="w-full max-w-[300px] rounded-xl"
@@ -30,7 +30,7 @@ const CategoryItem = ({ data, setFilter }) => {
         />
       </div>
       <div className="content-area text-center  GeneralSans">
-        <h2 className="text-2xl font-medium capitalize">{data.title}</h2>
+        <h2 className="text-2xl font-medium capitalize">{data?.name}</h2>
       </div>
     </div>
   );

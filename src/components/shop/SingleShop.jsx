@@ -10,36 +10,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const SingleShop = ({
-  data,
-  selectedVariation,
-  setFilter,
-  filter,
-  rating,
-  total_review,
-}) => {
+const SingleShop = ({ data, rating, total_review }) => {
+  console.log(data, "data");
+  const allImages = [...data?.productVariation[0]?.gallery];
+
   const [selectedImage, setSelectedImage] = useState(
-    selectedVariation.variationImage
+    data?.productVariation[0]?.imageUrl
   );
-  const [currentVariation, setCurrentVariation] = useState(selectedVariation);
 
-  useEffect(() => {
-    setSelectedImage(currentVariation.variationImage);
-  }, [currentVariation]);
-
-  const handleFilterChange = (variationType) => {
-    const newVariation = data.variation.find(
-      (variation) => variation.variationType === variationType
-    );
-    setCurrentVariation(newVariation);
-    setSelectedImage(newVariation.variationImage);
-    setFilter(variationType);
-  };
-
-  const allImages = [
-    ...(data.gallery || []),
-    ...data.variation.map((variation) => variation.variationImage),
-  ];
+  console.log(allImages);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
@@ -48,11 +28,9 @@ const SingleShop = ({
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div
-                className="feature-area w-full mx-auto bg-center bg-[length:400px_420px] bg-no-repeat  h-[500px] bg-[#FAF1DC] rounded-2xl"
+                className="feature-area w-full mx-auto bg-center bg-contain bg-no-repeat  h-[500px] bg-[#FAF1DC] rounded-2xl"
                 style={{
-                  backgroundImage: `url( ${
-                    selectedImage.src || selectedImage
-                  }) `,
+                  backgroundImage: `url( ${selectedImage}) `,
                 }}
               ></div>
               <div className="w-full  ">
@@ -84,8 +62,8 @@ const SingleShop = ({
                     <SwiperSlide key={index}>
                       <div
                         key={index}
-                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] bg-[length:100px_140px] bg-[#FAF1DC] rounded-2xl w-full"
-                        style={{ backgroundImage: `url(${image.src})` }}
+                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer bg-[#FAF1DC] rounded-2xl w-full"
+                        style={{ backgroundImage: `url(${image})` }}
                         onClick={() => setSelectedImage(image)}
                       ></div>
                     </SwiperSlide>
@@ -97,7 +75,7 @@ const SingleShop = ({
           <div className="content-area py-6">
             <div className="product-info">
               <h2 className="kalamFont uppercase text-5xl font-semibold">
-                {data.title}
+                {data.name}
               </h2>
               <div className="rating-area my-4">
                 <RatingNoOfReview
@@ -111,38 +89,35 @@ const SingleShop = ({
                 dangerouslySetInnerHTML={{ __html: data.shortDescription }}
               />
               <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">
-                {currentVariation.variationSalePrice ? (
-                  <div className="price-area gap-6 flex flex-row items-end">
-                    <span className="sale-price text-[#FC4242] text-3xl">
-                      AED {currentVariation.variationSalePrice}
-                    </span>
-                    <span className="regular-price text-[#B0B0B0] line-through text-2xl">
-                      AED {currentVariation.variationPrice}
-                    </span>
-                  </div>
-                ) : (
-                  <span className="regular-price text-[#FC4242] text-3xl">
-                    AED {currentVariation.variationPrice}
+                <div className="price-area gap-6 flex flex-row items-end">
+                  <span className="sale-price text-[#FC4242] text-3xl">
+                    AED {data?.productVariation[0]?.salePrice}
                   </span>
-                )}
-                <p>({currentVariation.variationWeight} gram)</p>
+                  <span className="regular-price text-[#B0B0B0] line-through text-2xl">
+                    AED {data?.productVariation[0]?.salePrice}
+                  </span>
+                </div>
+
+                <p>({data?.productVariation[0]?.weight} gram)</p>
               </div>
             </div>
             <div className="quantity-variation-container my-6 flex flex-col md:flex-row gap-6">
-              <div className="flex flex-col gap-2">
-                <span className="GeneralSans text-lg font-normal">
-                  Packages:
-                </span>
-                <FilterMode
-                  setFilter={handleFilterChange}
-                  activeFilter={currentVariation.variationType}
-                />
-              </div>
+              {data?.productVariation?.length > 1 && (
+                <div className="flex flex-col gap-2">
+                  <span className="GeneralSans text-lg font-normal">
+                    Packages:
+                  </span>
+                  {/* <FilterMode
+                    setFilter={handleFilterChange}
+                    activeFilter={currentVariation.variationType}
+                  /> */}
+                </div>
+              )}
               <div className="flex flex-col gap-2">
                 <span className="GeneralSans text-lg font-normal">
                   Quantity:
                 </span>
-                <QuantitySelector />
+                <QuantitySelector setQuantity={setQuantity} quantity={quantity}/>
               </div>
             </div>
             <div className="btn-area">
