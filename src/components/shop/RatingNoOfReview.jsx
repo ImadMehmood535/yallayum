@@ -15,11 +15,9 @@ const RatingNoOfReview = ({ avgrating, totalReview }) => {
         <div className="star-area flex flex-row items-center gap-2 text-[#FC4242] text-lg">
           {stars}
         </div>
-        {totalReview && (
-          <div className="rate-count">
-            <p className="GeneralSans text-base">({totalReview} Reviews)</p>
-          </div>
-        )}
+        <div className="rate-count">
+          <p className="GeneralSans text-base">({totalReview || 0} Reviews)</p>
+        </div>
       </div>
     </div>
   );

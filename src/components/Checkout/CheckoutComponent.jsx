@@ -1,35 +1,34 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CheckoutForm from "./CheckoutForm";
 import CheckoutTotal from "./CheckoutTotal";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { single_product_image } from "@/assets";
 import { checkoutSchema } from "@/validations/checkoutform";
+import { API } from "@/api";
 
-const CheckoutComponent = () => {
+const CheckoutComponent = ({ total }) => {
   const options = [
     { id: 1, name: "Pakistan" },
     { id: 2, name: "Uae" },
     { id: 3, name: "Usa" },
   ];
 
-  const cartitem = [
-    {
-      id: 1,
-      name: "test",
-      imageUrl: single_product_image,
-      price: 25,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "test",
-      imageUrl: single_product_image,
-      price: 50,
-      quantity: 4,
-    },
-  ];
+  const [cartData, setCartData] = useState(null);
+
+  const getData = async () => {
+    try {
+      const response = await API.getCartData();
+      setCartData(response?.data?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const {
     register,
@@ -66,7 +65,7 @@ const CheckoutComponent = () => {
               </div>
               <div className="w-full md:w-[35%]">
                 <CheckoutTotal
-                  cartitem={cartitem}
+                  cartitem={cartData}
                   onSubmit={handleSubmit(onSubmit)}
                 />
               </div>

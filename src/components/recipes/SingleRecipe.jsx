@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Tiptap from "../general/Editor";
 
 const SingleRecipe = ({ data }) => {
   return (
@@ -8,10 +9,10 @@ const SingleRecipe = ({ data }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="image-area">
             <Image
-              src={data.image}
-              alt={data.slud}
-              width={100}
-              height={100}
+              src={data?.imageUrl}
+              alt={data?.name}
+              width={600}
+              height={600}
               className="w-full h-full"
             />
           </div>
@@ -20,10 +21,16 @@ const SingleRecipe = ({ data }) => {
               Recipe
             </h4>
             <h2 className="title uppercase text-4xl font-medium mb-4">
-              {data.title}
+              {data.name}
             </h2>
-            <p className="text-lg font-normal">{data.content}</p>
+            <p className="text-lg font-normal">
+              <Tiptap content={data?.shortDescription} />
+            </p>
           </div>
+        </div>
+
+        <div className="py-10">
+          <Tiptap content={data?.description} />
         </div>
       </div>
     </div>

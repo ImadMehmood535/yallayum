@@ -1,8 +1,6 @@
-"use client";
 import ProductFeature from "@/components/general/ProductFeature";
 import SingleShop from "@/components/shop/SingleShop";
-import { useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import { productData } from "@/data/productData";
 import StoreFeatures from "@/components/general/StoreFeatures";
 import ProductReview from "@/components/shop/ProductReview";
@@ -12,27 +10,29 @@ import { recipesData } from "@/data/recipesData";
 import RelatedProduct from "@/components/shop/RelatedProduct";
 import { getProductById } from "@/cached-requests";
 
-const ShopSlugPage = ({ product }) => {
-//   const [filter, setFilter] = useState(variationType);
-  const [relatedProduct, setRelatedProduct] = useState(null);
-  // let rating =  allproductreview.avgrating;
-  // let total_review =  allproductreview.numOfReview;
-
-  // const selectedVariation = product?.variation.find(
-  //   (variation) => variation.variationType === variationType
-  // );
-
-  console.log(product , "product")
+const ShopSlugPage = ({ product, reviewData, recipes }) => {
+ 
   return (
     <div className="single-product">
       <div className="  px-0 mx-auto">
-      
-            <SingleShop
-              data={product}
-               rating={4}
-              total_review={10}
-            />
-            {/* <RelatedProduct
+        <SingleShop
+          reviewData={reviewData}
+          data={product}
+          rating={4}
+          total_review={10}
+        />
+
+        <ProductReview data={reviewData} />
+
+        <RecipesList
+          data={recipes}
+          itemCount={3}
+          title="Recipes"
+          btntext="Explore More"
+          btnlink={"/recipes"}
+        />
+
+        {/* <RelatedProduct
             data={recipesData}
             itemCount={3}
             title="Related Products"
@@ -47,8 +47,6 @@ const ShopSlugPage = ({ product }) => {
           <ProductFeature />
           <ProductReview data={allproductreview} />
           <StoreFeatures /> */}
-         
-      
       </div>
     </div>
   );

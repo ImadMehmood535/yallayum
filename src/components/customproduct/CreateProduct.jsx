@@ -16,7 +16,7 @@ const CreateProduct = ({ variations }) => {
 
   const calculateTotalAmount = () => {
     return variations.items.reduce((total, item) => {
-      return total + item.PricePerGram * (quantities[item.id] || 0);
+      return total + item.price * (quantities[item.id] / 10 || 0);
     }, 0);
   };
 
@@ -50,7 +50,10 @@ const CreateProduct = ({ variations }) => {
           />
           <section></section>
           <section>
-            <FooterArea calculateTotalAmount={calculateTotalAmount} />
+            <FooterArea
+              filledPercentage={filledPercentage}
+              calculateTotalAmount={calculateTotalAmount}
+            />
           </section>
         </div>
       </div>

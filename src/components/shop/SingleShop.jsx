@@ -1,7 +1,7 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import FilterMode from "./FilterMode";
 import QuantitySelector from "../general/QuantitySelector";
-import Image from "next/image";
 import ProductInfoTabs from "./ProductInfoTabs";
 import AddCartBtn from "./AddCartBtn";
 import ProductStoreFeature from "./ProductStoreFeature";
@@ -10,15 +10,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const SingleShop = ({ data, rating, total_review }) => {
-  console.log(data, "data");
-  const allImages = [...data?.productVariation[0]?.gallery];
+const SingleShop = ({ reviewData, data, rating, total_review }) => {
+  const [allImages, setAllImages] = useState([
+    ...data?.productVariation[0]?.gallery,
+  ]);
+  const [variation, setVariation] = useState(data?.productVariation[0]);
 
   const [selectedImage, setSelectedImage] = useState(
     data?.productVariation[0]?.imageUrl
   );
 
-  console.log(allImages);
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -75,12 +76,12 @@ const SingleShop = ({ data, rating, total_review }) => {
           <div className="content-area py-6">
             <div className="product-info">
               <h2 className="kalamFont uppercase text-5xl font-semibold">
-                {data.name}
+                {data?.name}
               </h2>
               <div className="rating-area my-4">
                 <RatingNoOfReview
-                  avgrating={rating}
-                  totalReview={total_review}
+                  avgrating={reviewData?.averageRating}
+                  totalReview={reviewData?.totalReviews}
                 />
               </div>
 
@@ -91,14 +92,14 @@ const SingleShop = ({ data, rating, total_review }) => {
               <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">
                 <div className="price-area gap-6 flex flex-row items-end">
                   <span className="sale-price text-[#FC4242] text-3xl">
-                    AED {data?.productVariation[0]?.salePrice}
+                    AED {variation?.salePrice}
                   </span>
                   <span className="regular-price text-[#B0B0B0] line-through text-2xl">
-                    AED {data?.productVariation[0]?.salePrice}
+                    AED {variation?.price}
                   </span>
                 </div>
 
-                <p>({data?.productVariation[0]?.weight} gram)</p>
+                <p>({variation?.weight} gram)</p>
               </div>
             </div>
             <div className="quantity-variation-container my-6 flex flex-col md:flex-row gap-6">
@@ -107,21 +108,29 @@ const SingleShop = ({ data, rating, total_review }) => {
                   <span className="GeneralSans text-lg font-normal">
                     Packages:
                   </span>
-                  {/* <FilterMode
-                    setFilter={handleFilterChange}
-                    activeFilter={currentVariation.variationType}
-                  /> */}
+                  <FilterMode
+                    changeVariantImages={setAllImages}
+                    data={data}
+                    setSelectedImage={setSelectedImage}
+                    setVariation={setVariation}
+                  />
                 </div>
               )}
               <div className="flex flex-col gap-2">
                 <span className="GeneralSans text-lg font-normal">
                   Quantity:
                 </span>
-                <QuantitySelector setQuantity={setQuantity} quantity={quantity}/>
+                <QuantitySelector
+                  setQuantity={setQuantity}
+                  quantity={quantity}
+                />
               </div>
             </div>
             <div className="btn-area">
-              <AddCartBtn />
+              <AddCartBtn
+                productVariationId={variation?.id}
+                quantity={quantity}
+              />
             </div>
             <div className="feature mt-6">
               <ProductStoreFeature />

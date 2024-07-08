@@ -2,7 +2,7 @@ import React from "react";
 import AddCartBtn from "../shop/AddCartBtn";
 import ButtonVariation2 from "../general/ButtonVariation2";
 
-const FooterArea = ({calculateTotalAmount}) => {
+const FooterArea = ({ calculateTotalAmount, filledPercentage }) => {
   return (
     <div className="FooterArea">
       <div className="footer-area text-center GeneralSans mt-6">
@@ -11,7 +11,7 @@ const FooterArea = ({calculateTotalAmount}) => {
           AED {calculateTotalAmount().toFixed(2)}
         </h2>
         <div className="btn-area mt-6">
-          <ButtonVariation2  />
+          <ButtonVariation2 filledPercentage={filledPercentage} />
         </div>
       </div>
     </div>

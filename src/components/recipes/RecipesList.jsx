@@ -25,7 +25,7 @@ const RecipesList = ({ data, itemCount, btntext, btnlink, title }) => {
           </div>
         )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {data.slice(0, itemCount).map((item, key) => (
+          {data?.slice(0, itemCount).map((item, key) => (
             <div key={key} className="item-wrapper">
               <RecipesItem data={item} />
             </div>

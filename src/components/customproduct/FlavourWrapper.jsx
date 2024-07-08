@@ -37,17 +37,19 @@ const FlavourWrapper = ({
               <div className="flavour-image-area w-full sm:w-1/6 flex justify-center">
                 <div className="border border-black p-4 rounded-lg">
                   <Image
-                    src={variation.image}
-                    alt={variation.variationsName}
+                    src={variation?.imageUrl}
+                    width={100}
+                    height={100}
+                    alt={variation?.name}
                     className="h-20 w-auto object-cover"
                   />
                 </div>
               </div>
               <div className="flavour-content-area flex flex-col justify-between w-full sm:w-5/6">
                 <div className="header-area w-full flex flex-row items-center gap-4  justify-between  mb-4 sm:mb-0">
-                  <h2 className="font-semibold">{variation.variationsName}</h2>
+                  <h2 className="font-semibold">{variation?.name}</h2>
                   <h6 className="table py-2 px-6 text-base capitalize bg-black text-white rounded-lg">
-                    {quantities[variation.id]} grams
+                    {quantities[variation?.id]} grams
                   </h6>
                 </div>
                 <div className="range-selector mb-4">
@@ -57,8 +59,9 @@ const FlavourWrapper = ({
                       type="range"
                       className="block w-full rounded-full progress transition-all duration-150"
                       min="0"
+                      step="10"
                       max={currentIndex}
-                      value={quantities[variation.id]}
+                      value={quantities[variation?.id]}
                       onChange={(e) =>
                         handleRangeChange(variation.id, e.target.value)
                       }
