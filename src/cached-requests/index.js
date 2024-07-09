@@ -48,6 +48,28 @@ export async function getSingleReceipe(slug) {
   return res.json();
 }
 
+//blogs
+export async function getAllBlogs() {
+  const res = await fetch(`${BaseUrl}/blog`, {
+    next: { revalidate: reFetech },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+export async function getSingleBlog(slug) {
+  const res = await fetch(`${BaseUrl}/blog/${slug}`, {
+    next: { revalidate: reFetech },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
 export async function getProductById(slug) {
   const res = await fetch(`${BaseUrl}/product/${slug}`, {
     next: { revalidate: reFetech },

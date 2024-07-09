@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { successToast } from "@/hooks/useToast";
 import { API } from "@/api";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 const CartProductList = ({ cartitem, setTotal, getData }) => {
   const [products, setProducts] = useState(cartitem);
@@ -132,27 +133,30 @@ const CartProductList = ({ cartitem, setTotal, getData }) => {
                     <span className="price">${item?.price}</span>
                   </span>
                 </div>
-
-                <div className="flex w-full sm:w-1/5 px-5 sm:px-0 my-3 sm:justify-center">
-                  <div className="flex items-center justify-center rounded-xl overflow-hidden">
+                <div className="QuantitySelector flex w-full sm:w-1/5 px-5 sm:px-0 my-3 sm:justify-center">
+                  <div className="w-fit rounded-full flex justify-center items-center gap-2 px-2 py-1 bg-themeGray-0 border-[2.5px] border-[#E4E7ED]">
                     <button
-                      className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-gray-500"
+                      type="button"
+                      className={`group transition-all cursor-pointer w-[35px] h-[35px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
                       onClick={() => handleDecrement(item?.id)}
                     >
-                      −
+                      <FaMinus className="text-[#FC4242] group-hover:text-white" />
                     </button>
-                    <div className="flex h-8 w-11 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                      {item?.quantity}
-                    </div>
+                    <input
+                      className="w-10 py-2 text-center bg-transparent border-0"
+                      type="text"
+                      value={item?.quantity}
+                      readOnly
+                    />
                     <button
-                      className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 bg-gray-300 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-gray-500"
+                      type="button"
+                      className={`group transition-all cursor-pointer w-[35px] h-[35px] rounded-full flex justify-center items-center hover:bg-[#cccccc]  `}
                       onClick={() => handleIncrement(item?.id)}
                     >
-                      +
+                      <FaPlus className="text-[#FC4242] group-hover:text-white" />
                     </button>
                   </div>
                 </div>
-
                 <div className="flex w-full sm:w-1/5 px-5 sm:px-0 my-3 sm:justify-center">
                   <div className="block sm:hidden mr-2">
                     <b>Total Price</b>

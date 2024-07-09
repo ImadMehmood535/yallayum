@@ -10,8 +10,7 @@ import { recipesData } from "@/data/recipesData";
 import RelatedProduct from "@/components/shop/RelatedProduct";
 import { getProductById } from "@/cached-requests";
 
-const ShopSlugPage = ({ product, reviewData, recipes }) => {
- 
+const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
   return (
     <div className="single-product">
       <div className="  px-0 mx-auto">
@@ -21,9 +20,11 @@ const ShopSlugPage = ({ product, reviewData, recipes }) => {
           rating={4}
           total_review={10}
         />
-
-        <ProductReview data={reviewData} />
-
+        <RelatedProduct
+          data={relateddata}
+          itemCount={4}
+          title="Related Products"
+        />
         <RecipesList
           data={recipes}
           itemCount={3}
@@ -31,6 +32,8 @@ const ShopSlugPage = ({ product, reviewData, recipes }) => {
           btntext="Explore More"
           btnlink={"/recipes"}
         />
+
+        <ProductReview data={reviewData} />
 
         {/* <RelatedProduct
             data={recipesData}
