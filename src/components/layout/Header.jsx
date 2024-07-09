@@ -18,6 +18,8 @@ import { LuUser2 } from "react-icons/lu";
 import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 import CartSideBar from "../general/CartSideBar";
+import { getCookie } from "@/hooks/cookies";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const DeskTopMenuItem = [
@@ -97,10 +99,14 @@ const Header = () => {
     if (isMenuOpen) {
       window.scrollTo({
         top: 90,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   }, [isMenuOpen]);
+
+   const authorized = getCookie("token") ? true : false;
+
+ 
   return (
     <>
       <Navbar
@@ -148,7 +154,7 @@ const Header = () => {
                     <Link
                       key={subKey}
                       href={subItem.link}
-                      className="GeneralSans block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
+                      className="GeneralSans  block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
                     >
                       {subItem.name}
                     </Link>
@@ -173,9 +179,18 @@ const Header = () => {
               className="text-white text-5xl md:text-2xl cursor-pointer"
               onClick={handleCartClick}
             />
-            <Link href="/login">
-              <LuUser2 className="text-white" />
-            </Link>
+
+            {authorized ? (
+              <Link href="/user">
+                <LuUser2 className="text-white" />
+              </Link>
+            ) : (
+              <>
+                <Link href="/login">
+                  <LuUser2 className="text-white" />
+                </Link>
+              </>
+            )}
 
             <Input
               isClearable

@@ -1,15 +1,9 @@
-import ProductFeature from "@/components/general/ProductFeature";
-import SingleShop from "@/components/shop/SingleShop";
+ import SingleShop from "@/components/shop/SingleShop";
 import React from "react";
-import { productData } from "@/data/productData";
-import StoreFeatures from "@/components/general/StoreFeatures";
-import ProductReview from "@/components/shop/ProductReview";
-import { allproductreview } from "@/data/allproductreview";
-import RecipesList from "@/components/recipes/RecipesList";
-import { recipesData } from "@/data/recipesData";
-import RelatedProduct from "@/components/shop/RelatedProduct";
-import { getProductById } from "@/cached-requests";
-
+  import ProductReview from "@/components/shop/ProductReview";
+ import RecipesList from "@/components/recipes/RecipesList";
+ import RelatedProduct from "@/components/shop/RelatedProduct";
+ 
 const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
   return (
     <div className="single-product">
@@ -20,6 +14,8 @@ const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
           rating={4}
           total_review={10}
         />
+        <ProductReview data={reviewData} />
+
         <RelatedProduct
           data={relateddata}
           itemCount={4}
@@ -32,24 +28,6 @@ const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
           btntext="Explore More"
           btnlink={"/recipes"}
         />
-
-        <ProductReview data={reviewData} />
-
-        {/* <RelatedProduct
-            data={recipesData}
-            itemCount={3}
-            title="Related Products"
-          />
-          <RecipesList
-            data={recipesData}
-            itemCount={3}
-            title="Recipes"
-            btntext="Explore More"
-            btnlink={"/recipes"}
-          />
-          <ProductFeature />
-          <ProductReview data={allproductreview} />
-          <StoreFeatures /> */}
       </div>
     </div>
   );
