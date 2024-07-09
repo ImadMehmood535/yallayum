@@ -61,10 +61,16 @@ API.updateCartItem = (id, quanitity) => {
 API.placeOrder = (data) => {
   return API.post("order", data);
 };
+API.getMyOrders = () => {
+  return API.get("order/self");
+};
 
 // custom order
 API.placeCustomOrder = (data) => {
   return API.post("custom-order", data);
+};
+API.getMyCustomOrders = () => {
+  return API.get("custom-order/self");
 };
 
 // product review
