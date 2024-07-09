@@ -1,12 +1,17 @@
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const ButtonVariation2 = ({ filledPercentage }) => {
+const ButtonVariation2 = ({ filledPercentage, payload }) => {
   const [error, setError] = useState("");
+  const router = useRouter();
   const handleCheckout = () => {
     if (filledPercentage != 100) {
       setError("Please fill your CAN in order to checkout");
+    } else {
+      const payloadString = encodeURIComponent(JSON.stringify(payload));
+      router.push(`/checkout?type=custom&payload=${payloadString}`);
     }
   };
   return (
@@ -19,6 +24,7 @@ const ButtonVariation2 = ({ filledPercentage }) => {
       )}
 
       <div
+        href={`/checkout?type=custom`}
         className={` w-full group-hover:w-[280px] mx-auto Fedra-400 transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2  bg-black py-3 px-4 text-gray-100 hover:text-white cursor-pointer whitespace-nowrap   `}
       >
         <div className="group-hover:h-[24px]  h-0 transition-all">

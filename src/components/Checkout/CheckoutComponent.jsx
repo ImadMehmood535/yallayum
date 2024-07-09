@@ -7,15 +7,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { single_product_image } from "@/assets";
 import { checkoutSchema } from "@/validations/checkoutform";
 import { API } from "@/api";
+import { errorToast, successToast } from "@/hooks/useToast";
+import { useRouter } from "next/navigation";
 
-const CheckoutComponent = ({ total }) => {
+const CheckoutComponent = ({ type, makeYourMix }) => {
   const options = [
     { id: 1, name: "Pakistan" },
     { id: 2, name: "Uae" },
     { id: 3, name: "Usa" },
   ];
 
+  const [customProduct, setCustomProduct] = useState(null);
+
+  useEffect(() => {
+    if (makeYourMix) {
+      setCustomProduct(JSON.parse(makeYourMix));
+    }
+  }, [makeYourMix]);
+
   const [cartData, setCartData] = useState(null);
+  const router = useRouter();
 
   const getData = async () => {
     try {
@@ -27,7 +38,9 @@ const CheckoutComponent = ({ total }) => {
   };
 
   useEffect(() => {
-    getData();
+    if (type === "general") {
+      getData();
+    }
   }, []);
 
   const {
@@ -39,14 +52,47 @@ const CheckoutComponent = ({ total }) => {
     resolver: yupResolver(checkoutSchema),
   });
 
+  const [loading, setLoadiong] = useState(false);
+
   const onSubmit = async (data) => {
-    const combinedData = { ...data, cart: cartitem };
+    setLoadiong(true);
     try {
-      //   await API.sendOrder(combinedData);
-      console.log("Order submitted:", combinedData);
+      if (type === "general") {
+        const payload = {
+          orderItems: cartData?.map((item) => {
+            return {
+              variationId: item?.id,
+              quantity: item?.quantity,
+            };
+          }),
+        };
+        await API.placeOrder(payload);
+        successToast("We have received your order, we will contact you soon");
+
+        router.push("/shop");
+
+      } else if (type === "custom") {
+        const payload = {
+          totalPrice: customProduct?.totalPrice,
+          customOrderItems: customProduct?.customOrderItems?.map((item) => {
+            return {
+              grams: item?.grams,
+              flavorItemId: item?.flavorItemId,
+            };
+          }),
+        };
+
+        await API.placeCustomOrder(payload);
+        successToast("We have received your order, we will contact you soon");
+        router.push("/shop");
+      }
+
       reset();
+      setLoadiong(false);
     } catch (error) {
       console.error("Error submitting order:", error);
+      setLoadiong(false);
+      errorToast(error, "Can not create order at the moment ");
     }
   };
 
@@ -65,7 +111,9 @@ const CheckoutComponent = ({ total }) => {
               </div>
               <div className="w-full md:w-[35%]">
                 <CheckoutTotal
-                  cartitem={cartData}
+                  loading={loading}
+                  type={type}
+                  cartitem={type === "general" ? cartData : customProduct}
                   onSubmit={handleSubmit(onSubmit)}
                 />
               </div>

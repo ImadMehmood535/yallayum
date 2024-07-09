@@ -53,8 +53,24 @@ API.removeItem = (id) => {
   return API.delete(`/cart/${id}`);
 };
 
-API.updateCartItem = (id , quanitity) => {
-  return API.patch(`cart/${id}` , quanitity)
-}
+API.updateCartItem = (id, quanitity) => {
+  return API.patch(`cart/${id}`, quanitity);
+};
+
+// order
+API.placeOrder = (data) => {
+  return API.post("order", data);
+};
+
+// custom order
+API.placeCustomOrder = (data) => {
+  return API.post("custom-order", data);
+};
+
+// product review
+
+API.giveReview = (id, data) => {
+  return API.post(`productReview/${id}`, data);
+};
 
 export { API };

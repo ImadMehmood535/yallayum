@@ -9,6 +9,9 @@ import RatingNoOfReview from "./RatingNoOfReview";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { getCookie } from "@/hooks/cookies";
+import { ShoppingBag } from "@/data/allSvgs";
+import Link from "next/link";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([
@@ -21,6 +24,8 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   );
 
   const [quantity, setQuantity] = useState(1);
+
+  const authorized = getCookie("token");
 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
@@ -126,11 +131,25 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                 />
               </div>
             </div>
-            <div className="btn-area">
-              <AddCartBtn
-                productVariationId={variation?.id}
-                quantity={quantity}
-              />
+            <div className="btn-area relative">
+              {authorized && (
+                <AddCartBtn
+                  productVariationId={variation?.id}
+                  quantity={quantity}
+                />
+              )}
+
+              {!authorized && (
+                <Link
+                  href={"/login"}
+                  className={`group w-full Fedra-400 transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2  bg-black py-3 px-4 text-gray-100 hover:text-white cursor-pointer whitespace-nowrap   `}
+                >
+                  <div className="group-hover:h-[24px]  h-0 transition-all">
+                    <ShoppingBag width={20} />
+                  </div>
+                  <p>Please Login to add to cart</p>
+                </Link>
+              )}
             </div>
             <div className="feature mt-6">
               <ProductStoreFeature />

@@ -1,39 +1,91 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RatingNoOfReview from "./RatingNoOfReview";
 import { Button, Textarea } from "@nextui-org/react";
 import { FaUser } from "react-icons/fa";
 import Image from "next/image";
 import { Logo } from "@/assets";
+import TakeRating from "./TakeRating";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userReviewSchema } from "@/validations/ratings";
+import { errorToast, successToast } from "@/hooks/useToast";
+import { API } from "@/api";
+import { getCookie } from "@/hooks/cookies";
 
 const ProductReview = ({ data }) => {
   const [show, setShow] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(userReviewSchema) });
+
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      const response = await API.giveReview(data?.id, data);
+      successToast(response?.data?.message);
+      setShow(false);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+
+      errorToast(error, "Can not submit review");
+    }
+  };
+
+  useEffect(() => {
+    setValue("stars", rating);
+  }, [rating]);
+
+  const authorized = getCookie("token");
 
   return (
     <div className="ProductReview pageLayout px-0 mx-auto">
       <div className="container">
-        <div className="review-header-area pb-10">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="review-header-area pb-10"
+        >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start md:justify-between gap-4">
             <div className="review-overview">
               <h2 className="GeneralSans text-4xl font-medium">Reviews</h2>
               <h2 className="GeneralSans text-4xl font-medium my-4">
                 {data?.averageRating}
               </h2>
-              <div className="rating-area ">
-                <RatingNoOfReview
-                  avgrating={data?.averageRating}
-                  totalReview={data?.totalReviews}
-                />
+              {show ? (
+                <div className="rating-area ">
+                  <TakeRating setRating={setRating} rating={rating} />
+                  {errors?.stars && (
+                    <p className="text-red-700 my-2">
+                      {errors?.stars?.message}
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="rating-area ">
+                  <RatingNoOfReview
+                    avgrating={data?.averageRating}
+                    totalReview={data?.totalReviews}
+                  />
+                </div>
+              )}
+            </div>
+            {authorized && (
+              <div className="adreview-btn">
+                <Button
+                  onClick={() => setShow(!show)}
+                  className="GeneralSans text-lg font-medium rounded-full bg-black py-7 px-5 text-gray-100 cursor-pointer"
+                >
+                  Write Review
+                </Button>
               </div>
-            </div>
-            <div className="adreview-btn">
-              <Button
-                onClick={() => setShow(!show)}
-                className="GeneralSans text-lg font-medium rounded-full bg-black py-7 px-5 text-gray-100 cursor-pointer"
-              >
-                Write Review
-              </Button>
-            </div>
+            )}
           </div>
           {show && (
             <div className="py-4 flex flex-col w-full gap-4">
@@ -44,10 +96,25 @@ const ProductReview = ({ data }) => {
                 className="w-full"
                 minRows={6}
                 classNames={"GeneralSans"}
+                {...register("userReview")}
               />
+              {errors?.userReview && (
+                <p className="text-red-700">{errors?.userReview?.message}</p>
+              )}
             </div>
           )}
-        </div>
+          {show && (
+            <div className="flex justify-end">
+              <Button
+                type="submit"
+                isLoading={loading}
+                className="GeneralSans   text-lg font-medium rounded-full bg-black py-7 px-5 text-gray-100 cursor-pointer"
+              >
+                Submit
+              </Button>
+            </div>
+          )}
+        </form>
         {data?.reviews?.map((item, key) => (
           <div
             key={key}
@@ -66,7 +133,7 @@ const ProductReview = ({ data }) => {
             <div className="user-review col-span-4 py-4 px-0 md:p-10">
               <div className="star-data mb-2">
                 <div className="flex flex-row justify-between items-center">
-                  <RatingNoOfReview avgrating={item?.stars} />
+                  <RatingNoOfReview show={false} avgrating={item?.stars} />
                   <p className="GeneralSans text-lg font-normal">
                     {item?.date}
                   </p>

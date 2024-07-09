@@ -26,6 +26,8 @@ const CreateProduct = ({ variations }) => {
   );
   const filledPercentage = (totalWeight / currentIndex) * 100;
 
+  const [payload, setPayload] = useState(null);
+
   return (
     <div className="CreateProduct pageLayout px-0 mx-auto">
       <div className="container">
@@ -47,12 +49,15 @@ const CreateProduct = ({ variations }) => {
             totalWeight={totalWeight}
             quantities={quantities}
             setQuantities={setQuantities}
+            setPayload={setPayload}
+            calculateTotalAmount={calculateTotalAmount}
           />
           <section></section>
           <section>
             <FooterArea
-              filledPercentage={filledPercentage}
               calculateTotalAmount={calculateTotalAmount}
+              payload={payload}
+              filledPercentage={filledPercentage}
             />
           </section>
         </div>

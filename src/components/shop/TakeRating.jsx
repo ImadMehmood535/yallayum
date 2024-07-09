@@ -1,11 +1,20 @@
 import React from "react";
 import { FaStar } from "react-icons/fa6";
 
-const RatingNoOfReview = ({ avgrating, totalReview, show = true }) => {
+const TakeRating = ({ setRating, rating }) => {
+  const handleRating = (rate) => {
+    setRating(rate);
+  };
+
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
-      <FaStar key={i} color={i <= avgrating ? "#FC4242" : "#e4e5e9"} />
+      <FaStar
+        key={i}
+        color={i <= rating ? "#FC4242" : "#e4e5e9"}
+        onClick={() => handleRating(i)}
+        style={{ cursor: "pointer" }}
+      />
     );
   }
 
@@ -15,16 +24,9 @@ const RatingNoOfReview = ({ avgrating, totalReview, show = true }) => {
         <div className="star-area flex flex-row items-center gap-2 text-[#FC4242] text-lg">
           {stars}
         </div>
-        {show && (
-          <div className="rate-count">
-            <p className="GeneralSans text-base">
-              ({totalReview || 0} Reviews)
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
 };
 
-export default RatingNoOfReview;
+export default TakeRating;

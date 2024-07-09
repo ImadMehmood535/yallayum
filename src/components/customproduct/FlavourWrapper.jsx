@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 
 const FlavourWrapper = ({
   variations,
@@ -7,6 +8,8 @@ const FlavourWrapper = ({
   totalWeight,
   quantities,
   setQuantities,
+  setPayload,
+  calculateTotalAmount,
 }) => {
   const handleRangeChange = (id, value) => {
     const parsedValue = parseInt(value);
@@ -23,12 +26,29 @@ const FlavourWrapper = ({
       setQuantities({ ...quantities, [id]: Math.max(0, allowedValue) });
     }
   };
+
+  useEffect(() => {
+    const arr = variations?.items
+      ?.filter(variation => quantities[variation?.id] > 0)
+      ?.map(variation => ({
+        flavorItemId: variation?.id,
+        grams: quantities[variation?.id],
+        name: variation?.name,
+        imageUrl: variation?.imageUrl,
+        price : variation?.price
+      }));
+    
+    setPayload({
+      totalPrice: calculateTotalAmount(),
+      customOrderItems: arr,
+    });
+  }, [quantities, variations?.items, setPayload]);
+  
+
   return (
     <div className="FlavourWrapper">
       <div className="flavour-wrapper GeneralSans ">
         {variations.items.map((variation) => {
-          const remainingCapacity =
-            currentIndex - totalWeight + quantities[variation.id];
           return (
             <div
               key={variation.id}

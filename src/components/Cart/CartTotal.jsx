@@ -22,7 +22,7 @@ const CartTotal = ({ total }) => {
           </div>
 
           <Link
-            href={`/checkout?total=${total}`}
+            href={`/checkout?type=general`}
             className="bg-[#121212] table w-full text-center py-3 px-6 rounded-full font-semibold hover:bg-[#FC4242] transition text-sm mb-3 text-white uppercase   border"
           >
             Checkout
