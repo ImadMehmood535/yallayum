@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -27,7 +27,16 @@ const Header = () => {
     },
     {
       name: "Things to know",
-      link: "/recipes",
+      subMenu: [
+        {
+          name: "Blogs",
+          link: "/blogs",
+        },
+        {
+          name: "Recipes",
+          link: "/recipes",
+        },
+      ],
     },
     {
       name: "About us",
@@ -52,7 +61,11 @@ const Header = () => {
       link: "/shop",
     },
     {
-      name: "Things to know",
+      name: "Blogs",
+      link: "/blogs",
+    },
+    {
+      name: "Recipes",
       link: "/recipes",
     },
     {
@@ -70,6 +83,7 @@ const Header = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dropdownIndex, setDropdownIndex] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleCartClick = () => {
@@ -79,6 +93,14 @@ const Header = () => {
   const handleCloseCart = () => {
     setIsCartOpen(false);
   };
+  useEffect(() => {
+    if (isMenuOpen) {
+      window.scrollTo({
+        top: 90,
+        behavior: 'smooth'
+      });
+    }
+  }, [isMenuOpen]);
   return (
     <>
       <Navbar
@@ -97,7 +119,7 @@ const Header = () => {
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
-          {DeskTopMenuItem.map((item, key) => (
+          {/* {DeskTopMenuItem.map((item, key) => (
             <NavbarItem key={key}>
               <Link
                 href={item.link}
@@ -106,6 +128,34 @@ const Header = () => {
                 {item.name}
               </Link>
             </NavbarItem>
+          ))} */}
+          {DeskTopMenuItem.map((item, key) => (
+            <div
+              key={key}
+              className="relative py-6   "
+              onMouseEnter={() => setDropdownIndex(key)}
+              onMouseLeave={() => setDropdownIndex(null)}
+            >
+              <Link
+                href={item.link}
+                className="GeneralSans text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
+              >
+                {item.name}
+              </Link>
+              {item.subMenu && dropdownIndex === key && (
+                <div className="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg">
+                  {item.subMenu.map((subItem, subKey) => (
+                    <Link
+                      key={subKey}
+                      href={subItem.link}
+                      className="GeneralSans block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
+                    >
+                      {subItem.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </NavbarContent>
 
