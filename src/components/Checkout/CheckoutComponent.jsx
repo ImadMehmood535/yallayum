@@ -9,14 +9,9 @@ import { checkoutSchema } from "@/validations/checkoutform";
 import { API } from "@/api";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
+import { options } from "@/data/cities";
 
 const CheckoutComponent = ({ type, makeYourMix }) => {
-  const options = [
-    { id: 1, name: "Pakistan" },
-    { id: 2, name: "Uae" },
-    { id: 3, name: "Usa" },
-  ];
-
   const [customProduct, setCustomProduct] = useState(null);
 
   useEffect(() => {
@@ -47,6 +42,8 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
     register,
     handleSubmit,
     reset,
+    getValues,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(checkoutSchema),
@@ -54,14 +51,25 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
 
   const [loading, setLoadiong] = useState(false);
 
+  const [city, setCity] = useState(null);
+
+  useEffect(() => {
+    setCity(getValues("country"));
+  }, [watch("country")]);
+
+  const [total, setTotal] = useState(0);
+
+  const filterDeliveryPrice = options?.find((item) => item?.name === city);
+
   const onSubmit = async (data) => {
     setLoadiong(true);
     try {
       if (type === "general") {
         const payload = {
+          totalPrice: parseFloat(total + filterDeliveryPrice?.price).toFixed(2),
           orderItems: cartData?.map((item) => {
             return {
-              variationId: item?.id,
+              variationId: item?.variationId,
               quantity: item?.quantity,
             };
           }),
@@ -70,10 +78,11 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
         successToast("We have received your order, we will contact you soon");
 
         router.push("/shop");
-
       } else if (type === "custom") {
         const payload = {
-          totalPrice: customProduct?.totalPrice,
+          totalPrice: parseFloat(
+            customProduct?.totalPrice + filterDeliveryPrice?.price
+          ).toFixed(2),
           customOrderItems: customProduct?.customOrderItems?.map((item) => {
             return {
               grams: item?.grams,
@@ -111,6 +120,8 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
               </div>
               <div className="w-full md:w-[35%]">
                 <CheckoutTotal
+                  setTotal={setTotal}
+                  filterDeliveryPrice={filterDeliveryPrice}
                   loading={loading}
                   type={type}
                   cartitem={type === "general" ? cartData : customProduct}

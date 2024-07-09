@@ -12,7 +12,6 @@ const checkoutSchema = yup.object().shape({
   street: yup.string().required("Please enter your street name"),
   appartment: yup.string().required("Please enter your appartment name"),
   country: yup.string().required("Please enter your country name"),
-  city: yup.string().required("Please enter your city name"),
-});
+ });
 
 export { checkoutSchema };

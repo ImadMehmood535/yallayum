@@ -1,9 +1,17 @@
 "use client";
+import { options } from "@/data/cities";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const CheckoutTotal = ({ cartitem, onSubmit, loading, type }) => {
+const CheckoutTotal = ({
+  cartitem,
+  onSubmit,
+  loading,
+  type,
+  filterDeliveryPrice,
+  setTotal,
+}) => {
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
@@ -12,6 +20,7 @@ const CheckoutTotal = ({ cartitem, onSubmit, loading, type }) => {
         (total, item) => total + item?.price * item?.quantity,
         0
       );
+      setTotal(amount);
       setSubtotal(amount);
     } else {
       setSubtotal(cartitem?.totalPrice);
@@ -19,8 +28,6 @@ const CheckoutTotal = ({ cartitem, onSubmit, loading, type }) => {
   }, [cartitem]);
 
   const cartData = type === "general" ? cartitem : cartitem?.customOrderItems;
-
-  console.log(cartitem, "cartitem");
 
   return (
     <div className="CheckoutTotal">
@@ -75,13 +82,15 @@ const CheckoutTotal = ({ cartitem, onSubmit, loading, type }) => {
 
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Shipping</span>
-          <span className="font-semibold text-sm">Free</span>
+          <span className="font-semibold text-sm">
+            {filterDeliveryPrice?.price}
+          </span>
         </div>
 
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Subtotal</span>
-            <span>${subtotal?.toFixed(2)}</span>
+            <span>${(subtotal + filterDeliveryPrice?.price).toFixed(2)}</span>
           </div>
 
           <Button

@@ -73,4 +73,10 @@ API.giveReview = (id, data) => {
   return API.post(`productReview/${id}`, data);
 };
 
+// newsletter
+
+API.newsLetter = (data) => {
+  return API.post("/newsletter", data);
+};
+
 export { API };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import InputField from "../general/InputField";
+import { Select, SelectItem } from "@nextui-org/react";
 
-const CheckoutForm = ({errors , register, options }) => {
+const CheckoutForm = ({ errors, register, options }) => {
   return (
     <div className="CheckoutForm">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
@@ -52,6 +53,26 @@ const CheckoutForm = ({errors , register, options }) => {
       </div>
       <div className="mt-2 h-full">
         <h4>Address</h4>
+        <div className="mt-2  w-full h-full select-wrapper">
+          <select
+            className="select-box w-full py-4 px-4 rounded-full custom-input-design border-1 border-[#EBEBEB] hover:border-[#3F7FAE]"
+            {...register("country")}
+          >
+            <option value="" disabled>
+              Select an option
+            </option>
+            {options.map((option, index) => (
+              <option key={index} value={option.name}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+          {errors && errors?.country && (
+            <p className="text-tiny text-danger pl-2 mt-1">
+              {errors?.country.message}
+            </p>
+          )}
+        </div>
         <InputField
           type="text"
           placeholder="Street Address"
@@ -64,23 +85,6 @@ const CheckoutForm = ({errors , register, options }) => {
           placeholder="appartment, suite, unit etc"
           errors={errors}
           name="appartment"
-          register={register}
-        />
-      </div>
-      <div className="mt-2 h-full select-wrapper">
-        <InputField
-          type="select"
-          options={options}
-          placeholder="Select Country"
-          errors={errors}
-          name="country"
-          register={register}
-        />
-        <InputField
-          type="text"
-          placeholder="City"
-          errors={errors}
-          name="city"
           register={register}
         />
       </div>

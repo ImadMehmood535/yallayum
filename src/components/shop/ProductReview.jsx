@@ -13,7 +13,7 @@ import { errorToast, successToast } from "@/hooks/useToast";
 import { API } from "@/api";
 import { getCookie } from "@/hooks/cookies";
 
-const ProductReview = ({ data }) => {
+const ProductReview = ({ id, data }) => {
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -24,10 +24,10 @@ const ProductReview = ({ data }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(userReviewSchema) });
 
-  const onSubmit = async (data) => {
+   const onSubmit = async (formData) => {
     try {
       setLoading(true);
-      const response = await API.giveReview(data?.id, data);
+      const response = await API.giveReview(id, formData);
       successToast(response?.data?.message);
       setShow(false);
       setLoading(false);

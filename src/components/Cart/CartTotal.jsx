@@ -10,12 +10,12 @@ const CartTotal = ({ total }) => {
         className="my-3 w-full px-4 py-4 shadow-lg rounded-xl GeneralSans"
       >
         <h1 className="font-semibold text-2xl border-b pb-8 ">Order Summary</h1>
-        <div className="flex justify-between mt-10 mb-5">
+        {/* <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Shipping</span>
           <span className="font-semibold text-sm">Free</span>
-        </div>
+        </div> */}
 
-        <div className="border-t mt-8">
+        <div className="  mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Subtotal</span>
             <span>${total.toFixed(2)}</span>

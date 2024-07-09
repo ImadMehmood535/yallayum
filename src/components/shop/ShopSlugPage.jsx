@@ -14,7 +14,7 @@ const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
           rating={4}
           total_review={10}
         />
-        <ProductReview data={reviewData} />
+        <ProductReview id={product?.id} data={reviewData} />
 
         <RelatedProduct
           data={relateddata}

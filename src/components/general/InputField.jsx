@@ -63,7 +63,7 @@ const InputField = ({
               }}
             >
               {options.map((item, key) => (
-                <SelectItem key={item.id ? item.id : item} value={item.id}>
+                <SelectItem key={item.id ? item.id : item} value={item.name}>
                   {emailTrue
                     ? item?.email
                     : item.name

@@ -104,9 +104,8 @@ const Header = () => {
     }
   }, [isMenuOpen]);
 
-   const authorized = getCookie("token") ? true : false;
+  const authorized = getCookie("token") ? true : false;
 
- 
   return (
     <>
       <Navbar
@@ -144,7 +143,7 @@ const Header = () => {
             >
               <Link
                 href={item.link}
-                className="GeneralSans text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
+                className="GeneralSans whitespace-nowrap text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
               >
                 {item.name}
               </Link>

@@ -9,6 +9,8 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { PaymentCards2 } from "@/assets";
 import Image from "next/image";
 import { Input } from "@nextui-org/react";
+import { API } from "@/api";
+import { errorToast, successToast } from "@/hooks/useToast";
 
 const Footer = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -21,12 +23,25 @@ const Footer = () => {
     { name: "Return & Shipping Policy", link: "/" },
   ];
 
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const response = await API.newsLetter(data);
+      successToast(response?.data?.message);
+      reset();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      errorToast(error, "Can not submit");
+    }
+  };
 
   return (
     <div
@@ -80,7 +95,8 @@ const Footer = () => {
                     CONTACT INFORMATION
                   </h4>
                   <p className="mb-3 GeneralSans font-medium text-base">
-                    Thank you for choosing YallaYum. Follow us on social media to stay up to date on our latest products and promotions.
+                    Thank you for choosing YallaYum. Follow us on social media
+                    to stay up to date on our latest products and promotions.
                   </p>
                   <div className="icon-list  list">
                     <ul className="flex flex-col gap-2 text-sm font-medium">
@@ -172,12 +188,10 @@ const Footer = () => {
                   <input
                     type="text"
                     className={`GeneralSans rounded-full py-3 px-6 focus:border-none focus:outline-none w-full ${
-                      isDarkMode
-                        ? "bg-white text-black"
-                        : "bg-white text-white"
+                      isDarkMode ? "bg-white text-black" : "bg-white text-white"
                     }`}
                     placeholder="Your email, please"
-                    {...register("Email", {
+                    {...register("email", {
                       required: "Please enter an email",
                       pattern: {
                         value: /^\S+@\S+$/i,
@@ -185,14 +199,15 @@ const Footer = () => {
                       },
                     })}
                   />
-                  {errors.Email && (
+                  {errors.email && (
                     <span className="error text-red-500 text-sm mt-1">
-                      {errors.Email.message}
+                      {errors.email.message}
                     </span>
                   )}
                 </div>
                 <div className="button-wrapper GeneralSans flex gap-5 sm:gap-0 flex-col lg:flex-row items-center justify-start lg:justify-between">
                   <input
+                    disabled={loading}
                     type="submit"
                     className="bg-[#fc4242] rounded-full font-medium text-white max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer hover:bg-black"
                     value="Subscribe"
@@ -245,7 +260,17 @@ const Footer = () => {
           <div className="rights-text">
             <p className="GeneralSans flex flex-col md:flex-row gap-4 text-base">
               <span className="font-semibold">© 2024 YallaYum</span>
-              <span> All Rights Reserved |  Developed by <Link href="https://www.clicktap.ae/" target="_blank" className="text-[#fc4242] font-bold">Clicktap Digital</Link></span>
+              <span>
+                {" "}
+                All Rights Reserved | Developed by{" "}
+                <Link
+                  href="https://www.clicktap.ae/"
+                  target="_blank"
+                  className="text-[#fc4242] font-bold"
+                >
+                  Clicktap Digital
+                </Link>
+              </span>
             </p>
           </div>
           <div className="payments flex flex-col-reverse md:flex-row gap-3 items-center justify-end">
