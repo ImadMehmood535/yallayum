@@ -1,20 +1,20 @@
-import { blogsData } from "@/data/blogsData";
 import { feedlist } from "@/data/feedlist";
 import { reviewData } from "@/data/reviewData";
 import Blogs from "@/components/Home/Blogs";
 import Banner from "@/components/Home/Banner";
- import OurImpact from "@/components/Home/OurImpact";
+import OurImpact from "@/components/Home/OurImpact";
 import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
 import InstaFeeds from "@/components/Home/InstaFeeds";
 import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
- import StoreFeatures from "@/components/general/StoreFeatures";
- import CategoryList from "@/components/shop/CategoryList";
-import { getCategories } from "@/cached-requests";
+import StoreFeatures from "@/components/general/StoreFeatures";
+import CategoryList from "@/components/shop/CategoryList";
+import { getAllBlogs, getCategories } from "@/cached-requests";
 import Link from "next/link";
 
 export default async function Home() {
   const { data: categories } = await getCategories();
+  const { data: blogsData } = await getAllBlogs();
 
   return (
     <>

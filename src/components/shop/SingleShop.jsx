@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import { getCookie } from "@/hooks/cookies";
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
+import LoginModal from "../general/LoginModal";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([
@@ -140,15 +141,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
               )}
 
               {!authorized && (
-                <Link
-                  href={"/login"}
-                  className={`group w-full Fedra-400 transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2  bg-black py-3 px-4 text-gray-100 hover:text-white cursor-pointer whitespace-nowrap   `}
-                >
-                  <div className="group-hover:h-[24px]  h-0 transition-all">
-                    <ShoppingBag width={20} />
-                  </div>
-                  <p>Please Login to add to cart</p>
-                </Link>
+               <LoginModal/>
               )}
             </div>
             <div className="feature mt-6">

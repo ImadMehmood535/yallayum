@@ -18,7 +18,7 @@ const SingleBlog = ({ data }) => {
           </div>
           <div className="content-area GeneralSans ">
             <h4 className="subheading bg-[#F9F1F8] font-semibold py-2 px-12 rounded-full table mb-4">
-              Recipe
+              Blog
             </h4>
             <h2 className="title uppercase text-4xl font-medium mb-4">
               {data.name}

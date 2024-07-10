@@ -24,7 +24,7 @@ const ProductReview = ({ id, data }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(userReviewSchema) });
 
-   const onSubmit = async (formData) => {
+  const onSubmit = async (formData) => {
     try {
       setLoading(true);
       const response = await API.giveReview(id, formData);
@@ -115,54 +115,82 @@ const ProductReview = ({ id, data }) => {
             </div>
           )}
         </form>
-        {data?.reviews?.map((item, key) => (
-          <div
-            key={key}
-            className="review border-t-1 grid grid-cols-1 md:grid-cols-5"
-          >
-            <div className="user-info md:border-r-1 py-4 px-0 md:p-10 pl-0">
-              <div className="p-2 md:p-4 rounded-full w-[60px] md:w-[96px] h-[60px] md:h-[96px] bg-[#FAF1DC] flex justify-center items-center">
-                <FaUser className="text-2xl md:text-4xl text-black" />
-              </div>
+        {data?.review?.length > 0 ? (
+          <>
+            {data?.reviews?.map((item, key) => (
+              <div
+                key={key}
+                className="review border-t-1 grid grid-cols-1 md:grid-cols-5"
+              >
+                <div className="user-info md:border-r-1 py-4 px-0 md:p-10 pl-0">
+                  <div className="p-2 md:p-4 rounded-full w-[60px] md:w-[96px] h-[60px] md:h-[96px] bg-[#FAF1DC] flex justify-center items-center">
+                    <FaUser className="text-2xl md:text-4xl text-black" />
+                  </div>
 
-              <div className="user-details mt-4 GeneralSans">
-                <h2 className="text-lg font-medium">{item?.userName}</h2>
-                {/* <h4 className="text-base font-normal">{item.userLocation}</h4> */}
-              </div>
-            </div>
-            <div className="user-review col-span-4 py-4 px-0 md:p-10">
-              <div className="star-data mb-2">
-                <div className="flex flex-row justify-between items-center">
-                  <RatingNoOfReview show={false} avgrating={item?.stars} />
-                  <p className="GeneralSans text-lg font-normal">
-                    {item?.date}
-                  </p>
-                </div>
-              </div>
-              <div className="user-comment">
-                <p className="GeneralSans text-base font-medium">
-                  {item.userReview}
-                </p>
-                <div className="comment-reply flex flex-row items-center mt-4 gap-4">
-                  <div className="profile bg-black rounded-full p-2 w-[50px] md:w-[96px] h-[50px] md:h-[96px] flex justify-center items-center">
-                    <Image
-                      src={Logo}
-                      alt={Logo}
-                      width={50}
-                      height={96}
-                      className="rounded-full max-w-[50px] max-h-[50px]"
-                    />
+                  <div className="user-details mt-4 GeneralSans">
+                    <h2 className="text-lg font-medium">{item?.userName}</h2>
+                    {/* <h4 className="text-base font-normal">{item.userLocation}</h4> */}
                   </div>
-                  <div className="reply">
+                </div>
+                <div className="user-review col-span-4 py-4 px-0 md:p-10">
+                  <div className="star-data mb-2">
+                    <div className="flex flex-row justify-between items-center">
+                      <RatingNoOfReview show={false} avgrating={item?.stars} />
+                      <p className="GeneralSans text-lg font-normal">
+                        {item?.date}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="user-comment">
                     <p className="GeneralSans text-base font-medium">
-                      {item?.adminReply}
+                      {item.userReview}
                     </p>
+                    <div className="comment-reply flex flex-row items-center mt-4 gap-4">
+                      <div className="profile bg-black rounded-full p-2 w-[50px] md:w-[96px] h-[50px] md:h-[96px] flex justify-center items-center">
+                        <Image
+                          src={Logo}
+                          alt={Logo}
+                          width={50}
+                          height={96}
+                          className="rounded-full max-w-[50px] max-h-[50px]"
+                        />
+                      </div>
+                      <div className="reply">
+                        <p className="GeneralSans text-base font-medium">
+                          {item?.adminReply}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            ))}
+          </>
+        ) : (
+          <div className="no-reviews-container border-t-1 py-20 text-center">
+            <div className="no-reviews-icon mb-6">
+              <svg
+                className="mx-auto h-20 w-20 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                />
+              </svg>
             </div>
+            <h3 className="GeneralSans text-2xl font-medium mb-2">
+              No Reviews Yet
+            </h3>
+            <p className="GeneralSans text-lg text-gray-600">
+              Be the first to share your thoughts on this product!
+            </p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
