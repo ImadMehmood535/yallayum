@@ -30,7 +30,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div
@@ -91,7 +91,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
               </div>
 
               <div
-                className="GeneralSans text-lg font-normal"
+                className="GeneralSans text-lg font-normal customList"
                 dangerouslySetInnerHTML={{ __html: data.shortDescription }}
               />
               <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">

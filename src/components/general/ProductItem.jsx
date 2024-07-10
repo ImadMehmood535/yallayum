@@ -23,7 +23,7 @@ const ProductItem = ({ data, option, btnAllow }) => {
             : `max-w-[200px] flip-container`
         } mx-auto`}
       >
-        <div className={`flip-contain ${option == 1 ? `w-[20%]` : `w-full`}`}>
+        <div className={`  ${option == 1 ? `w-[20%]` : `w-full`}`}>
           <Link
             href={`/shop/${data?.slug}?variationId=${data?.variationId}&id=${data.id}`}
           >

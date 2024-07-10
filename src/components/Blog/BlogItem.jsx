@@ -12,7 +12,7 @@ const BlogItem = ({ data }) => {
             alt={data?.name}
             width={550}
             height={450}
-            className="w-full max-h-[350px] rounded-xl"
+            className="w-full h-[300px] object-cover object-center rounded-xl"
           />
         </div>
         <div className="content-area text-center py-4 GeneralSans">

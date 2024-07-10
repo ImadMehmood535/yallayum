@@ -1,10 +1,12 @@
- import SingleShop from "@/components/shop/SingleShop";
+import SingleShop from "@/components/shop/SingleShop";
 import React from "react";
-  import ProductReview from "@/components/shop/ProductReview";
- import RecipesList from "@/components/recipes/RecipesList";
- import RelatedProduct from "@/components/shop/RelatedProduct";
- 
+import ProductReview from "@/components/shop/ProductReview";
+import RecipesList from "@/components/recipes/RecipesList";
+import RelatedProduct from "@/components/shop/RelatedProduct";
+import ProductFeature from "../general/ProductFeature";
+
 const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
+  console.log(product?.shortDescription, "product");
   return (
     <div className="single-product">
       <div className="  px-0 mx-auto">
@@ -28,6 +30,8 @@ const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
           btntext="Explore More"
           btnlink={"/recipes"}
         />
+
+        <ProductFeature />
       </div>
     </div>
   );

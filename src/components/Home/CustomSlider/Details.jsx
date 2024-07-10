@@ -21,7 +21,7 @@ const Details = ({
         activeSlides={activeSlides}
       />
       <div>
-        <h1 className="text-4xl md:text-6xl GeneralSans font-semibold">{slidesData[currentIndex]?.name}</h1>
+        <h1 className="text-3xl md:text-4xl GeneralSans font-semibold">{slidesData[currentIndex]?.name}</h1>
       </div>
       <div>
         <CustomSliderReview

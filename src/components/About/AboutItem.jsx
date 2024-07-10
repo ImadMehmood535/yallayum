@@ -25,7 +25,7 @@ const AboutItem = ({ data, isEven }) => {
           } `}
         >
           <h2 className="mb-3 font-medium">{data.title}</h2>
-          <h4 className="GeneralSans text-[#FC4242] text-2xl mb-4 font-medium">
+          <h4 className="GeneralSans text-[#FC4242] text-2xl mb-4 font-semibold">
             {data.subtitle}
           </h4>
           <p className="">

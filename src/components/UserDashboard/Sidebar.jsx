@@ -1,8 +1,18 @@
+"use client";
+import { deleteCookie } from "@/hooks/cookies";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaBorderAll } from "react-icons/fa";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const Sidebar = ({ links }) => {
+  const router = useRouter();
+  const handleLogout = () => {
+    deleteCookie("token");
+    router.push("/shop");
+  };
+
   return (
     <div className="Sidebar bg-[#FAF4FA] rounded-3xl overflow-hidden">
       <div className=" bg-[#FAF1DC] px-4 py-4 text-black GeneralSans">
@@ -23,6 +33,13 @@ const Sidebar = ({ links }) => {
             </Link>
           </li>
         ))}
+        <li className="first:border-b-1 border-black">
+          <div onClick={handleLogout} className="item-wrapper py-2  ">
+            <div className="flex justify-end cursor-pointer">
+              <RiLogoutCircleLine size={30} color="red" />
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   );

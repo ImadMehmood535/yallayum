@@ -32,7 +32,7 @@ const CustomSlider = () => {
 
   const getBackgroundClass = (index) => {
     const id = index !== 0 ? 1 : 0;
-    return `bg-image bg-item-${id}`;
+    return `bg-image bg-item-0`;
   };
 
   return (

@@ -1,6 +1,6 @@
 const BaseUrl = process.env.NEXT_PUBLIC_BASE_URL_SERVER;
 
-const reFetech = 5;
+const reFetech = 360;
 
 export async function getCategories() {
   const res = await fetch(`${BaseUrl}/category`, {
