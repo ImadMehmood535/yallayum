@@ -16,8 +16,7 @@ const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
       slug: product?.slug,
     }))
   );
-  console.log(allProducts);
-
+ 
   return (
     <div className="RelatedProduct pageLayout">
       <div className="container">
@@ -64,7 +63,7 @@ const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
             className="feature_product_slider featuredProduct"
           >
             {allProducts.map((product, productkey) => (
-              <SwiperSlide>
+              <SwiperSlide key={productkey}>
                 <ProductItem
                   data={product}
                   variation={productkey}

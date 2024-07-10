@@ -19,8 +19,8 @@ const Sidebar = ({ links }) => {
         <h2>Dashboard</h2>
       </div>
       <ul className="py-6 px-4">
-        {links.map((item, key) => (
-          <li className="first:border-b-1 border-black">
+        {links.map((item, index) => (
+          <li key={index} className="first:border-b-1 border-black">
             <Link href={item.links} className="">
               <div className="item-wrapper py-2 ">
                 <div className="flex flex-row gap-3 items-center">
