@@ -62,6 +62,7 @@ const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
             }}
             className="feature_product_slider featuredProduct"
           >
+            
             {allProducts.map((product, productkey) => (
               <SwiperSlide key={productkey}>
                 <ProductItem
