@@ -73,6 +73,12 @@ API.getMyCustomOrders = () => {
   return API.get("custom-order/self");
 };
 
+
+// product
+API.getProducts = () => {
+  return API.get(`product/all`);
+};
+
 // product review
 
 API.giveReview = (id, data) => {

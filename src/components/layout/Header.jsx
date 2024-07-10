@@ -20,6 +20,7 @@ import { CiSearch } from "react-icons/ci";
 import CartSideBar from "../general/CartSideBar";
 import { getCookie } from "@/hooks/cookies";
 import { useRouter } from "next/navigation";
+import CustomAutocomplete from "./SeacrhModal";
 
 const Header = () => {
   const DeskTopMenuItem = [
@@ -175,7 +176,7 @@ const Header = () => {
         <NavbarContent justify="end">
           <NavbarItem className="flex items-center flex-row-reverse gap-4">
             <LiaShoppingBagSolid
-              className="text-white text-5xl md:text-2xl cursor-pointer"
+              className="text-white text-5xl md:text-[19px] cursor-pointer"
               onClick={handleCartClick}
             />
 
@@ -191,35 +192,7 @@ const Header = () => {
               </>
             )}
 
-            <Input
-              isClearable
-              radius="lg"
-              classNames={{
-                input: [
-                  "bg-transparent",
-                  "text-black/90 bg-transparent",
-                  "placeholder:text-white ",
-                  "placeholder:text-[12px]",
-                  "GeneralSans text-sm font-medium",
-                ],
-
-                innerWrapper: "bg-transparent max-w-[100px]",
-                inputWrapper: [
-                  "bg-transparent",
-                  "backdrop-blur-xl",
-                  "group-data-[focus=true]:bg-default-200/50",
-                  "dark:group-data-[focus=true]:bg-default/60",
-                  "!cursor-text",
-                  "hidden",
-                  "md:block",
-                  "group-data-[focus=true]:w-[250px] transition-all",
-                ],
-              }}
-              placeholder="SEARCH"
-              startContent={
-                <CiSearch className=" text-white w-8 h-8  hover:text-black " />
-              }
-            />
+            <CustomAutocomplete />
           </NavbarItem>
         </NavbarContent>
 

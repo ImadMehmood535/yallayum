@@ -1,90 +1,99 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CiSearch } from 'react-icons/ci';
-import { IoMdClose } from 'react-icons/io';
+import { API } from "@/api";
+import Link from "next/link";
+import React, { useState, useRef, useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
 
-const SearchModal = () => {
+const CustomAutocomplete = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const inputRef = useRef(null);
+  const [dummyProducts, setDummy] = useState([]);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const getData = async () => {
+    try {
+      const response = await API.getProducts();
+      setDummy(response?.data?.data ?? []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus();
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
     }
   }, [isOpen]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Implement your search logic here
-    console.log('Searching for:', searchQuery);
-    closeModal();
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    const filtered = dummyProducts?.filter((product) =>
+      product?.name?.toLowerCase()?.includes(value.toLowerCase())
+    );
+    setSuggestions(filtered ?? []);
+  };
+
+  const handleSearchClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSuggestionClick = (product) => {
+    setInputValue(product?.name ?? "");
+    setSuggestions([]);
+    setIsOpen(false);
   };
 
   return (
-    <>
-      <button onClick={openModal} className="focus:outline-none">
-        <CiSearch className="text-white w-5 h-5 hover:scale-110 transition-transform" />
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-start justify-center pt-20"
-          >
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
-              className="w-full max-w-3xl px-4"
+    <div className="relative">
+      <div
+        className={`flex items-center transition-all duration-300 ${
+          isOpen ? "w-64" : "w-5"
+        }`}
+      >
+        <CiSearch
+          className="text-white w-6 h-6 hover:text-gray-300 cursor-pointer"
+          onClick={handleSearchClick}
+        />
+        <input
+          ref={inputRef}
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Search products..."
+          className={`bg-transparent text-white placeholder-gray-300 text-sm font-medium outline-none transition-all duration-300 ${
+            isOpen ? "w-full px-2" : "w-0"
+          }`}
+        />
+      </div>
+      {isOpen && suggestions?.length > 0 && (
+        <div className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-auto">
+          {suggestions.map((product) => (
+            <Link
+              key={product?.id}
+              href={`/shop/${product?.slug}`}
+              onClick={() => handleSuggestionClick(product)}
+              className="block px-4 py-3 hover:bg-[#FAF7F4] transition-colors duration-150"
             >
-              <form onSubmit={handleSearch} className="relative">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search..."
-                  className="w-full bg-transparent text-white text-4xl border-b-2 border-white py-2 px-4 focus:outline-none placeholder-gray-500"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors"
-                >
-                  <CiSearch className="w-8 h-8" />
-                </button>
-              </form>
-              <div className="mt-8 text-gray-400">
-                <h3 className="text-xl mb-2">Popular Searches:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {['Products', 'Categories', 'Deals', 'New Arrivals'].map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setSearchQuery(item)}
-                      className="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-full text-sm transition-colors"
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-800 font-medium truncate mr-2">
+                  {product?.name}
+                </span>
+                <span className="text-gray-600 text-sm whitespace-nowrap">
+                  ${product?.variation?.[0]?.salePrice?.toFixed(2)}
+                </span>
               </div>
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-white hover:text-red-500 transition-colors"
-              >
-                <IoMdClose className="w-8 h-8" />
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
-export default SearchModal;
+export default CustomAutocomplete;
