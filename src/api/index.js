@@ -91,4 +91,9 @@ API.newsLetter = (data) => {
   return API.post("/newsletter", data);
 };
 
+// contact-form
+API.contact = (data) => {
+  return API.post("/contact", data);
+};
+
 export { API };

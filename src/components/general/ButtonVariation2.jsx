@@ -30,7 +30,7 @@ const ButtonVariation2 = ({ filledPercentage, payload }) => {
         <div className="group-hover:h-[24px]  h-0 transition-all">
           <ShoppingBag width={20} />
         </div>
-        <p>Add To Cart</p>
+        <p className="capitalize font-semibold">proceed to checkout</p>
       </div>
     </div>
   );

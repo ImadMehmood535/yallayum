@@ -188,7 +188,7 @@ const Footer = () => {
                   <input
                     type="text"
                     className={`GeneralSans rounded-full py-3 px-6 focus:border-none focus:outline-none w-full ${
-                      isDarkMode ? "bg-white text-black" : "bg-white text-white"
+                      isDarkMode ? "bg-white text-black" : "bg-white text-black"
                     }`}
                     placeholder="Your email, please"
                     {...register("email", {
