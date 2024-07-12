@@ -27,7 +27,7 @@ const Failed = () => {
         <h1 className="text-4xl font-bold mb-2 text-red-600">Payment Failed</h1>
 
         <p className="mb-4 text-sm">
-          We're sorry, but there was an error processing your payment. Please
+          We&apos;sre sorry, but there was an error processing your payment. Please
           check your card details and try again. If the problem persists, please
           contact your bank or our customer support.
         </p>
