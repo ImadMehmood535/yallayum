@@ -1,7 +1,25 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import LinkButton from "../general/LinkButton";
+import { deleteCookie, getCookie } from "@/hooks/cookies";
+import { API } from "@/api";
 
 const ThankYou = () => {
+  const getData = async (id) => {
+    try {
+      await API.statusOrder({
+        key: id,
+      });
+
+      deleteCookie("invoiceId");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getData(getCookie("invoiceId"));
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0">

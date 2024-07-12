@@ -10,9 +10,11 @@ import { API } from "@/api";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
 import { options } from "@/data/cities";
+import { setCookie } from "@/hooks/cookies";
 
 const CheckoutComponent = ({ type, makeYourMix }) => {
   const [customProduct, setCustomProduct] = useState(null);
+  const [paymentMode, setPaymentMode] = useState("COD");
 
   useEffect(() => {
     if (makeYourMix) {
@@ -66,7 +68,9 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
     try {
       if (type === "general") {
         const payload = {
-          totalPrice: parseFloat(total + filterDeliveryPrice?.price).toFixed(2),
+          paymentMode: paymentMode,
+          totalPrice: parseFloat(total).toFixed(2),
+          deliveryCharges: parseFloat(filterDeliveryPrice?.price).toFixed(2),
           orderItems: cartData?.map((item) => {
             return {
               variationId: item?.variationId,
@@ -74,15 +78,19 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
             };
           }),
         };
-        await API.placeOrder(payload);
-        successToast("We have received your order, we will contact you soon");
-
-        router.push("/shop");
+        const response = await API.placeOrder(payload);
+        successToast(response?.data?.message);
+        if (paymentMode === "ONLINE") {
+          setCookie("invoiceId", response?.data?.data?.invoiceId);
+          window.location.assign(response?.data?.data?.url);
+        } else {
+          router.push("/shop");
+        }
       } else if (type === "custom") {
         const payload = {
-          totalPrice: parseFloat(
-            customProduct?.totalPrice + filterDeliveryPrice?.price
-          ).toFixed(2),
+          paymentMode: paymentMode,
+          totalPrice: parseFloat(customProduct?.totalPrice).toFixed(2),
+          deliveryCharges: parseFloat(filterDeliveryPrice?.price).toFixed(2),
           customOrderItems: customProduct?.customOrderItems?.map((item) => {
             return {
               grams: item?.grams,
@@ -91,9 +99,14 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
           }),
         };
 
-        await API.placeCustomOrder(payload);
-        successToast("We have received your order, we will contact you soon");
-        router.push("/shop");
+        const response = await API.placeCustomOrder(payload);
+        successToast(response?.data?.message);
+        if (paymentMode === "ONLINE") {
+          setCookie("invoiceId", response?.data?.data?.invoiceId);
+          window.location.assign(response?.data?.data?.url);
+        } else {
+          router.push("/shop");
+        }
       }
 
       reset();
@@ -120,6 +133,8 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
               </div>
               <div className="w-full md:w-[35%]">
                 <CheckoutTotal
+                  setPaymentMode={setPaymentMode}
+                  paymentMode={paymentMode}
                   setTotal={setTotal}
                   filterDeliveryPrice={filterDeliveryPrice}
                   loading={loading}

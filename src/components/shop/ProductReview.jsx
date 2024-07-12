@@ -45,6 +45,8 @@ const ProductReview = ({ id, data }) => {
 
   const authorized = getCookie("token");
 
+  console.log(data , "data")
+
   return (
     <div className="ProductReview pageLayout px-0 mx-auto">
       <div className="container">
@@ -115,7 +117,7 @@ const ProductReview = ({ id, data }) => {
             </div>
           )}
         </form>
-        {data?.review?.length > 0 ? (
+        {data?.reviews?.length > 0 ? (
           <>
             {data?.reviews?.map((item, key) => (
               <div

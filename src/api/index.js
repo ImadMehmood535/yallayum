@@ -65,6 +65,10 @@ API.getMyOrders = () => {
   return API.get("order/self");
 };
 
+API.statusOrder = (data) => {
+  return API.post("/order/check-status", data);
+};
+
 // custom order
 API.placeCustomOrder = (data) => {
   return API.post("custom-order", data);
@@ -72,7 +76,6 @@ API.placeCustomOrder = (data) => {
 API.getMyCustomOrders = () => {
   return API.get("custom-order/self");
 };
-
 
 // product
 API.getProducts = () => {

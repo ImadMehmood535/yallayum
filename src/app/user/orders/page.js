@@ -110,10 +110,19 @@ const Page = () => {
               ))}
               <div className="bg-gray-50 mt-4 px-6 py-4 flex justify-between items-center rounded-lg">
                 <span className="text-lg font-semibold text-gray-700">
-                  Total Items: {item?.totalItems}
+                  Delivery Charges
                 </span>
                 <span className="text-3xl font-bold text-black">
-                  {item?.totalPrice}
+                  AED {parseFloat(item?.deliveryCharges).toFixed(2)}
+                </span>
+              </div>
+              <div className="bg-gray-50 mt-4 px-6 py-4 flex justify-between items-center rounded-lg">
+                <span className="text-lg font-semibold text-gray-700">
+                  Total Price: {item?.totalItems}
+                </span>
+                <span className="text-3xl font-bold text-black">
+                  AED{" "}
+                  {(parseFloat(item?.totalPrice) + parseFloat(item?.deliveryCharges)).toFixed(2)}
                 </span>
               </div>
             </div>

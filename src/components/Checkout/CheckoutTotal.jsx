@@ -11,6 +11,9 @@ const CheckoutTotal = ({
   type,
   filterDeliveryPrice,
   setTotal,
+  setPaymentMode,
+  paymentMode
+
 }) => {
   const [subtotal, setSubtotal] = useState(0);
 
@@ -91,6 +94,30 @@ const CheckoutTotal = ({
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Subtotal</span>
             <span>${(subtotal + filterDeliveryPrice?.price).toFixed(2)}</span>
+          </div>
+
+          {/* Payment mode tabs */}
+          <div className="flex mb-4 gap-3">
+            <div
+              className={`flex-1 rounded-md py-2 px-4 text-center cursor-pointer ${
+                paymentMode === "COD"
+                  ? "bg-[#FC4242] text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setPaymentMode("COD")}
+            >
+              Cash on Delivery
+            </div>
+            <div
+              className={`flex-1 py-2 px-4 rounded-md text-center cursor-pointer  ${
+                paymentMode === "ONLINE"
+                  ? "bg-[#FC4242] text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setPaymentMode("ONLINE")}
+            >
+              Pay Online
+            </div>
           </div>
 
           <Button
