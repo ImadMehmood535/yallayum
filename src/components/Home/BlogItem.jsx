@@ -5,7 +5,7 @@ import React from "react";
 const BlogItem = ({ data }) => {
   return (
     <div className="blog-item w-full cursor-pointer group relative rounded-[20px] overflow-hidden min-h-[450px] sm:max-h-[550px]">
-      <Link href={`/blog/${data?.slug}`} className="block relative h-full">
+      <Link href={`/blogs/${data?.slug}`} className="block relative h-full">
         <BackgroundImage src={data?.imageUrl} alt={data?.name} />
         <OverlayContent data={data} />
       </Link>
