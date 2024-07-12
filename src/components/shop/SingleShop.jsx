@@ -21,12 +21,14 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [variation, setVariation] = useState(data?.productVariation[0]);
 
   const [selectedImage, setSelectedImage] = useState(
-    data?.productVariation[0]?.imageUrl
+    data?.productVariation[0]?.gallery[(data?.productVariation[0]?.gallery)?.length -1]
   );
 
   const [quantity, setQuantity] = useState(1);
 
   const authorized = getCookie("token");
+
+  console.log(allImages , "allImages")
 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
@@ -35,7 +37,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div
-                className="feature-area w-full mx-auto bg-center bg-contain bg-no-repeat  h-[500px] bg-[#FAF1DC] rounded-2xl"
+                className="feature-area w-full mx-auto bg-center bg-contain bg-no-repeat  h-[500px]   rounded-2xl"
                 style={{
                   backgroundImage: `url( ${selectedImage}) `,
                 }}
@@ -65,11 +67,11 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                   }}
                   className="gallery-slider"
                 >
-                  {allImages.map((image, index) => (
+                  {allImages?.map((image, index) => (
                     <SwiperSlide key={index}>
                       <div
                         key={index}
-                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer bg-[#FAF1DC] rounded-2xl w-full"
+                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer  rounded-2xl w-full"
                         style={{ backgroundImage: `url(${image})` }}
                         onClick={() => setSelectedImage(image)}
                       ></div>
