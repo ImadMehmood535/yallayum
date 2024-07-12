@@ -249,7 +249,17 @@ ul.mob-br {
   -moz-box-shadow: -13px 12px 20px -5px rgba(226, 27, 27, 0.58);
 }
 
-.Footer:after {
+.Footer-dark:after {
+  content: url("../assets/images/FooterBg.png");
+  width: 790px;
+  height: 360px;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.Footer-light:after {
   content: url("../assets/images/FooterBg2.png");
   width: 790px;
   height: 360px;
