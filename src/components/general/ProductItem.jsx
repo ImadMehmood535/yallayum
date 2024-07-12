@@ -30,10 +30,10 @@ const ProductItem = ({ data, option, btnAllow }) => {
             <Image
               src={data?.imageUrl}
               alt={data?.name}
-              width={350}
-              height={350}
+              width={200}
+              height={200}
               quality={100}
-              className="h-auto  md:h-[230px] 2xl:h-auto"
+              className=" max-w-[200px] w-full  h-full  "
             />
           </Link>
         </div>

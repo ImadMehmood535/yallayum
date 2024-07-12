@@ -13,6 +13,7 @@ import { getCookie } from "@/hooks/cookies";
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 import LoginModal from "../general/LoginModal";
+import Image from "next/image";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([
@@ -21,27 +22,31 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [variation, setVariation] = useState(data?.productVariation[0]);
 
   const [selectedImage, setSelectedImage] = useState(
-    data?.productVariation[0]?.gallery[(data?.productVariation[0]?.gallery)?.length -1]
+    data?.productVariation[0]?.gallery[0]
+    
   );
 
   const [quantity, setQuantity] = useState(1);
 
   const authorized = getCookie("token");
 
-  console.log(allImages , "allImages")
-
+ 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
-              <div
-                className="feature-area w-full mx-auto bg-center bg-contain bg-no-repeat  h-[500px]   rounded-2xl"
-                style={{
-                  backgroundImage: `url( ${selectedImage}) `,
-                }}
-              ></div>
+              <div className="feature-area w-full mx-auto  rounded-2xl">
+                <Image
+                  src={selectedImage}
+                  alt={data?.name}
+                  width={1800}
+                  height={1800}
+                  quality={100}
+                 />
+              </div>
+
               <div className="w-full  ">
                 <Swiper
                   pagination={{
@@ -61,7 +66,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                       spaceBetween: 20,
                     },
                     1024: {
-                      slidesPerView: 4,
+                      slidesPerView: 3,
                       spaceBetween: 20,
                     },
                   }}
@@ -72,9 +77,16 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                       <div
                         key={index}
                         className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer  rounded-2xl w-full"
-                        style={{ backgroundImage: `url(${image})` }}
                         onClick={() => setSelectedImage(image)}
-                      ></div>
+                      >
+                        <Image
+                          src={image}
+                          alt={data?.name}
+                          width={480}
+                          height={480}
+                          quality={100}
+                        />
+                      </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -142,9 +154,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                 />
               )}
 
-              {!authorized && (
-               <LoginModal/>
-              )}
+              {!authorized && <LoginModal />}
             </div>
             <div className="feature mt-6">
               <ProductStoreFeature />
