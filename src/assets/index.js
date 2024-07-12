@@ -13,6 +13,7 @@ import Yallayum_Fig_box from "./images/Yallayum_Fig_box.png";
 import Yallayum_Peach_box from "./images/Yallayum_Peach_box.png";
 import Sustainable_Sourcing from "./images/Sustainable_Sourcing.webp";
 import Healthiest_Snacking from "./images/Healthiest_Snacking.webp";
+import Healthiest_Snacking2 from "./images/Healthiest_Snacking2.webp";
 import Sustainable_Sourcing3 from "./images/Sustainable_Sourcing3.webp";
 import Supporting_Dubai from "./images/Supporting_Dubai.webp";
 import blogfeature from "./images/blogfeature.jpg";
@@ -67,6 +68,7 @@ import Mango_icon from "./images/Mango_icon.png";
 import Mulberry_icon from "./images/Mulberry_icon.png";
 import single_product_image from "./images/single_product_image.png";
 import Category_image from "./images/Category_image.png";
+import favicon from "./images/favicon.ico";
 
 
 export {
@@ -84,6 +86,7 @@ export {
   Yallayum_Peach_box,
   Sustainable_Sourcing,
   Healthiest_Snacking,
+  Healthiest_Snacking2,
   Sustainable_Sourcing3,
   Supporting_Dubai,
   blogfeature,
@@ -139,4 +142,5 @@ export {
   Mulberry_icon,
   single_product_image,
   Category_image,
+  favicon,
 };

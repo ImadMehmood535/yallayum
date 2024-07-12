@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Healthiest_Snacking,
+  Healthiest_Snacking2,
   Supporting_Dubai,
   Sustainable_Sourcing,
   Sustainable_Sourcing3,
@@ -37,7 +37,7 @@ const OurImpact = () => {
             />
             <ImpactItem
               position={true}
-              image={Healthiest_Snacking}
+              image={Healthiest_Snacking2}
               subheading="02"
               title=" Rich Tapestry of Dubai’s Culture"
               text="Immerse yourself in the captivating blend of traditional heritage and modern innovation that defines Dubai’s rich cultural tapestry."

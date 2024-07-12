@@ -4,6 +4,7 @@ import Ticker from "@/components/layout/Ticker";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Toaster from "@/components/general/Toaster";
+ 
 
 export const metadata = {
   title: "Yalla Yums",
@@ -13,6 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
+      </head>
       <body>
         <Toaster />
         <Providers>
