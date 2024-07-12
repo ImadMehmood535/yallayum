@@ -25,15 +25,15 @@ const ProductItem = ({ data, option, btnAllow }) => {
       >
         <div className={`  ${option == 1 ? `w-[20%]` : `w-full`}`}>
           <Link
-            href={`/shop/${data?.slug}?variationId=${data?.variationId}&id=${data.id}`}
+            href={`/shop/${data?.slug}`}
           >
             <Image
               src={data?.imageUrl}
               alt={data?.name}
-              width={200}
-              height={200}
+              width={350}
+              height={350}
               quality={100}
-              className=" max-w-[200px] w-full  h-full  "
+              className="h-auto  md:h-[230px] 2xl:h-auto"
             />
           </Link>
         </div>
