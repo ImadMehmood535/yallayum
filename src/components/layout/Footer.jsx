@@ -13,7 +13,7 @@ import { API } from "@/api";
 import { errorToast, successToast } from "@/hooks/useToast";
 
 const Footer = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const useful_links = [
     { name: "Privacy Policy", link: "/" },
@@ -45,7 +45,7 @@ const Footer = () => {
 
   return (
     <div
-      className={`Footer overflow-hidden relative py-10 md:pt-20 md:pb-10 px-0 mx-auto ${
+      className={`${isDarkMode ? `Footer-dark` : `Footer-light`} overflow-hidden relative py-10 md:pt-20 md:pb-10 px-0 mx-auto ${
         isDarkMode ? "bg-black text-white" : "bg-[#FAF7F4] text-black"
       }`}
     >

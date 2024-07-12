@@ -85,6 +85,8 @@ const homeBannerSlide = [
     title: "Experience a timeless delight with freeze-dried fruits",
     description:
       "Experience a timeless delight with Yalla Yum's freeze-dried fruits, where the natural flavors and nutrients of fresh fruit are perfectly preserved. Enjoy a healthy, delicious snack that embodies the rich essence of Dubai in every bite.",
+    btntext: "BUY NOW",
+    link: "/shop",
   },
   {
     bgColor: "#FAF4FA",
@@ -92,6 +94,8 @@ const homeBannerSlide = [
     title: "Savor the Pure Essence of Nature with Freeze-Dried Fruits",
     description:
       "Savor the pure essence of nature with Yalla Yum's freeze-dried fruits, where each bite delivers the authentic taste and nutrition of fresh fruit. Indulge in a wholesome snack that's both delicious and naturally healthy, perfect for any time of the day.",
+    btntext: "BUY NOW",
+    link: "/shop",
   },
   {
     bgColor: "#FFF5F5",
@@ -99,6 +103,8 @@ const homeBannerSlide = [
     title: "Unlock the Rich Flavors and Nutrients of Freeze-Dried Fruits",
     description:
       "Unlock the rich flavors and nutrients of Yalla Yum's freeze-dried fruits, offering a convenient way to enjoy the benefits of fresh fruit anytime. Each piece is packed with intense taste and essential vitamins, making it a perfect healthy snack.",
+    btntext: "BUY NOW",
+    link: "/shop",
   },
 ];
 
