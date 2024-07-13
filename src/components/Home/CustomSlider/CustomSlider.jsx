@@ -18,16 +18,38 @@ const CustomSlider = () => {
   };
 
   const getClassName = (index) => {
-    if (index === currentIndex) {
-      return "active z-30 sm:z-0 -translate-x-[120%] sm:-translate-x-[120%] md:-translate-x-[120%] lg:-translate-x-[130%] xl:-translate-x-[220%] 2xl:-translate-x-[260%] scale-100 lg:scale-150 hover:-translate-y-[10%]";
+    const length = slidesData.length;
+    if (length === 3) {
+      if (index === currentIndex) {
+        return "active z-30 sm:z-0 -translate-x-[120%] sm:-translate-x-[120%] md:-translate-x-[120%] lg:-translate-x-[130%] xl:-translate-x-[220%] 2xl:-translate-x-[260%] scale-100 lg:scale-150 hover:-translate-y-[10%]";
+      }
+      if (index === (currentIndex + 1) % slidesData.length) {
+        return "next z-20 sm:z-10 -translate-x-[30%] sm:-translate-x-[35%] lg:-translate-x-[30%] xl:-translate-x-[90%] 2xl:-translate-x-[100%] scale-75 lg:scale-100";
+      }
+      if (
+        index === (currentIndex - 1 + slidesData.length) % slidesData.length) {
+        return "preview-next z-10 translate-x-[40%] scale-50 lg:scale-75";
+      }
+      return "";
+    } else if (length >= 3) {
+      // New logic for 5 items
+      if (index === currentIndex) {
+        return "active z-30 sm:z-0 -translate-x-[120%] sm:-translate-x-[120%] md:-translate-x-[120%] lg:-translate-x-[130%] xl:-translate-x-[220%] 2xl:-translate-x-[260%] scale-100 lg:scale-150 hover:-translate-y-[10%]";
+      }
+      if (index === (currentIndex + 1) % length) {
+        return "next z-20 sm:z-10 -translate-x-[30%] sm:-translate-x-[35%] lg:-translate-x-[30%] xl:-translate-x-[90%] 2xl:-translate-x-[100%] scale-75 lg:scale-100";
+      }
+      if (index === (currentIndex + 2) % length) {
+        return "next-next z-10 translate-x-[40%] scale-50 lg:scale-75";
+      }
+      if (index === (currentIndex - 1 + length) % length) {
+        return "prev  z-10 translate-x-[160%] scale-50 lg:scale-75";
+      }
+      if (index === (currentIndex - 2 + length) % length) {
+        return "prev-prev  z-10 translate-x-[100%] scale-50 lg:scale-75";
+      }
+      return "hidden";
     }
-    if (index === (currentIndex + 1) % slidesData.length) {
-      return "next z-20 sm:z-10 -translate-x-[30%] sm:-translate-x-[35%] lg:-translate-x-[30%] xl:-translate-x-[90%] 2xl:-translate-x-[100%] scale-75 lg:scale-100";
-    }
-    if (index === (currentIndex - 1 + slidesData.length) % slidesData.length) {
-      return "preview-next z-10 translate-x-[40%] scale-50 lg:scale-75";
-    }
-    return "";
   };
 
   const getBackgroundClass = (index) => {

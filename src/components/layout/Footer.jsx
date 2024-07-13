@@ -209,7 +209,9 @@ const Footer = () => {
                   <input
                     disabled={loading}
                     type="submit"
-                    className="bg-[#fc4242] rounded-full font-medium text-white max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer hover:bg-black"
+                    className={` rounded-full font-medium  max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer ${
+                      isDarkMode ? "bg-[#fc4242] text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"
+                    }`}
                     value="Subscribe"
                   />
                   {/* <Link

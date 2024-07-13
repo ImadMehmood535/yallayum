@@ -13,7 +13,7 @@ const InstaFeeds = ({ reviewData }) => {
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[770px] mx-auto">
               <div className=" rounded-md pt-16 flex justify-center items-center mb-4">
-                <div className="bg-white py-2 px-6 flex items-center gap-2 rounded-[8px] mb-3">
+                <div className="bg-white py-2 px-6 flex flex-col md:flex-row items-center gap-2 rounded-[8px] mb-3">
                   <ul className="flex">
                     <li>
                       <MdOutlineStar />

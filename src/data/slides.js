@@ -7,11 +7,16 @@ import {
   Banner_slide_5,
   bannerBg,
   pic1,
+  pic10,
+  pic11,
   pic2,
   pic3,
   pic4,
   pic5,
   pic6,
+  pic7,
+  pic8,
+  pic9,
 } from "@/assets";
 
 const slide1 = [
@@ -47,7 +52,7 @@ const slide2 = [
   {
     index: 1,
     name: "Crunchy Strawberry",
-    imageUrl: pic4,
+    imageUrl: pic8,
     stars: 5,
     reviews: 155,
     details:
@@ -56,7 +61,7 @@ const slide2 = [
   {
     index: 2,
     name: "Crunchy Strawberry2",
-    imageUrl: pic5,
+    imageUrl: pic7,
     stars: 3,
     reviews: 120,
     details:
@@ -65,12 +70,31 @@ const slide2 = [
   {
     index: 3,
     name: "Crunchy Strawberry3",
-    imageUrl: pic6,
+    imageUrl: pic9,
     stars: 2,
     reviews: 500,
     details:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
   },
+  {
+    index: 4,
+    name: "Crunchy Strawberry3",
+    imageUrl: pic10,
+    stars: 2,
+    reviews: 500,
+    details:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+  },
+  {
+    index: 4,
+    name: "Crunchy Strawberry3",
+    imageUrl: pic11,
+    stars: 2,
+    reviews: 500,
+    details:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+  },
+   
 ];
 
 const homeBannerSlide = [

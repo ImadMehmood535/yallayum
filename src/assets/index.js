@@ -36,6 +36,11 @@ import bg1 from "./images/bg1.png";
 import pic4 from "./images/pic4.jpg";
 import pic5 from "./images/pic5.jpg";
 import pic6 from "./images/pic6.jpg";
+import pic7 from "./images/pic7.png";
+import pic8 from "./images/pic8.png";
+import pic9 from "./images/pic9.png";
+import pic10 from "./images/pic10.png";
+import pic11 from "./images/pic11.png";
 import banner0 from "./images/banner0.png"
 import FooterBg from "./images/FooterBg.png";
 import PaymentCards from "./images/PaymentCards.png";
@@ -110,6 +115,11 @@ export {
   pic4,
   pic5,
   pic6,
+  pic7,
+  pic8,
+  pic9,
+  pic10,
+  pic11,
   banner0,
   FooterBg,
   PaymentCards,
