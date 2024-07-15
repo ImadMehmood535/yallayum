@@ -130,7 +130,7 @@ const CartProductList = ({ cartitem, setTotal, getData }) => {
                     <b>Price</b>
                   </div>
                   <span className="text-center text-xl font-semibold  text-[#616161]">
-                    <span className="price">${item?.price}</span>
+                    <span className="price">AED {item?.price}</span>
                   </span>
                 </div>
                 <div className="QuantitySelector flex w-full sm:w-1/5 px-5 sm:px-0 my-3 sm:justify-center">
@@ -143,7 +143,7 @@ const CartProductList = ({ cartitem, setTotal, getData }) => {
                       <FaMinus className="text-[#FC4242] group-hover:text-white" />
                     </button>
                     <input
-                      className="w-10 py-2 text-center bg-transparent border-0"
+                      className="w-10 py-2 text-center bg-transparent border-0 GeneralSans font-semibold"
                       type="text"
                       value={item?.quantity}
                       readOnly

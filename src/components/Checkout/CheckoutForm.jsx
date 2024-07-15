@@ -4,8 +4,8 @@ import { Select, SelectItem } from "@nextui-org/react";
 
 const CheckoutForm = ({ errors, register, options }) => {
   return (
-    <div className="CheckoutForm">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
+    <div className="CheckoutForm GeneralSans">
+      {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
         <InputField
           label="First Name"
           type="text"
@@ -22,8 +22,18 @@ const CheckoutForm = ({ errors, register, options }) => {
           name="lname"
           register={register}
         />
+      </div> */}
+      <div className="grid grid-cols-1 gap-4  ">
+        <InputField
+          label="Full Name"
+          type="text"
+          placeholder="Enter your first name"
+          errors={errors}
+          name="name"
+          register={register}
+        />
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-2">
+      <div className="grid grid-cols-1 gap-4">
         <InputField
           label="Your Email"
           type="email"
@@ -32,6 +42,8 @@ const CheckoutForm = ({ errors, register, options }) => {
           name="email"
           register={register}
         />
+      </div>
+      <div className="grid grid-cols-1 gap-4">
         <InputField
           label="Your Phone"
           type="tel"
@@ -41,7 +53,7 @@ const CheckoutForm = ({ errors, register, options }) => {
           register={register}
         />
       </div>
-      <div className="mt-2 h-full">
+      {/* <div className="mt-2 h-full">
         <InputField
           label="Company Name"
           type="text"
@@ -50,12 +62,27 @@ const CheckoutForm = ({ errors, register, options }) => {
           name="company"
           register={register}
         />
-      </div>
+      </div> */}
       <div className="mt-2 h-full">
         <h4>Address</h4>
+        <InputField
+          type="text"
+          placeholder="Street Address"
+          errors={errors}
+          name="street"
+          register={register}
+        />
+        <InputField
+          type="text"
+          placeholder="appartment, suite, unit etc"
+          errors={errors}
+          name="appartment"
+          register={register}
+        />
         <div className="mt-2  w-full h-full select-wrapper">
           <select
-            className="select-box w-full py-4 px-4 rounded-full custom-input-design border-1 border-[#EBEBEB] hover:border-[#3F7FAE]"
+            name="country"
+            className="select-box w-full py-4 px-4 pr-6 rounded-full custom-input-design border-1 border-[#EBEBEB] hover:border-[#3F7FAE]"
             {...register("country")}
           >
             <option value="" disabled>
@@ -73,20 +100,6 @@ const CheckoutForm = ({ errors, register, options }) => {
             </p>
           )}
         </div>
-        <InputField
-          type="text"
-          placeholder="Street Address"
-          errors={errors}
-          name="street"
-          register={register}
-        />
-        <InputField
-          type="text"
-          placeholder="appartment, suite, unit etc"
-          errors={errors}
-          name="appartment"
-          register={register}
-        />
       </div>
 
       {/* <div className="py-3">

@@ -12,6 +12,7 @@ import { userReviewSchema } from "@/validations/ratings";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { API } from "@/api";
 import { getCookie } from "@/hooks/cookies";
+import LoginModalReview from "../general/LoginModalReview";
 
 const ProductReview = ({ id, data }) => {
   const [show, setShow] = useState(false);
@@ -88,6 +89,7 @@ const ProductReview = ({ id, data }) => {
                 </Button>
               </div>
             )}
+            {!authorized && <LoginModalReview />}
           </div>
           {show && (
             <div className="py-4 flex flex-col w-full gap-4">

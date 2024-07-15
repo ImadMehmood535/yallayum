@@ -52,11 +52,11 @@ const CheckoutTotal = ({
                 <h4 className="font-semibold text-sm uppercase text-[#FC4242]">
                   {item?.name}{" "}
                   <span className="text-xs font-medium text-black px-4">
-                    ({item?.quantity} * ${item?.price})
+                    ({item?.quantity} * AED {item?.price})
                   </span>
                 </h4>
                 <h4 className="font-semibold text-sm">
-                  ${(item?.quantity * item?.price).toFixed(2)}
+                  AED {(item?.quantity * item?.price).toFixed(2)}
                 </h4>
               </div>
             ))}
@@ -76,7 +76,7 @@ const CheckoutTotal = ({
                   </span>
                 </h4>
                 <h4 className="font-semibold text-sm">
-                  ${((item?.grams / 10) * item?.price).toFixed(2)}
+                  AED {((item?.grams / 10) * item?.price).toFixed(2)}
                 </h4>
               </div>
             ))}
@@ -93,13 +93,13 @@ const CheckoutTotal = ({
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Subtotal</span>
-            <span>${(subtotal + filterDeliveryPrice?.price).toFixed(2)}</span>
+            <span>AED {(subtotal + filterDeliveryPrice?.price).toFixed(2)}</span>
           </div>
 
           {/* Payment mode tabs */}
           <div className="flex mb-4 gap-3">
             <div
-              className={`flex-1 rounded-md py-2 px-4 text-center cursor-pointer ${
+              className={`flex-1 rounded-full py-2 px-4 text-center cursor-pointer ${
                 paymentMode === "COD"
                   ? "bg-[#FC4242] text-white"
                   : "bg-gray-200 text-gray-700"
@@ -109,7 +109,7 @@ const CheckoutTotal = ({
               Cash on Delivery
             </div>
             <div
-              className={`flex-1 py-2 px-4 rounded-md text-center cursor-pointer  ${
+              className={`flex-1 py-2 px-4 rounded-full text-center cursor-pointer  ${
                 paymentMode === "ONLINE"
                   ? "bg-[#FC4242] text-white"
                   : "bg-gray-200 text-gray-700"

@@ -7,6 +7,7 @@ import Popup from "./Popup";
 import { ShoppingBag } from "@/data/allSvgs";
 
 const ProductItem = ({ data, option, btnAllow }) => {
+  console.log(data);
   const [isOpen, setIsOpen] = useState(false);
   const modalDisplay = () => {
     setIsOpen(!isOpen);
@@ -24,9 +25,7 @@ const ProductItem = ({ data, option, btnAllow }) => {
         } mx-auto`}
       >
         <div className={`  ${option == 1 ? `w-[20%]` : `w-full`}`}>
-          <Link
-            href={`/shop/${data?.slug}`}
-          >
+          <Link href={`/shop/${data?.slug}`}>
             <Image
               src={data?.imageUrl}
               alt={data?.name}
