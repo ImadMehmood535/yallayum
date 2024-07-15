@@ -36,7 +36,6 @@ export async function getAllRecipes() {
   return res.json();
 }
 
-
 export async function getSingleReceipe(slug) {
   const res = await fetch(`${BaseUrl}/recipe/${slug}`, {
     next: { revalidate: reFetech },
@@ -101,7 +100,6 @@ export async function getAllSizes() {
   }
   return res.json();
 }
-
 
 export async function getAllFlavor() {
   const res = await fetch(`${BaseUrl}/flavor/all`, {
