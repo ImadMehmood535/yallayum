@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Tiptap from "../general/Editor";
 // import Editor from "../general/Editor";
+import { Emoji } from "react-emojis";
 
 const ProductInfoTabs = ({ data }) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -8,6 +9,16 @@ const ProductInfoTabs = ({ data }) => {
   const handleTabClick = (tabID) => {
     setActiveTab(tabID);
   };
+  const replaceIconCodesWithEmojis = (text) => {
+    return text.replace(/\[`(U\+\w+)\`]/g, (match, p1) => {
+      const codePoint = parseInt(p1.replace("U+", ""), 16);
+      const emoji = String.fromCodePoint(codePoint);
+      return `<span class="emoji">${emoji}</span>`;
+    });
+  };
+
+  const processedDescription = replaceIconCodesWithEmojis(data.longDescription);
+  const processedIntegrations = replaceIconCodesWithEmojis(data.ingredients);
 
   return (
     <div className="product-info-tabs">
@@ -39,8 +50,12 @@ const ProductInfoTabs = ({ data }) => {
               activeTab === 1 ? "active" : ""
             }`}
           >
-             <Tiptap content={data?.longDescription} />
-           </div>
+            {/* <Tiptap content={data?.longDescription} /> */}
+            <div
+              className="GeneralSans text-lg font-normal customList"
+              dangerouslySetInnerHTML={{ __html: processedDescription }}
+            />
+          </div>
 
           <div
             className={`tab-content GeneralSans ${
@@ -48,7 +63,11 @@ const ProductInfoTabs = ({ data }) => {
             }`}
           >
             <div className="customTextCenter">
-              <Tiptap content={data?.ingredients} />
+              {/* <Tiptap content={data?.ingredients} /> */}
+              <div
+                className="GeneralSans text-lg font-normal customList"
+                dangerouslySetInnerHTML={{ __html: processedIntegrations }}
+              />
             </div>
           </div>
         </div>

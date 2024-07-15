@@ -14,6 +14,7 @@ import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
+import { Emoji } from "react-emojis";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([
@@ -23,14 +24,25 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
 
   const [selectedImage, setSelectedImage] = useState(
     data?.productVariation[0]?.gallery[0]
-    
   );
 
   const [quantity, setQuantity] = useState(1);
 
   const authorized = getCookie("token");
 
- 
+  const replaceIconCodesWithEmojis = (text) => {
+    return text.replace(/\[`(U\+\w+)\`]/g, (match, p1) => {
+      const codePoint = parseInt(p1.replace("U+", ""), 16);
+      const emoji = String.fromCodePoint(codePoint);
+      return `<span class="emoji">${emoji}</span>`;
+    });
+  };
+
+  const processedDescription = replaceIconCodesWithEmojis(
+    data.shortDescription
+  );
+   
+
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
@@ -44,7 +56,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                   width={1800}
                   height={1800}
                   quality={100}
-                 />
+                />
               </div>
 
               <div className="w-full  ">
@@ -105,9 +117,13 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                 />
               </div>
 
-              <div
+              {/* <div U+1F353
                 className="GeneralSans text-lg font-normal customList"
                 dangerouslySetInnerHTML={{ __html: data.shortDescription }}
+              /> */}
+              <div
+                className="GeneralSans text-lg font-normal customList"
+                dangerouslySetInnerHTML={{ __html: processedDescription }}
               />
               <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">
                 <div className="price-area gap-6 flex flex-row items-end">
