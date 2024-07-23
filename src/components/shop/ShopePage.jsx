@@ -40,6 +40,8 @@ const ShopePage = ({ categories, products }) => {
     setFilteredProducts(filtered?.length === 0 ? allProducts : filtered);
   };
 
+  const [categoryName, setCategoryName] = useState(categories[0]?.name);
+
   return (
     <div className="shop-page">
       <div className="shop-body pageLayout px-0 mx-auto">
@@ -49,8 +51,13 @@ const ShopePage = ({ categories, products }) => {
               itemCount={4}
               data={categories}
               setFilter={setFilter}
+              setCategoryName={setCategoryName}
             />
           </div>
+
+          <h1 className="text-center kalamFont mt-12 md:-mt-8y font-medium  text-[#FC4242]  flex justify-center items-center max-w-[300px] md:max-w-[500px] w-full mx-auto rounded-[25px]">
+            {categoryName}
+          </h1>
 
           <ProductList
             filteredProducts={filteredProducts}

@@ -7,8 +7,7 @@ import Popup from "./Popup";
 import { ShoppingBag } from "@/data/allSvgs";
 
 const ProductItem = ({ data, option, btnAllow }) => {
-  console.log(data);
-  const [isOpen, setIsOpen] = useState(false);
+   const [isOpen, setIsOpen] = useState(false);
   const modalDisplay = () => {
     setIsOpen(!isOpen);
   };

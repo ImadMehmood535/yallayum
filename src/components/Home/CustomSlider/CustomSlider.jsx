@@ -27,7 +27,9 @@ const CustomSlider = () => {
         return "next z-20 sm:z-10 -translate-x-[30%] sm:-translate-x-[35%] lg:-translate-x-[30%] xl:-translate-x-[90%] 2xl:-translate-x-[100%] scale-75 lg:scale-100";
       }
       if (
-        index === (currentIndex - 1 + slidesData.length) % slidesData.length) {
+        index ===
+        (currentIndex - 1 + slidesData.length) % slidesData.length
+      ) {
         return "preview-next z-10 translate-x-[40%] scale-50 lg:scale-75";
       }
       return "";
@@ -53,8 +55,7 @@ const CustomSlider = () => {
   };
 
   const getBackgroundClass = (index) => {
-    const id = index !== 0 ? 1 : 0;
-    return `bg-image bg-item-0`;
+    return `bg-image bg-item-${index}`;
   };
 
   return (
@@ -70,6 +71,7 @@ const CustomSlider = () => {
               currentIndex={currentIndex}
               handleNextIndex={handleNextIndex}
               handlePrevIndex={handlePrevIndex}
+              setCurrentIndex={setCurrentIndex}
             />
           </div>
 

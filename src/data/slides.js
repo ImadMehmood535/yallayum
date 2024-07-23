@@ -22,7 +22,7 @@ import {
 const slide1 = [
   {
     index: 1,
-    name: "Crunchy Strawberry1",
+    name: "Crunchy Strawberry",
     imageUrl: pic1,
     stars: 3,
     reviews: 120,
@@ -52,49 +52,30 @@ const slide2 = [
   {
     index: 1,
     name: "Crunchy Strawberry",
-    imageUrl: pic8,
+    imageUrl: pic7,
     stars: 5,
     reviews: 155,
     details:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Yalla Yum’s Crunchy Strawberry combines the vibrant sweetness of strawberries with a delightful crunch, making it a perfect snack. The freshness is well-preserved in its convenient packaging. An excellent choice for a healthy and tasty treat!",
   },
   {
     index: 2,
-    name: "Crunchy Strawberry2",
-    imageUrl: pic7,
+    name: "Crunchy fig",
+    imageUrl: pic8,
     stars: 3,
     reviews: 120,
     details:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Yalla Yum’s Crunchy Fig offers a deliciously sweet and chewy experience with an added crunch, making it a unique and satisfying snack. The figs are fresh and flavorful, perfect for any time of the day. A must-try for fig lovers looking for a healthy treat!",
   },
   {
     index: 3,
-    name: "Crunchy Strawberry3",
-    imageUrl: pic9,
-    stars: 2,
-    reviews: 500,
-    details:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-  },
-  {
-    index: 4,
-    name: "Crunchy Strawberry3",
-    imageUrl: pic10,
-    stars: 2,
-    reviews: 500,
-    details:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-  },
-  {
-    index: 4,
-    name: "Crunchy Strawberry3",
+    name: "Crunchy Apricot",
     imageUrl: pic11,
     stars: 2,
     reviews: 500,
     details:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Yalla Yum’s Crunchy Apricot offers a perfect blend of natural sweetness and satisfying crunch, making it an ideal healthy snack. The convenient packaging keeps it fresh, perfect for any time of day. Highly recommended for those seeking a delicious and nutritious treat.",
   },
-   
 ];
 
 const homeBannerSlide = [

@@ -77,10 +77,10 @@ const Banner = () => {
                       <Image
                         src={slide?.firstimage}
                         alt={"Slide Image"}
-                        width={630}
-                        height={540}
+                        width={800}
+                        height={800}
                         quality={100}
-                        className="object-contain w-auto h-auto"
+                        className="object-cover max-w-[400px] w-full h-auto"
                         loading="eager"
                       />
                     )}
@@ -88,7 +88,7 @@ const Banner = () => {
 
                   <div
                     className={`w-full h-[400px] md:h-[600px] img-area  ${
-                      slide?.firstimage ? `md:w-2/4` : `md:max-w-[570px]`
+                      slide?.firstimage ? `md:w-[80%]` : `md:max-w-[570px]`
                     }`}
                   >
                     <Image
@@ -97,7 +97,7 @@ const Banner = () => {
                       width={800}
                       height={300}
                       quality={100}
-                      className="w-full h-full"
+                      className="object-cover   w-full h-full"
                       loading="eager"
                     />
                   </div>

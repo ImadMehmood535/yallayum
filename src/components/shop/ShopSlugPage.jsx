@@ -23,7 +23,8 @@ const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
         <RelatedProduct
           data={relateddata}
           itemCount={4}
-          title="Related Products"
+          title="Customers Also Bought
+"
         />
         <RecipesList
           data={recipes}

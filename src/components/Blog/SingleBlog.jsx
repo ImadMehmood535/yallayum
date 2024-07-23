@@ -30,7 +30,7 @@ const SingleBlog = ({ data }) => {
         </div>
 
         <div className="py-10">
-          <Tiptap content={data?.description} />
+          <div dangerouslySetInnerHTML={{ __html: data?.description }} />;
         </div>
       </div>
     </div>

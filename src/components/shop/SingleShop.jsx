@@ -38,9 +38,10 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   };
 
   const processedDescription = replaceIconCodesWithEmojis(
-    data.shortDescription
+    data?.shortDescription
   );
-   
+
+    
 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
@@ -172,7 +173,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
               {!authorized && <LoginModal />}
             </div>
             <div className="feature mt-6">
-              <ProductStoreFeature />
+              <ProductStoreFeature name = {data?.name} />
             </div>
           </div>
         </div>

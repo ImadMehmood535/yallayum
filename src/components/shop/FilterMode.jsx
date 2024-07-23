@@ -12,7 +12,7 @@ const FilterMode = ({
   const handleChange = (newChoice) => {
     setChoice(newChoice);
     changeVariantImages([...data?.productVariation[newChoice]?.gallery]);
-    setSelectedImage(data?.productVariation[newChoice]?.imageUrl);
+    setSelectedImage(data?.productVariation[newChoice]?.gallery[0]);
     setVariation(data?.productVariation[newChoice]);
   };
 

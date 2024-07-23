@@ -285,6 +285,9 @@ ul.mob-br {
 .bg-item-1 {
   background-image: url("../assets/images/custon-slider-bg2.png");
 }
+.bg-item-2 {
+  background-image: url("../assets/images/custon-slider-bg3.png");
+}
 
 .center-area:hover .relative {
   animation: moveUpDown 1.5s infinite alternate;
@@ -506,14 +509,10 @@ input[type="range"] {
   text-align: center !important;
 }
 
-
-.customList p  {
+.customList p {
   font-size: 16px;
 }
 .customList ul > li {
   font-size: 16px;
   padding-left: 10px; /* Adjust the padding as needed */
 }
-
-
- 
