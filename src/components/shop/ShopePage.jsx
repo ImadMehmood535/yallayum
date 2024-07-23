@@ -15,30 +15,34 @@ const ShopePage = ({ categories, products }) => {
   }, [filter]);
 
   const filterProductsByCategory = (cateid) => {
-    const allProducts = products?.flatMap((product) =>
-      product?.variation?.map((variation) => ({
+    const allProducts = products?.map((product) => {
+      const variation = product?.variation; // Get the only variation
+      return {
         ...variation,
         id: product?.id,
-        variationId: variation.id,
+        variationId: variation?.id,
         name: product?.name,
         slug: product?.slug,
-      }))
-    );
-
-    const filtered = products?.flatMap((product) =>
-      product.variation
-        .filter((variation) => variation?.categoryId === cateid)
-        .map((variation) => ({
+      };
+    });
+  
+    const filtered = products?.map((product) => {
+      const variation = product?.variation; // Get the only variation
+      if (variation?.categoryId === cateid) {
+        return {
           ...variation,
           id: product?.id,
-          variationId: variation.id,
+          variationId: variation?.id,
           name: product?.name,
           slug: product?.slug,
-        }))
-    );
-
+        };
+      }
+      return null;
+    }).filter(Boolean); // Remove null entries
+  
     setFilteredProducts(filtered?.length === 0 ? allProducts : filtered);
   };
+  
 
   const [categoryName, setCategoryName] = useState(categories[0]?.name);
 

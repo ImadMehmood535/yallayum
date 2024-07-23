@@ -7,15 +7,17 @@ import "swiper/css/navigation";
 import ProductItem from "../general/ProductItem";
 
 const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
-  const allProducts = data?.flatMap((product) =>
-    product?.variation?.map((variation) => ({
+  const allProducts = data?.map((product) => {
+    const variation = product?.variation; // Get the only variation
+    return {
       ...variation,
       id: product?.id,
-      variationId: variation.id,
+      variationId: variation?.id,
       name: product?.name,
       slug: product?.slug,
-    }))
-  );
+    };
+  });
+  
 
   return (
     <div className="RelatedProduct pageLayout">
