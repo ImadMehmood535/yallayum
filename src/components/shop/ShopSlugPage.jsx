@@ -7,8 +7,7 @@ import ProductFeature from "../general/ProductFeature";
 
 const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
 
-  console.log(product , "product")
-
+ 
   
    return (
     <div className="single-product">

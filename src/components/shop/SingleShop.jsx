@@ -14,7 +14,6 @@ import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
-import { Emoji } from "react-emojis";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([

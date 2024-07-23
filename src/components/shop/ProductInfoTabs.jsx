@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tiptap from "../general/Editor";
 // import Editor from "../general/Editor";
-import { Emoji } from "react-emojis";
+// import { Emoji } from "react-emojis";
 
 const ProductInfoTabs = ({ data }) => {
   const [activeTab, setActiveTab] = useState(1);
