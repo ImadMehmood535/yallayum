@@ -16,10 +16,16 @@ import LoginModal from "../general/LoginModal";
 import Image from "next/image";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
-  const [allImages, setAllImages] = useState([
-    ...data?.productVariation[0]?.gallery,
-  ]);
+  const [allImages, setAllImages] = useState([]);
   const [variation, setVariation] = useState(data?.productVariation[0]);
+
+  useEffect(() => {
+    const initialImages = [...data?.productVariation[0]?.gallery];
+    if (data?.videoUrl) {
+      initialImages.push({ type: "video", url: data.videoUrl });
+    }
+    setAllImages(initialImages);
+  }, [data]);
 
   const [selectedImage, setSelectedImage] = useState(
     data?.productVariation[0]?.gallery[0]
@@ -41,8 +47,6 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
     data?.shortDescription
   );
 
-    
-
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
@@ -50,13 +54,20 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
           <div className="image-area">
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div className="feature-area w-full mx-auto  rounded-2xl">
-                <Image
-                  src={selectedImage}
-                  alt={data?.name}
-                  width={1800}
-                  height={1800}
-                  quality={100}
-                />
+                {selectedImage?.type === "video" ? (
+                  <video controls width="100%">
+                    <source src={selectedImage.url} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <Image
+                    src={selectedImage}
+                    alt={data?.name}
+                    width={1800}
+                    height={1800}
+                    quality={100}
+                  />
+                )}
               </div>
 
               <div className="w-full  ">
@@ -91,13 +102,25 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                         className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer  rounded-2xl w-full"
                         onClick={() => setSelectedImage(image)}
                       >
-                        <Image
-                          src={image}
-                          alt={data?.name}
-                          width={480}
-                          height={480}
-                          quality={100}
-                        />
+                        {image.type !== "video" ? (
+                          <Image
+                            src={image}
+                            alt={data?.name}
+                            width={480}
+                            height={480}
+                            quality={100}
+                            className="rounded-md"
+                          />
+                        ) : (
+                          <video
+                            width="100%"
+                            height="100%"
+                            className="rounded-md"
+                          >
+                            <source src={image.url} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        )}
                       </div>
                     </SwiperSlide>
                   ))}
@@ -130,9 +153,12 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                   <span className="sale-price text-[#FC4242] text-3xl">
                     AED {variation?.salePrice}
                   </span>
-                  <span className="regular-price text-[#B0B0B0] line-through text-2xl">
-                    AED {variation?.price}
-                  </span>
+
+                  {variation?.price && (
+                    <span className="regular-price text-[#B0B0B0] line-through text-2xl">
+                      AED {variation?.price}
+                    </span>
+                  )}
                 </div>
 
                 <p>({variation?.weight} gram)</p>
@@ -173,7 +199,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
               {!authorized && <LoginModal />}
             </div>
             <div className="feature mt-6">
-              <ProductStoreFeature name = {data?.name} />
+              <ProductStoreFeature name={data?.name} />
             </div>
           </div>
         </div>

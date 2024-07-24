@@ -2,8 +2,7 @@
 import { Button } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
@@ -22,12 +21,15 @@ const SignupForm = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
+      // Remove +971 from the phone number before sending it to the API
+      data.phoneNumber = data.phoneNumber.replace("+971", "");
+
       const response = await API.registerUser(data);
       successToast("You can continue shopping now");
       setLoading(false);
       setCookie("token", response?.data?.data?.token);
 
-      router.push("/");
+      router.push("/shop");
     } catch (error) {
       setLoading(false);
       errorToast(error, "Can not sign up at the moment");
@@ -36,9 +38,10 @@ const SignupForm = () => {
 
   const [isShow, setIsShow] = useState(false);
 
-  const handleShow = (isShow) => {
+  const handleShow = () => {
     setIsShow(!isShow);
   };
+
   return (
     <div className="signup-from pageLayout px-0 mx-auto">
       <div className="container">
@@ -56,7 +59,7 @@ const SignupForm = () => {
                     placeholder="Full Name"
                     {...register("name", { required: true })}
                   />
-                  {errors?.email && (
+                  {errors?.name && (
                     <p className="text-sm text-red-800">
                       Full name is required
                     </p>
@@ -81,10 +84,11 @@ const SignupForm = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="phone"
+                    placeholder="Phone"
+                    defaultValue="+971"
                     {...register("phoneNumber", { required: true })}
                   />
-                  {errors?.email && (
+                  {errors?.phoneNumber && (
                     <p className="text-sm text-red-800">
                       Phone number is required
                     </p>
@@ -99,15 +103,15 @@ const SignupForm = () => {
                     placeholder="Password"
                     {...register("password", { required: true })}
                   />
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center  leading-5 text-3xl">
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center leading-5 text-3xl">
                     {isShow ? (
                       <FaEye
-                        onClick={() => handleShow(isShow)}
+                        onClick={handleShow}
                         className="cursor-pointer"
                       />
                     ) : (
                       <FaEyeSlash
-                        onClick={() => handleShow(isShow)}
+                        onClick={handleShow}
                         className="cursor-pointer"
                       />
                     )}
@@ -129,16 +133,15 @@ const SignupForm = () => {
               </div>
               <div className="field-wrapper">
                 <div className="flex justify-center gap-2">
-                  <label className="block text-[#A0A0A0] font-normal mt-4 ">
-                    <span className="py-2 text-sm  leading-snug  ">
-                      {" "}
-                      Already have an account?{" "}
+                  <label className="block text-[#A0A0A0] font-normal mt-4">
+                    <span className="py-2 text-sm leading-snug">
+                      Already have an account?
                     </span>
                   </label>
-                  <label className="block text-gray-500  mt-4">
+                  <label className="block text-gray-500 mt-4">
                     <Link
                       href="/login"
-                      className="cursor-pointer tracking-tighter text-[#FC4242]   hover:text-[#000]"
+                      className="cursor-pointer tracking-tighter text-[#FC4242] hover:text-[#000]"
                     >
                       Login
                     </Link>

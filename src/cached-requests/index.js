@@ -1,10 +1,10 @@
 const BaseUrl = process.env.NEXT_PUBLIC_BASE_URL_SERVER;
 
-const reFetech = 5;
+const reFetch = 50;
 
 export async function getCategories() {
   const res = await fetch(`${BaseUrl}/category`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -16,7 +16,7 @@ export async function getCategories() {
 
 export async function getAllProducts() {
   const res = await fetch(`${BaseUrl}/product/all`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -27,7 +27,7 @@ export async function getAllProducts() {
 
 export async function getAllRecipes() {
   const res = await fetch(`${BaseUrl}/recipe`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -38,7 +38,7 @@ export async function getAllRecipes() {
 
 export async function getSingleReceipe(slug) {
   const res = await fetch(`${BaseUrl}/recipe/${slug}`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -50,7 +50,7 @@ export async function getSingleReceipe(slug) {
 //blogs
 export async function getAllBlogs() {
   const res = await fetch(`${BaseUrl}/blog`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -60,7 +60,7 @@ export async function getAllBlogs() {
 }
 export async function getSingleBlog(slug) {
   const res = await fetch(`${BaseUrl}/blog/${slug}`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -71,7 +71,7 @@ export async function getSingleBlog(slug) {
 
 export async function getProductById(slug) {
   const res = await fetch(`${BaseUrl}product/${slug}`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -81,7 +81,7 @@ export async function getProductById(slug) {
 }
 export async function getSingleProductReview(id) {
   const res = await fetch(`${BaseUrl}/productReview/${id}`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -92,7 +92,7 @@ export async function getSingleProductReview(id) {
 
 export async function getAllSizes() {
   const res = await fetch(`${BaseUrl}/size`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
@@ -103,7 +103,7 @@ export async function getAllSizes() {
 
 export async function getAllFlavor() {
   const res = await fetch(`${BaseUrl}/flavor/all`, {
-    cache: "no-store",
+    next: { revalidate: reFetch },
   });
 
   if (!res.ok) {
