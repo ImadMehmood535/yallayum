@@ -33,14 +33,14 @@ const ProductInfoTabs = ({ data }) => {
             >
               Descriptions
             </li>
-            {/* <li
+            <li
               className={`tab-link cursor-pointer ${
                 activeTab === 2 ? "active" : ""
               }`}
               onClick={() => handleTabClick(2)}
             >
               Ingredients
-            </li> */}
+            </li>
           </ul>
         </div>
 
