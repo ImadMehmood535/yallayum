@@ -22,7 +22,11 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   useEffect(() => {
     const initialImages = [...data?.productVariation[0]?.gallery];
     if (data?.videoUrl) {
-      initialImages.push({ type: "video", url: data.videoUrl, thumbnail: data.videoUrl });
+      initialImages.push({
+        type: "video",
+        url: data.videoUrl,
+        thumbnail: data.videoUrl,
+      });
     }
     setAllImages(initialImages);
   }, [data]);
@@ -116,10 +120,19 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                             <video
                               src={image.url}
                               className="w-full h-full object-cover rounded-md"
+                              poster={data?.productVariation[0]?.imageUrl}
                             />
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" fillRule="evenodd" />
+                              <svg
+                                className="w-12 h-12 text-white"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                  clipRule="evenodd"
+                                  fillRule="evenodd"
+                                />
                               </svg>
                             </div>
                           </div>
