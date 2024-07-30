@@ -1,17 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 import FilterMode from "./FilterMode";
 import QuantitySelector from "../general/QuantitySelector";
 import ProductInfoTabs from "./ProductInfoTabs";
 import AddCartBtn from "./AddCartBtn";
 import ProductStoreFeature from "./ProductStoreFeature";
 import RatingNoOfReview from "./RatingNoOfReview";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
 import { getCookie } from "@/hooks/cookies";
-import { ShoppingBag } from "@/data/allSvgs";
-import Link from "next/link";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
 
@@ -20,20 +17,36 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [variation, setVariation] = useState(data?.productVariation[0]);
 
   useEffect(() => {
-    const initialImages = [...data?.productVariation[0]?.gallery];
+    const initialImages = data?.productVariation[0]?.gallery.map(image => ({
+      original: image,
+      thumbnail: image,
+    }));
     if (data?.videoUrl) {
       initialImages.push({
-        type: "video",
-        url: data.videoUrl,
-        thumbnail: data.videoUrl,
+        original: data.videoUrl,
+        thumbnail: data.productVariation[0].imageUrl,
+        renderItem: () => renderVideo(data.videoUrl),
+        thumbnailClass: 'video-thumbnail',
       });
     }
     setAllImages(initialImages);
   }, [data]);
 
-  const [selectedImage, setSelectedImage] = useState(
-    data?.productVariation[0]?.gallery[0]
-  );
+  const renderVideo = (url) => {
+    return (
+      <div className='image-gallery-image'>
+        <video
+          controls
+          width="100%"
+          height="100%"
+          // poster={data?.productVariation[0]?.imageUrl}
+        >
+          <source src={url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    );
+  };
 
   const [quantity, setQuantity] = useState(1);
 
@@ -56,93 +69,14 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           <div className="image-area">
-            <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
-              <div className="feature-area w-full mx-auto  rounded-2xl">
-                {selectedImage?.type === "video" ? (
-                  <video controls width="100%" poster={selectedImage.thumbnail}>
-                    <source src={selectedImage.url} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                ) : (
-                  <Image
-                    src={selectedImage}
-                    alt={data?.name}
-                    width={1800}
-                    height={1800}
-                    quality={100}
-                  />
-                )}
-              </div>
-
-              <div className="w-full  ">
-                <Swiper
-                  pagination={{
-                    dynamicBullets: true,
-                    clickable: true,
-                  }}
-                  slidesPerView={1}
-                  spaceBetween={20}
-                  loop={true}
-                  breakpoints={{
-                    540: {
-                      slidesPerView: 3,
-                      spaceBetween: 20,
-                    },
-                    768: {
-                      slidesPerView: 3,
-                      spaceBetween: 20,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                      spaceBetween: 20,
-                    },
-                  }}
-                  className="gallery-slider"
-                >
-                  {allImages?.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <div
-                        key={index}
-                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer rounded-2xl w-full"
-                        onClick={() => setSelectedImage(image)}
-                      >
-                        {image.type !== "video" ? (
-                          <Image
-                            src={image}
-                            alt={data?.name}
-                            width={480}
-                            height={480}
-                            quality={100}
-                            className="rounded-md"
-                          />
-                        ) : (
-                          <div className="relative w-full h-full">
-                            <video
-                              src={image.url}
-                              className="w-full h-full object-cover rounded-md"
-                              poster={data?.productVariation[0]?.imageUrl}
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <svg
-                                className="w-12 h-12 text-white"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                  clipRule="evenodd"
-                                  fillRule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
+            <ImageGallery 
+              items={allImages} 
+              showPlayButton={false}
+              showFullscreenButton={false}
+              showNav={false}
+              thumbnailPosition="left"
+              renderItem={(item) => item.renderItem ? item.renderItem() : <img src={item.original} alt={data?.name} />}
+            />
           </div>
           <div className="content-area py-6">
             <div className="product-info">
@@ -185,7 +119,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                   <FilterMode
                     changeVariantImages={setAllImages}
                     data={data}
-                    setSelectedImage={setSelectedImage}
+                    setSelectedImage={() => {}}
                     setVariation={setVariation}
                   />
                 </div>
