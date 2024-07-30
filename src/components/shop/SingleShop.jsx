@@ -22,7 +22,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   useEffect(() => {
     const initialImages = [...data?.productVariation[0]?.gallery];
     if (data?.videoUrl) {
-      initialImages.push({ type: "video", url: data.videoUrl });
+      initialImages.push({ type: "video", url: data.videoUrl, thumbnail: data.videoUrl });
     }
     setAllImages(initialImages);
   }, [data]);
@@ -55,7 +55,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
             <div className="gallery-wrapper flex justify-center items-start gap-5 flex-col ">
               <div className="feature-area w-full mx-auto  rounded-2xl">
                 {selectedImage?.type === "video" ? (
-                  <video controls width="100%">
+                  <video controls width="100%" poster={selectedImage.thumbnail}>
                     <source src={selectedImage.url} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -99,7 +99,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                     <SwiperSlide key={index}>
                       <div
                         key={index}
-                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer  rounded-2xl w-full"
+                        className="thumbnail bg-contain bg-center bg-no-repeat h-[200px] cursor-pointer rounded-2xl w-full"
                         onClick={() => setSelectedImage(image)}
                       >
                         {image.type !== "video" ? (
@@ -112,14 +112,17 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                             className="rounded-md"
                           />
                         ) : (
-                          <video
-                            width="100%"
-                            height="100%"
-                            className="rounded-md"
-                          >
-                            <source src={image.url} type="video/mp4" />
-                            Your browser does not support the video tag.
-                          </video>
+                          <div className="relative w-full h-full">
+                            <video
+                              src={image.url}
+                              className="w-full h-full object-cover rounded-md"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" fillRule="evenodd" />
+                              </svg>
+                            </div>
+                          </div>
                         )}
                       </div>
                     </SwiperSlide>
@@ -140,10 +143,6 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                 />
               </div>
 
-              {/* <div U+1F353
-                className="GeneralSans text-lg font-normal customList"
-                dangerouslySetInnerHTML={{ __html: data.shortDescription }}
-              /> */}
               <div
                 className="GeneralSans text-lg font-normal customList"
                 dangerouslySetInnerHTML={{ __html: processedDescription }}
