@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import ImageGallery from 'react-image-gallery';
+import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import FilterMode from "./FilterMode";
 import QuantitySelector from "../general/QuantitySelector";
@@ -17,7 +17,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [variation, setVariation] = useState(data?.productVariation[0]);
 
   useEffect(() => {
-    const initialImages = data?.productVariation[0]?.gallery.map(image => ({
+    const initialImages = data?.productVariation[0]?.gallery.map((image) => ({
       original: image,
       thumbnail: image,
     }));
@@ -26,7 +26,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
         original: data.videoUrl,
         thumbnail: data.productVariation[0].imageUrl,
         renderItem: () => renderVideo(data.videoUrl),
-        thumbnailClass: 'video-thumbnail',
+        thumbnailClass: "video-thumbnail",
       });
     }
     setAllImages(initialImages);
@@ -34,7 +34,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
 
   const renderVideo = (url) => {
     return (
-      <div className='image-gallery-image'>
+      <div className="image-gallery-image">
         <video
           controls
           width="100%"
@@ -69,13 +69,21 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
           <div className="image-area">
-            <ImageGallery 
-              items={allImages} 
+            <ImageGallery
+              items={allImages}
               showPlayButton={false}
               showFullscreenButton={false}
               showNav={false}
+              disableThumbnailScroll={true}
               thumbnailPosition="left"
-              renderItem={(item) => item.renderItem ? item.renderItem() : <img src={item.original} alt={data?.name} />}
+              slideOnThumbnailOver={true}
+              renderItem={(item) =>
+                item.renderItem ? (
+                  item.renderItem()
+                ) : (
+                  <img src={item.original} alt={data?.name} />
+                )
+              }
             />
           </div>
           <div className="content-area py-6">

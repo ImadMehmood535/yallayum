@@ -15,8 +15,7 @@ const Page = async ({ params }) => {
     data: { recipes },
   } = await getAllRecipes();
 
-  console.log(product , "products")
- 
+  
   return (
     <ShopSlugPage product={product} relateddata={products} reviewData={reviewData} recipes={recipes} />
   );
