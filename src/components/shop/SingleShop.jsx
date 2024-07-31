@@ -67,6 +67,8 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
     data?.shortDescription
   );
 
+  console.log(allImages , "allImages")
+
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
