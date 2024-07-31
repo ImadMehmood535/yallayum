@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import FilterMode from "./FilterMode";
@@ -11,36 +11,39 @@ import RatingNoOfReview from "./RatingNoOfReview";
 import { getCookie } from "@/hooks/cookies";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
-
+import { generateThumbnail } from "./GenerateThumbnail";
+ 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([]);
   const [variation, setVariation] = useState(data?.productVariation[0]);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const initialImages = data?.productVariation[0]?.gallery.map((image) => ({
       original: image,
       thumbnail: image,
     }));
+
     if (data?.videoUrl) {
-      initialImages.push({
-        original: data.videoUrl,
-        thumbnail: data.productVariation[0].imageUrl,
-        renderItem: () => renderVideo(data.videoUrl),
-        thumbnailClass: "video-thumbnail",
+      generateThumbnail(data.videoUrl, (thumbnailDataUrl) => {
+        initialImages.push({
+          original: data.videoUrl,
+          thumbnail: thumbnailDataUrl,
+          renderItem: () => renderVideo(data.videoUrl),
+          thumbnailClass: "video-thumbnail",
+        });
+
+        setAllImages(initialImages);
       });
+    } else {
+      setAllImages(initialImages);
     }
-    setAllImages(initialImages);
   }, [data]);
 
   const renderVideo = (url) => {
     return (
       <div className="image-gallery-image">
-        <video
-          controls
-          width="100%"
-          height="100%"
-          // poster={data?.productVariation[0]?.imageUrl}
-        >
+        <video controls width="100%" height="100%">
           <source src={url} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

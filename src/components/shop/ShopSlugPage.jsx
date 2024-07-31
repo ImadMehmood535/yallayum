@@ -6,10 +6,7 @@ import RelatedProduct from "@/components/shop/RelatedProduct";
 import ProductFeature from "../general/ProductFeature";
 
 const ShopSlugPage = ({ product, relateddata, reviewData, recipes }) => {
-
- 
-  
-   return (
+  return (
     <div className="single-product">
       <div className="  px-0 mx-auto">
         <SingleShop
