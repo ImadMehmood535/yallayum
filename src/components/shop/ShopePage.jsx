@@ -44,7 +44,7 @@ const ShopePage = ({ categories, products }) => {
   };
   
 
-  const [categoryName, setCategoryName] = useState(categories[0]?.name);
+  const [categoryName, setCategoryName] = useState("All Products");
 
   return (
     <div className="shop-page">
