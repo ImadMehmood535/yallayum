@@ -11,9 +11,9 @@ import AnimatedButton from "../general/AnimatedButton";
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 
-const Banner = () => {
+const Banner = ({slides}) => {
   const [active, setActive] = useState(false);
-  let slidesData = [...homeBannerSlide];
+  let slidesData = [...slides];
   return (
     <div className="Banner">
       <Swiper

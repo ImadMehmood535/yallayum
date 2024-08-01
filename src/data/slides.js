@@ -112,5 +112,39 @@ const homeBannerSlide = [
     link: "/shop",
   },
 ];
+const homeBannerSlideAR = [
+  {
+    bgColor: "#FFE6E6",
+    firstimage: Banner_heading,
+    imageSrc: Banner_slide_5,
+  },
+  {
+    bgColor: "#F9F4ED",
+    imageSrc: Banner_slide_1,
+    title: "استمتع بالبهجة الخالدة مع الفواكه المجففة بالتجميد",
+    description:
+      " بالبهجة الخالدة مع فواكه يلا يم المجففة بالتجميد،حيث يتم الحفاظ على النكهات الطبيعية والمواد المغذية للفواكه الطازجة بشكل مثالي. استمتع بوجبة خفيفة صحية ولذيذة تجسد جوهر دبي الغني في كل مذاق.",
+    btntext: "BUY NOW",
+    link: "/shop",
+  },
+  {
+    bgColor: "#FAF4FA",
+    imageSrc: Banner_slide_2,
+    title: "  تذوق جوهر الطبيعة النقي مع الفواكه المجففة بالتجميد",
+    description:
+      "تذوق جوهر الطبيعة النقي مع فواكه يلا يم المجففة بالتجميد، حيث توفر كل قضمة الطعم الأصيل والتغذية للفواكه الطازجة. استمتع بوجبة خفيفة صحية ولذيذة وصحية بشكل طبيعي، ومثالية لأي وقت من اليوم.",
+    btntext: "BUY NOW",
+    link: "/shop",
+  },
+  {
+    bgColor: "#FFF5F5",
+    imageSrc: Banner_slide_3,
+    title: "اكتشف النكهات والعناصر الغذائية الغنية للفواكه المجففة بالتجميد ",
+    description:
+      "أطلق العنان للنكهات الغنية والمواد المغذية للفواكه المجففة بالتجميد في يلا يم، مما يوفر طريقة مريحة للإستمتاع بفوائد الفاكهة الطازجة في أي وقت. كل قطعة مليئة بالطعم القوي والفيتامينات الأساسية، مما يجعلها وجبة خفيفة صحية مثالية.",
+    btntext: "BUY NOW",
+    link: "/shop",
+  },
+];
 
-export { slide1, slide2, homeBannerSlide };
+export { slide1, slide2, homeBannerSlide, homeBannerSlideAR };
