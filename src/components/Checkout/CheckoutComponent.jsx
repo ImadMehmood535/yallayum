@@ -64,10 +64,12 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
   const filterDeliveryPrice = options?.find((item) => item?.name === city);
 
   const onSubmit = async (data) => {
+    console.log(data, "Data");
     setLoadiong(true);
     try {
       if (type === "general") {
         const payload = {
+          customerData: data,
           paymentMode: paymentMode,
           totalPrice: parseFloat(total).toFixed(2),
           deliveryCharges: parseFloat(filterDeliveryPrice?.price).toFixed(2),
@@ -88,6 +90,7 @@ const CheckoutComponent = ({ type, makeYourMix }) => {
         }
       } else if (type === "custom") {
         const payload = {
+          customerData: data,
           paymentMode: paymentMode,
           totalPrice: parseFloat(customProduct?.totalPrice).toFixed(2),
           deliveryCharges: parseFloat(filterDeliveryPrice?.price).toFixed(2),

@@ -12,7 +12,7 @@ import { getCookie } from "@/hooks/cookies";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
 import { generateThumbnail } from "./GenerateThumbnail";
- 
+
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([]);
   const [variation, setVariation] = useState(data?.productVariation[0]);
@@ -67,7 +67,7 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
     data?.shortDescription
   );
 
-  console.log(allImages , "allImages")
+  console.log(allImages, "allImages");
 
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
