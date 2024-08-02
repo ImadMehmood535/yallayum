@@ -16,11 +16,10 @@ const Footer = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const useful_links = [
-    { name: "Privacy Policy", link: "/" },
-    { name: "Return & Shipping Policy", link: "/" },
-    { name: "Terms & Conditions", link: "/" },
-    { name: "About Us", link: "/" },
-    { name: "Return & Shipping Policy", link: "/" },
+    { name: "Privacy Policy", link: "/privacy-policy" },
+    { name: "Return & Shipping Policy", link: "/return-and-shipping-policy" },
+    { name: "Terms & Conditions", link: "/terms-and-conditions" },
+    { name: "About Us", link: "/about-us" },
   ];
 
   const [loading, setLoading] = useState(false);
@@ -45,7 +44,9 @@ const Footer = () => {
 
   return (
     <div
-      className={`${isDarkMode ? `Footer-dark` : `Footer-light`} overflow-hidden relative py-10 md:pt-20 md:pb-10 px-0 mx-auto ${
+      className={`${
+        isDarkMode ? `Footer-dark` : `Footer-light`
+      } overflow-hidden relative py-10 md:pt-20 md:pb-10 px-0 mx-auto ${
         isDarkMode ? "bg-black text-white" : "bg-[#FAF7F4] text-black"
       }`}
     >
@@ -210,7 +211,9 @@ const Footer = () => {
                     disabled={loading}
                     type="submit"
                     className={` rounded-full font-medium  max-w-[170px] w-full py-3 transition-all duration-200 cursor-pointer ${
-                      isDarkMode ? "bg-[#fc4242] text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"
+                      isDarkMode
+                        ? "bg-[#fc4242] text-white hover:bg-white hover:text-black"
+                        : "bg-white text-black hover:bg-black hover:text-white"
                     }`}
                     value="Subscribe"
                   />

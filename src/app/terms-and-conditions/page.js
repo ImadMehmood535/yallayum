@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div>
       <div className="w-full ">
-        <InnerpageHeader pagetitle={"Return and Shipping Policy"} />
+        <InnerpageHeader pagetitle={"Terms and Conditions"} />
       </div>
 
       <div className="py-12">
