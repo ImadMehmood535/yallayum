@@ -283,7 +283,7 @@ const Footer = () => {
               <ul className="flex  flex-row gap-3 text-sm font-medium">
                 <li className="text-center">
                   <Link
-                    href={"/"}
+                    href={"/terms-and-conditions"}
                     className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
                   >
                     Terms of Service
@@ -291,7 +291,7 @@ const Footer = () => {
                 </li>
                 <li className="text-center">
                   <Link
-                    href={"/"}
+                    href={"/privacy-policy"}
                     className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
                   >
                     Privacy Policy
