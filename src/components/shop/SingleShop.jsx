@@ -12,6 +12,7 @@ import { getCookie } from "@/hooks/cookies";
 import LoginModal from "../general/LoginModal";
 import Image from "next/image";
 import { generateThumbnail } from "./GenerateThumbnail";
+import Tiptap from "../general/TipTap";
 
 const SingleShop = ({ reviewData, data, rating, total_review }) => {
   const [allImages, setAllImages] = useState([]);
@@ -67,8 +68,6 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
     data?.shortDescription
   );
 
-  console.log(allImages, "allImages");
-
   return (
     <div className="SingleShop pageLayout pb-10 md:pb-20">
       <div className="container">
@@ -102,11 +101,10 @@ const SingleShop = ({ reviewData, data, rating, total_review }) => {
                   totalReview={reviewData?.totalReviews}
                 />
               </div>
+ 
 
-              <div
-                className="GeneralSans text-lg font-normal customList"
-                dangerouslySetInnerHTML={{ __html: processedDescription }}
-              />
+              <Tiptap content={processedDescription} />
+
               <div className="mt-8 font-semibold GeneralSans flex flex-row gap-2 pb-4 border-b-1 items-end">
                 <div className="price-area gap-6 flex flex-row items-end">
                   <span className="sale-price text-[#FC4242] text-3xl">

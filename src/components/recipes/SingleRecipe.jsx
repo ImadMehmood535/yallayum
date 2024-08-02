@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Tiptap from "../general/Editor";
-
+import Tiptap from "../general/TipTap";
+ 
 const SingleRecipe = ({ data }) => {
   return (
     <div className="Single-Recipe pageLayout pb-10 md:pb-20">

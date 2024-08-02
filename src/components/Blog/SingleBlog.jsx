@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Tiptap from "../general/Editor";
+import Tiptap from "../general/TipTap";
 
 const SingleBlog = ({ data }) => {
   return (
@@ -30,7 +30,7 @@ const SingleBlog = ({ data }) => {
         </div>
 
         <div className="py-10">
-          <div dangerouslySetInnerHTML={{ __html: data?.description }} />;
+          <Tiptap content={data?.description} />
         </div>
       </div>
     </div>

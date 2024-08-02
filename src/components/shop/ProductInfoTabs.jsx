@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tiptap from "../general/Editor";
+import Tiptap from "../general/TipTap";
 // import Editor from "../general/Editor";
 // import { Emoji } from "react-emojis";
 
@@ -50,11 +50,7 @@ const ProductInfoTabs = ({ data }) => {
               activeTab === 1 ? "active" : ""
             }`}
           >
-            {/* <Tiptap content={data?.longDescription} /> */}
-            <div
-              className="GeneralSans text-lg font-normal customList"
-              dangerouslySetInnerHTML={{ __html: processedDescription }}
-            />
+            <Tiptap content={processedDescription} />
           </div>
 
           <div
@@ -62,12 +58,8 @@ const ProductInfoTabs = ({ data }) => {
               activeTab === 2 ? "active" : ""
             }`}
           >
-            <div className="customTextCenter">
-              {/* <Tiptap content={data?.ingredients} /> */}
-              <div
-                className="GeneralSans text-lg font-normal customList"
-                dangerouslySetInnerHTML={{ __html: processedIntegrations }}
-              />
+            <div className=" ">
+              <Tiptap content={processedIntegrations} />
             </div>
           </div>
         </div>
