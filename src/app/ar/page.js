@@ -1,8 +1,7 @@
 import { feedlist } from "@/data/feedlist";
-import { reviewData, reviewDataAR } from "@/data/reviewData";
+import { reviewDataAR } from "@/data/reviewData";
 import Blogs from "@/components/Home/Blogs";
 import Banner from "@/components/Home/Banner";
-import OurImpact from "@/components/Home/OurImpact";
 import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
 import InstaFeeds from "@/components/Home/InstaFeeds";
 import ProductFeature from "@/components/general/ProductFeature";
@@ -11,7 +10,7 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 import CategoryList from "@/components/shop/CategoryList";
 import { getAllBlogs, getCategories } from "@/cached-requests";
 import Link from "next/link";
-import { homeBannerSlide, homeBannerSlideAR } from "@/data/slides";
+import { homeBannerSlideAR, slide1AR, slide2AR } from "@/data/slides";
 import OurImpactAr from "@/components/Home/OurImpactAr";
 
 export const metadata = {
@@ -23,19 +22,33 @@ export default async function HomeAr() {
   const { data: categories } = await getCategories();
   const { data: blogsData } = await getAllBlogs();
 
+  const transformedCategories = categories.map((category) => {
+    let newName = category.name.trim().toLowerCase();
+    if (newName === "all products") {
+      newName = "جميع المنتجات";
+    } else if (newName === "first taste") {
+      newName = "المذاق الأول";
+    } else if (newName === "sets") {
+      newName = "مجموعات";
+    } else if (newName === "make your mix") {
+      newName = "اصنع المزيج الخاص بك";
+    }
+
+    return { ...category, name: newName };
+  });
+
   return (
     <>
-      <Banner  slides={homeBannerSlideAR}/>
+      <Banner slides={homeBannerSlideAR} />
       <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
         <Link href={"/shop"}>
-          <CategoryList itemCount={4} data={categories} />
+          <CategoryList itemCount={4} data={transformedCategories} />
         </Link>
-        {/* <FeatureProduct data={productData} /> */}
       </div>
       <div className="hidden md:block">
-        <OurImpactAr  />
+        <OurImpactAr />
       </div>
-      <CustomSlider />
+      <CustomSlider slide1={slide1AR} slide2={slide2AR} />
       <InstaFeeds reviewData={reviewDataAR} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />

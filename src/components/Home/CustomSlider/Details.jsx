@@ -14,10 +14,14 @@ const Details = ({
   handleNextIndex,
   setCurrentIndex,
   handlePrevIndex,
+  slide1,
+  slide2,
 }) => {
   return (
     <div className="flex flex-col gap-8">
       <CustomSliderMode
+        slide1={slide1}
+        slide2={slide2}
         setSlidesData={setSlidesData}
         setActiveSlides={setActiveSlides}
         activeSlides={activeSlides}

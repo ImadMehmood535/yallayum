@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { slide1 } from "@/data/slides";
 import Details from "./Details";
 
-const CustomSlider = () => {
+const CustomSlider = ({ slide1, slide2 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesData, setSlidesData] = useState(slide1);
   const [activeSlides, setActiveSlides] = useState(1);
@@ -64,6 +63,8 @@ const CustomSlider = () => {
         <div className="slider-wrapper flex flex-col lg:flex-row justify-between items-center pl-[3%] pr-[3%] lg:pr-0">
           <div className="w-full lg:max-w-[30%]">
             <Details
+              slide1={slide1}
+              slide2={slide2}
               setSlidesData={setSlidesData}
               setActiveSlides={setActiveSlides}
               activeSlides={activeSlides}

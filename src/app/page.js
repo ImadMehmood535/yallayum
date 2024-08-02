@@ -11,7 +11,7 @@ import StoreFeatures from "@/components/general/StoreFeatures";
 import CategoryList from "@/components/shop/CategoryList";
 import { getAllBlogs, getCategories } from "@/cached-requests";
 import Link from "next/link";
-import { homeBannerSlide } from "@/data/slides";
+import { homeBannerSlide, slide1, slide2 } from "@/data/slides";
 
 export const metadata = {
   title: "Home | Yalla Yum",
@@ -34,7 +34,7 @@ export default async function Home() {
       <div className="hidden md:block">
         <OurImpact />
       </div>
-      <CustomSlider />
+      <CustomSlider slide1={slide1} slide2={slide2} />
       <InstaFeeds reviewData={reviewData} />
       <Blogs blogsData={blogsData} />
       <ProductFeature />

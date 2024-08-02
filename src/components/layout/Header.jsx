@@ -175,6 +175,7 @@ const Header = () => {
 
         <NavbarContent justify="end">
           <NavbarItem className="flex items-center flex-row-reverse gap-4">
+            <Link href="/ar" className="  cursor-pointer !text-[20px] ml-5 mb-2 text-[#FFF2F1] hover:text-[#FAF1DC]">عربي</Link>
             <LiaShoppingBagSolid
               className="text-white text-5xl md:text-[19px] cursor-pointer"
               onClick={handleCartClick}

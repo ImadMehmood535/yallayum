@@ -48,6 +48,64 @@ const slide1 = [
       "Yalla Yum’s Crunchy Apricot offers a perfect blend of natural sweetness and satisfying crunch, making it an ideal healthy snack. The convenient packaging keeps it fresh, perfect for any time of day. Highly recommended for those seeking a delicious and nutritious treat.",
   },
 ];
+const slide1AR = [
+  {
+    index: 1,
+    name: "  الفراولة المقرمشة",
+    imageUrl: pic1,
+    stars: 3,
+    reviews: 120,
+    details:
+      "تجمع الفراولة المقرمشة من يلا يم بين حلاوة الفراولة النابضة بالحياة مع القرمشة اللذيذة، مما يجعلها وجبة خفيفة مثالية. يتم الحفاظ على النضارة جيدًا في عبوتها المريحة. خيار ممتاز لوجبة صحية ولذيذة!",
+  },
+  {
+    index: 2,
+    name: "التين المقرمش",
+    imageUrl: pic2,
+    stars: 5,
+    reviews: 150,
+    details:
+      "يقدم التين المجفف من يلا يم تجربة حلوة ولذيذة مع قرمشة إضافية، مما يجعله وجبة خفيفة فريدة ومُرضية. التين طازج ولذيذ، مثالي لأي وقت من اليوم. يجب تجربتها لمحبي التين الذين يبحثون عن طعام صحي!",
+  },
+  {
+    index: 3,
+    name: "المشمش المقرمش",
+    imageUrl: pic3,
+    stars: 4,
+    reviews: 420,
+    details:
+      "يقدم المشمش المقرمش من يلا يم مزيجًا مثاليًا من الحلاوة الطبيعية والقرمشة المُرضية، مما يجعله وجبة خفيفة صحية مثالية. تحافظ العبوة المريحة على نضارتها ومثالية لأي وقت من اليوم. موصى به للغاية لأولئك الذين يبحثون عن طعام لذيذ ومغذي.",
+  },
+];
+const slide2AR = [
+  {
+    index: 1,
+    name: "  الفراولة المقرمشة",
+    imageUrl: pic7,
+    stars: 5,
+    reviews: 155,
+    details:
+      "تجمع الفراولة المقرمشة من يلا يم بين حلاوة الفراولة النابضة بالحياة مع القرمشة اللذيذة، مما يجعلها وجبة خفيفة مثالية. يتم الحفاظ على النضارة جيدًا في عبوتها المريحة. خيار ممتاز لوجبة صحية ولذيذة!",
+  },
+  {
+    index: 2,
+    name: "التين المقرمش",
+    imageUrl: pic8,
+    stars: 3,
+    reviews: 120,
+    details:
+      "يقدم المشمش المقرمش من يلا يم مزيجًا مثاليًا من الحلاوة الطبيعية والقرمشة المُرضية، مما يجعله وجبة خفيفة صحية مثالية. تحافظ العبوة المريحة على نضارتها ومثالية لأي وقت من اليوم. موصى به للغاية لأولئك الذين يبحثون عن طعام لذيذ ومغذي.",
+  },
+  {
+    index: 3,
+    name: "المشمش المقرمش",
+    imageUrl: pic11,
+    stars: 2,
+    reviews: 500,
+    details:
+      "يقدم المشمش المقرمش من يلا يم مزيجًا مثاليًا من الحلاوة الطبيعية والقرمشة المُرضية، مما يجعله وجبة خفيفة صحية مثالية. تحافظ العبوة المريحة على نضارتها ومثالية لأي وقت من اليوم. موصى به للغاية لأولئك الذين يبحثون عن طعام لذيذ ومغذي.",
+  },
+];
 const slide2 = [
   {
     index: 1,
@@ -147,4 +205,11 @@ const homeBannerSlideAR = [
   },
 ];
 
-export { slide1, slide2, homeBannerSlide, homeBannerSlideAR };
+export {
+  slide1,
+  slide2,
+  homeBannerSlide,
+  homeBannerSlideAR,
+  slide1AR,
+  slide2AR,
+};

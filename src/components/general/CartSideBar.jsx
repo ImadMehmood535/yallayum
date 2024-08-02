@@ -27,7 +27,7 @@ const CartSideBar = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     getData();
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   return (
     <div

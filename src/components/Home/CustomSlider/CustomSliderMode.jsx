@@ -1,5 +1,4 @@
 import { Slide1SVG, Slide2SVG } from "@/data/allSvgs";
-import { slide1, slide2 } from "@/data/slides";
 import React from "react";
 
 const CustomSliderMode = ({
@@ -7,6 +6,8 @@ const CustomSliderMode = ({
   setActiveSlides,
   activeSlides,
   setCurrentIndex,
+  slide2,
+  slide1,
 }) => {
   return (
     <div className="w-fit  rounded-full flex justify-center items-center gap-4 px-2 py-1 bg-themeGray-0 border-[2.5px] border-[#E4E7ED]">
