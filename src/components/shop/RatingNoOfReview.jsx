@@ -1,7 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa6";
 
-const RatingNoOfReview = ({ avgrating, totalReview }) => {
+const RatingNoOfReview = ({ avgrating, totalReview, show = true }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
@@ -15,9 +15,11 @@ const RatingNoOfReview = ({ avgrating, totalReview }) => {
         <div className="star-area flex flex-row items-center gap-2 text-[#FC4242] text-lg">
           {stars}
         </div>
-        {totalReview && (
+        {show && (
           <div className="rate-count">
-            <p className="GeneralSans text-base">({totalReview} Reviews)</p>
+            <p className="GeneralSans text-base">
+              ({totalReview || 0} Reviews)
+            </p>
           </div>
         )}
       </div>

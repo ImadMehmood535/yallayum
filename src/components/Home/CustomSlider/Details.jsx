@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "@/data/allSvgs";
 import React from "react";
 import CustomSliderReview from "./CustomSliderReview";
 import CustomSliderMode from "./CustomSliderMode";
+import Link from "next/link";
 
 const Details = ({
   setSlidesData,
@@ -11,28 +12,47 @@ const Details = ({
   slidesData,
   currentIndex,
   handleNextIndex,
+  setCurrentIndex,
   handlePrevIndex,
+  slide1,
+  slide2,
+  arabic,
 }) => {
   return (
     <div className="flex flex-col gap-8">
       <CustomSliderMode
+        slide1={slide1}
+        slide2={slide2}
         setSlidesData={setSlidesData}
         setActiveSlides={setActiveSlides}
         activeSlides={activeSlides}
+        setCurrentIndex={setCurrentIndex}
       />
       <div>
-        <h1 className="text-4xl md:text-6xl GeneralSans font-semibold">{slidesData[currentIndex]?.name}</h1>
+        <h1
+          className={`text-3xl md:text-4xl GeneralSans font-semibold ${
+            arabic ? "text-right" : ""
+          } `}
+        >
+          {slidesData[currentIndex]?.name}
+        </h1>
       </div>
+   
       <div>
-        <CustomSliderReview
-          stars={slidesData[currentIndex]?.stars}
-          reviews={slidesData[currentIndex]?.reviews}
-        />
+        <p
+          className={`${
+            arabic ? "text-right" : ""
+          }  text-[16px] GeneralSans font-medium`}
+        >
+          {slidesData[currentIndex]?.details}
+        </p>
       </div>
-      <div>
-        <p className="text-[16px] GeneralSans font-medium">{slidesData[currentIndex]?.details}</p>
-      </div>
-      <AnimatedButton text={"BUY NOW"} />
+      <Link
+        href={"/shop"}
+        className={`w-full ${arabic ? "flex justify-end " : ""} `}
+      >
+        <AnimatedButton text={arabic ? " اشتري الآن " : " BUY NOW"} />
+      </Link>
       <div className="flex justify-start px-3 items-center gap-4">
         <div
           onClick={handlePrevIndex}

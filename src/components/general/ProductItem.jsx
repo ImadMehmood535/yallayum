@@ -7,7 +7,7 @@ import Popup from "./Popup";
 import { ShoppingBag } from "@/data/allSvgs";
 
 const ProductItem = ({ data, option, btnAllow }) => {
-  const [isOpen, setIsOpen] = useState(false);
+   const [isOpen, setIsOpen] = useState(false);
   const modalDisplay = () => {
     setIsOpen(!isOpen);
   };
@@ -23,10 +23,8 @@ const ProductItem = ({ data, option, btnAllow }) => {
             : `max-w-[200px] flip-container`
         } mx-auto`}
       >
-        <div className={`flip-contain ${option == 1 ? `w-[20%]` : `w-full`}`}>
-          <Link
-            href={`/shop/${data?.slug}?variationId=${data?.variationId}&id=${data.id}`}
-          >
+        <div className={`  ${option == 1 ? `w-[20%]` : `w-full`}`}>
+          <Link href={`/shop/${data?.slug}`}>
             <Image
               src={data?.imageUrl}
               alt={data?.name}
@@ -61,15 +59,15 @@ const ProductItem = ({ data, option, btnAllow }) => {
           </h6>
 
           {btnAllow && (
-            <div
-              // onClick={modalDisplay}
+            <Link
+              href={`/shop/${data?.slug}`}
               className={`group/btn max-w-[160px] Fedra-400  hover:max-w-[200px]   transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap    `}
             >
               <div className="group-hover/btn:h-[24px]  h-0 transition-all">
                 <ShoppingBag width={20} />
               </div>
               <p>Shop Now</p>
-            </div>
+            </Link>
           )}
         </div>
       </div>

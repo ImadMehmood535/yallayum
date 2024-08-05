@@ -1,7 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-const FeatureIconBox = ({ position, textposition, icon, title, content }) => {
+const FeatureIconBox = ({
+  position,
+  textposition,
+  icon,
+  title,
+  content,
+  bold,
+}) => {
   return (
     <div className="IconBox">
       <div
@@ -12,12 +19,16 @@ const FeatureIconBox = ({ position, textposition, icon, title, content }) => {
           width={500}
           src={icon}
           alt={title}
-          loading="eager"  
+          loading="eager"
           className="w-[120px] h-[120px] bg-white rounded-full p-6"
         />
       </div>
       <div className={`content-area text-center md:text-${textposition}`}>
-        <h4 className="GeneralSans mb-4 md:mb-6 text-2xl font-medium">
+        <h4
+          className={`GeneralSans mb-4 md:mb-6 text-2xl   ${
+            bold ? "font-bold" : "font-medium"
+          }`}
+        >
           {title}
         </h4>
         <p className="GeneralSans text-lg md:text-2xl text-black">{content}</p>

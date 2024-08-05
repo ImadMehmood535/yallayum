@@ -16,7 +16,7 @@ const CreateProduct = ({ variations }) => {
 
   const calculateTotalAmount = () => {
     return variations.items.reduce((total, item) => {
-      return total + item.PricePerGram * (quantities[item.id] || 0);
+      return total + item.price * (quantities[item.id] / 10 || 0);
     }, 0);
   };
 
@@ -25,6 +25,8 @@ const CreateProduct = ({ variations }) => {
     0
   );
   const filledPercentage = (totalWeight / currentIndex) * 100;
+
+  const [payload, setPayload] = useState(null);
 
   return (
     <div className="CreateProduct pageLayout px-0 mx-auto">
@@ -47,10 +49,16 @@ const CreateProduct = ({ variations }) => {
             totalWeight={totalWeight}
             quantities={quantities}
             setQuantities={setQuantities}
+            setPayload={setPayload}
+            calculateTotalAmount={calculateTotalAmount}
           />
           <section></section>
           <section>
-            <FooterArea calculateTotalAmount={calculateTotalAmount} />
+            <FooterArea
+              calculateTotalAmount={calculateTotalAmount}
+              payload={payload}
+              filledPercentage={filledPercentage}
+            />
           </section>
         </div>
       </div>

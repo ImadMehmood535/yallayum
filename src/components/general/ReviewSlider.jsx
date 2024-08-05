@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { MdOutlineStar } from "react-icons/md";
 
-const ReviewSlider = ({ reviewData }) => {
+const ReviewSlider = ({ reviewData, arabic }) => {
   return (
     <div className="ReviewSlider container ">
       <div className="bg-white rounded-xl p-6 custom-shadow">
@@ -45,8 +45,20 @@ const ReviewSlider = ({ reviewData }) => {
                     />
                   ))}
                 </div>
-                <p className="text-[#2E2E27] GeneralSans font-normal text-sm leading-5 mb-4">&quot;{review.comment}&quot;</p>
-                <h6 className="font-bold text-base Fedra-400">{review.username}</h6>
+                <p
+                  className={`${
+                    arabic ? "text-right" : ""
+                  } text-[#2E2E27] GeneralSans font-normal text-sm leading-5 mb-4`}
+                >
+                  &quot;{review.comment}&quot;
+                </p>
+                <h6
+                  className={`font-bold text-base Fedra-400 ${
+                    arabic ? "text-right" : ""
+                  }`}
+                >
+                  {review.username}
+                </h6>
               </div>
             </SwiperSlide>
           ))}

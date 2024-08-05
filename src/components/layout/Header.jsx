@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -18,8 +18,12 @@ import { LuUser2 } from "react-icons/lu";
 import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 import CartSideBar from "../general/CartSideBar";
+import { getCookie } from "@/hooks/cookies";
+import { usePathname, useRouter } from "next/navigation";
+import CustomAutocomplete from "./SeacrhModal";
 
 const Header = () => {
+  const pathname = usePathname();
   const DeskTopMenuItem = [
     {
       name: "Shop",
@@ -27,7 +31,16 @@ const Header = () => {
     },
     {
       name: "Things to know",
-      link: "/recipes",
+      subMenu: [
+        {
+          name: "Blogs",
+          link: "/blogs",
+        },
+        {
+          name: "Recipes",
+          link: "/recipes",
+        },
+      ],
     },
     {
       name: "About us",
@@ -42,6 +55,37 @@ const Header = () => {
       link: "/custom-product",
     },
   ];
+  const DeskTopMenuItemAR = [
+    {
+      name: "تسوق",
+      link: "/shop",
+    },
+    {
+      name: "أشياء يجب معرفتها",
+      subMenu: [
+        {
+          name: " مدونات",
+          link: "/blogs",
+        },
+        {
+          name: "الوصفات",
+          link: "/recipes",
+        },
+      ],
+    },
+    {
+      name: "نبذة عنا",
+      link: "/about-us",
+    },
+    {
+      name: "تواصل معنا",
+      link: "/contact-us",
+    },
+    {
+      name: "اصنع علبتك",
+      link: "/custom-product",
+    },
+  ];
   const additionalMenuItems = [
     {
       name: "Home",
@@ -52,7 +96,11 @@ const Header = () => {
       link: "/shop",
     },
     {
-      name: "Things to know",
+      name: "Blogs",
+      link: "/blogs",
+    },
+    {
+      name: "Recipes",
       link: "/recipes",
     },
     {
@@ -68,8 +116,39 @@ const Header = () => {
       link: "/custom-product",
     },
   ];
+  const additionalMenuItemsAR = [
+    {
+      name: "الرئيسية",
+      link: "/",
+    },
+    {
+      name: "تسوق",
+      link: "/shop",
+    },
+    {
+      name: "مدونات",
+      link: "/blogs",
+    },
+    {
+      name: "الوصفات",
+      link: "/recipes",
+    },
+    {
+      name: "نبذة عنا",
+      link: "/about-us",
+    },
+    {
+      name: "تواصل معنا",
+      link: "/contact-us",
+    },
+    {
+      name: "اصنع علبتك",
+      link: "/custom-product",
+    },
+  ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dropdownIndex, setDropdownIndex] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleCartClick = () => {
@@ -79,6 +158,17 @@ const Header = () => {
   const handleCloseCart = () => {
     setIsCartOpen(false);
   };
+  useEffect(() => {
+    if (isMenuOpen) {
+      window.scrollTo({
+        top: 90,
+        behavior: "smooth",
+      });
+    }
+  }, [isMenuOpen]);
+
+  const authorized = getCookie("token") ? true : false;
+
   return (
     <>
       <Navbar
@@ -97,7 +187,7 @@ const Header = () => {
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
-          {DeskTopMenuItem.map((item, key) => (
+          {/* {DeskTopMenuItem.map((item, key) => (
             <NavbarItem key={key}>
               <Link
                 href={item.link}
@@ -106,7 +196,72 @@ const Header = () => {
                 {item.name}
               </Link>
             </NavbarItem>
-          ))}
+          ))} */}
+
+          {pathname === "/ar" && (
+            <>
+              {DeskTopMenuItemAR.map((item, key) => (
+                <div
+                  key={key}
+                  className="relative py-6   "
+                  onMouseEnter={() => setDropdownIndex(key)}
+                  onMouseLeave={() => setDropdownIndex(null)}
+                >
+                  <Link
+                    href={item.link}
+                    className="GeneralSans whitespace-nowrap text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
+                  {item.subMenu && dropdownIndex === key && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg">
+                      {item.subMenu.map((subItem, subKey) => (
+                        <Link
+                          key={subKey}
+                          href={subItem.link}
+                          className="GeneralSans  block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </>
+          )}
+          {pathname != "/ar" && (
+            <>
+              {DeskTopMenuItem.map((item, key) => (
+                <div
+                  key={key}
+                  className="relative py-6   "
+                  onMouseEnter={() => setDropdownIndex(key)}
+                  onMouseLeave={() => setDropdownIndex(null)}
+                >
+                  <Link
+                    href={item.link}
+                    className="GeneralSans whitespace-nowrap text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
+                  {item.subMenu && dropdownIndex === key && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg">
+                      {item.subMenu.map((subItem, subKey) => (
+                        <Link
+                          key={subKey}
+                          href={subItem.link}
+                          className="GeneralSans  block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </>
+          )}
         </NavbarContent>
 
         <NavbarContent className="flex  desktop-menu items-center">
@@ -119,58 +274,64 @@ const Header = () => {
 
         <NavbarContent justify="end">
           <NavbarItem className="flex items-center flex-row-reverse gap-4">
+            <Link
+              href="/ar"
+              className="  cursor-pointer !text-[20px] ml-5 mb-2 text-[#FFF2F1] hover:text-[#FAF1DC]"
+            >
+              عربي
+            </Link>
             <LiaShoppingBagSolid
-              className="text-white text-5xl md:text-2xl cursor-pointer"
+              className="text-white text-5xl md:text-[19px] cursor-pointer"
               onClick={handleCartClick}
             />
-            <Link href="/login">
-              <LuUser2 className="text-white" />
-            </Link>
 
-            <Input
-              isClearable
-              radius="lg"
-              classNames={{
-                input: [
-                  "bg-transparent",
-                  "text-black/90 bg-transparent",
-                  "placeholder:text-white ",
-                  "placeholder:text-[12px]",
-                  "GeneralSans text-sm font-medium",
-                ],
+            {authorized ? (
+              <Link href="/user">
+                <LuUser2 className="text-white" />
+              </Link>
+            ) : (
+              <>
+                <Link href="/login">
+                  <LuUser2 className="text-white" />
+                </Link>
+              </>
+            )}
 
-                innerWrapper: "bg-transparent max-w-[100px]",
-                inputWrapper: [
-                  "bg-transparent",
-                  "backdrop-blur-xl",
-                  "group-data-[focus=true]:bg-default-200/50",
-                  "dark:group-data-[focus=true]:bg-default/60",
-                  "!cursor-text",
-                  "hidden",
-                  "md:block",
-                  "group-data-[focus=true]:w-[250px] transition-all",
-                ],
-              }}
-              placeholder="SEARCH"
-              startContent={
-                <CiSearch className=" text-white w-8 h-8  hover:text-black " />
-              }
-            />
+            <CustomAutocomplete />
           </NavbarItem>
         </NavbarContent>
 
         <NavbarMenu className="mob-br">
-          {additionalMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                className="GeneralSans w-full text-black hover:text-[#FC4242]"
-                href={item.link}
-                size="lg"
-              >
-                {item.name}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          {pathname === "/ar" && (
+            <>
+              {additionalMenuItemsAR.map((item, index) => (
+                <NavbarMenuItem key={`${item}-${index}`}>
+                  <Link
+                    className="GeneralSans w-full text-black hover:text-[#FC4242]"
+                    href={item.link}
+                    size="lg"
+                  >
+                    {item.name}
+                  </Link>
+                </NavbarMenuItem>
+              ))}
+            </>
+          )}
+          {pathname != "/ar" && (
+            <>
+              {additionalMenuItems.map((item, index) => (
+                <NavbarMenuItem key={`${item}-${index}`}>
+                  <Link
+                    className="GeneralSans w-full text-black hover:text-[#FC4242]"
+                    href={item.link}
+                    size="lg"
+                  >
+                    {item.name}
+                  </Link>
+                </NavbarMenuItem>
+              ))}
+            </>
+          )}
         </NavbarMenu>
       </Navbar>
       <CartSideBar isOpen={isCartOpen} onClose={handleCloseCart} />

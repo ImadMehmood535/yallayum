@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const CategoryItem = ({ data, setFilter }) => {
+const CategoryItem = ({ data, setFilter, setCategoryName }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -11,14 +11,15 @@ const CategoryItem = ({ data, setFilter }) => {
       router.push("/custom-product");
     } else {
       setFilter(data?.id);
+      setCategoryName(data?.name);
     }
   };
   return (
     <div
-      className="CategoryItem border border-black rounded-xl px-6 py-20"
+      className=" border border-black  rounded-xl px-6 py-[18px]"
       onClick={handleClick}
     >
-      <div className="image-area flex justify-center mb-6">
+      <div className="image-area flex justify-center mb-4">
         <Image
           src={data?.imageUrl}
           alt={data?.name}
@@ -30,7 +31,7 @@ const CategoryItem = ({ data, setFilter }) => {
         />
       </div>
       <div className="content-area text-center  GeneralSans">
-        <h2 className="text-2xl font-medium capitalize">{data?.name}</h2>
+        <h2 className="text-2xl font-medium capitalize kalamFont">{data?.name}</h2>
       </div>
     </div>
   );

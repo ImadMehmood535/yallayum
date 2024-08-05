@@ -7,13 +7,19 @@ import { FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
+import { setCookie } from "@/hooks/cookies";
+import { API } from "@/api";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "@/validations/login";
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(loginSchema) });
+
+
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -21,11 +27,9 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const response = await API.logInUser(data);
-      successToast(response?.data?.message);
+      successToast("Continue shopping now");
       setLoading(false);
       setCookie("token", response?.data?.data?.token);
-      loginUser({ ...response?.data?.data, authorized: true });
-
       router.push("/");
     } catch (error) {
       setLoading(false);
@@ -43,7 +47,7 @@ const LoginForm = () => {
     <div className="login-from pageLayout px-0 mx-auto">
       <div className="container">
         <div className="max-w-[500px] mx-auto">
-          <h2 className="text-5xl Fedra-500 font-semibold mb-10 text-center">
+          <h2 className="text-5xl Fedra-500  mb-10 text-center">
             Login
           </h2>
           <div className="formarea GeneralSans">
@@ -54,10 +58,10 @@ const LoginForm = () => {
                     type="text"
                     name="email"
                     placeholder="Email"
-                    {...register("email", { required: true })}
+                    {...register("email")}
                   />
                   {errors?.email && (
-                    <p className="text-sm text-red-800">Email is required</p>
+                    <p className="text-sm text-red-800">{errors?.email?.message}</p>
                   )}
                 </div>
               </div>
@@ -67,7 +71,7 @@ const LoginForm = () => {
                     type={isShow ? "text" : "password"}
                     name="password"
                     placeholder="Password"
-                    {...register("password", { required: true })}
+                    {...register("password")}
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center  leading-5 text-3xl">
                     {isShow ? (
@@ -83,19 +87,19 @@ const LoginForm = () => {
                     )}
                   </div>
                   {errors?.password && (
-                    <p className="text-sm text-red-800">Password is required</p>
+                    <p className="text-sm text-red-800">{errors?.password?.message}</p>
                   )}
                 </div>
               </div>
               <div className="field-wrapper">
                 <div className="flex justify-center">
                   <label className="block text-gray-500 ">
-                    <a
-                      href="#"
+                    <Link
+                      href="/forget-password"
                       className="cursor-pointer tracking-tighter text-[#121212] border-b-2 border-[#121212] hover:border-[#A0A0A0]"
                     >
                       <span>Forgot Your Password?</span>
-                    </a>
+                    </Link>
                   </label>
                 </div>
               </div>

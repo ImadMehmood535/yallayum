@@ -1,8 +1,8 @@
 import Logo from "./images/Logo.png";
 import Banner_heading from "./images/Banner-heading.png";
-import Banner_slide_1 from "./images/Banner-slide-1.webp";
-import Banner_slide_2 from "./images/Banner-slide-2.webp";
-import Banner_slide_3 from "./images/Banner-slide-3.webp";
+import Banner_slide_1 from "./images/Banner-slide-1.png";
+import Banner_slide_2 from "./images/Banner-slide-2.png";
+import Banner_slide_3 from "./images/Banner-slide-3.png";
 import Banner_slide_4 from "./images/Banner-slide-4.png";
 import Banner_slide_5 from "./images/Banner-slide-5.png";
 import Yallayum_strawberry from "./images/Yallayum_strawberry.png";
@@ -13,6 +13,7 @@ import Yallayum_Fig_box from "./images/Yallayum_Fig_box.png";
 import Yallayum_Peach_box from "./images/Yallayum_Peach_box.png";
 import Sustainable_Sourcing from "./images/Sustainable_Sourcing.webp";
 import Healthiest_Snacking from "./images/Healthiest_Snacking.webp";
+import Healthiest_Snacking2 from "./images/Healthiest_Snacking2.webp";
 import Sustainable_Sourcing3 from "./images/Sustainable_Sourcing3.webp";
 import Supporting_Dubai from "./images/Supporting_Dubai.webp";
 import blogfeature from "./images/blogfeature.jpg";
@@ -35,6 +36,11 @@ import bg1 from "./images/bg1.png";
 import pic4 from "./images/pic4.jpg";
 import pic5 from "./images/pic5.jpg";
 import pic6 from "./images/pic6.jpg";
+import pic7 from "./images/pic7.png";
+import pic8 from "./images/pic8.png";
+import pic9 from "./images/pic9.png";
+import pic10 from "./images/pic10.png";
+import pic11 from "./images/pic11.png";
 import banner0 from "./images/banner0.png"
 import FooterBg from "./images/FooterBg.png";
 import PaymentCards from "./images/PaymentCards.png";
@@ -67,6 +73,7 @@ import Mango_icon from "./images/Mango_icon.png";
 import Mulberry_icon from "./images/Mulberry_icon.png";
 import single_product_image from "./images/single_product_image.png";
 import Category_image from "./images/Category_image.png";
+import favicon from "./images/favicon.ico";
 
 
 export {
@@ -84,6 +91,7 @@ export {
   Yallayum_Peach_box,
   Sustainable_Sourcing,
   Healthiest_Snacking,
+  Healthiest_Snacking2,
   Sustainable_Sourcing3,
   Supporting_Dubai,
   blogfeature,
@@ -107,6 +115,11 @@ export {
   pic4,
   pic5,
   pic6,
+  pic7,
+  pic8,
+  pic9,
+  pic10,
+  pic11,
   banner0,
   FooterBg,
   PaymentCards,
@@ -139,4 +152,5 @@ export {
   Mulberry_icon,
   single_product_image,
   Category_image,
+  favicon,
 };
