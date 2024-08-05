@@ -34,7 +34,7 @@ const InstaFeeds = ({ reviewData, arabic }) => {
                   <h4 className="sub-heading text-sm GeneralSans ">
                     {arabic ? (
                       <>
-                        <b>عميل سعيد 100,000</b> أكثر من
+                        <b>أكثر من 100,000</b> عميل سعيد
                       </>
                     ) : (
                       <>
@@ -44,9 +44,16 @@ const InstaFeeds = ({ reviewData, arabic }) => {
                   </h4>
                 </div>
               </div>
-              <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
-                they did freeze the tasteeeeee!
-              </h2>
+
+              {arabic ? (
+                <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
+                  !لقد قامو بتجميد المذاااااق
+                </h2>
+              ) : (
+                <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
+                  they did freeze the tasteeeeee!
+                </h2>
+              )}
             </div>
             <div className="w-full pt-8 ">
               <VideoSlider videoData={videoData} />
@@ -56,7 +63,7 @@ const InstaFeeds = ({ reviewData, arabic }) => {
 
         <div className=""></div>
         <div className="mb-0 md:-mb-[9%]">
-          <ReviewSlider reviewData={reviewData} />
+          <ReviewSlider arabic={arabic} reviewData={reviewData} />
         </div>
       </div>
     </div>

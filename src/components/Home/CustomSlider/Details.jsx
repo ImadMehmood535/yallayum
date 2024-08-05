@@ -37,12 +37,7 @@ const Details = ({
           {slidesData[currentIndex]?.name}
         </h1>
       </div>
-      {/* <div>
-        <CustomSliderReview
-          stars={slidesData[currentIndex]?.stars}
-          reviews={slidesData[currentIndex]?.reviews}
-        />
-      </div> */}
+   
       <div>
         <p
           className={`${

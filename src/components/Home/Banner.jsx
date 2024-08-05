@@ -56,9 +56,11 @@ const Banner = ({ slides, arabic }) => {
                         <h1 className="font-bold mb-6 Fedra-700">
                           {slide?.title}
                         </h1>
+
                         <p className="  mb-6 GeneralSans">
                           {slide?.description}
                         </p>
+
                         {/* <AnimatedButton text={"BUY NOW"} shop={true} /> */}
 
                         <Link

@@ -27,7 +27,7 @@ const Footer = () => {
   const useful_linksAR = [
     { name: "سياسة الخصوصية", link: "/privacy-policy" },
     { name: "سياسة الإرجاع والشحن", link: "/return-and-shipping-policy" },
-    { name: "البنود و الظروف", link: "/terms-and-conditions" },
+    { name: "البنود والشروط", link: "/terms-and-conditions" },
     { name: "معلومات عنا", link: "/about-us" },
   ];
 
@@ -136,7 +136,7 @@ const Footer = () => {
                     } mb-3 GeneralSans   `}
                   >
                     {pathName === "/ar"
-                      ? "شكرا لإختيارك يلا يم. تابعونا على وسائل التواصل الجتماعي لتبقى على اطلاع بأحدث منتجاتنا وعروضنا الترويجية."
+                      ? "شكرا لإختيارك يلا يم. تابعونا على وسائل التواصل الجتماعي لتبقى على اطلاع بأحدث منتجاتنا وعروضنا الترويجية"
                       : " Thank you for choosing YallaYum. Follow us on social media to stay up to date on our latest products and promotions."}
                   </p>
 
@@ -312,7 +312,7 @@ const Footer = () => {
                 } mb-3 GeneralSans font-medium text-base`}
               >
                 {pathName === "/ar"
-                  ? " انضم إلينا على وسائل التواصل الاجتماعي للحصول على معلومات ونصائح صحية والمزيد."
+                  ? " انضم إلينا على وسائل التواصل الاجتماعي للحصول على معلومات ونصائح صحية والمزيد"
                   : "Join us on social media to get info, wellness tips & more."}
               </p>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -402,18 +402,18 @@ const Footer = () => {
           {pathName === "/ar" ? (
             <div className="rights-text">
               <p className="GeneralSans flex flex-col md:flex-row gap-4 text-base">
-                <span className="font-semibold">©يلا يم2024</span>
+                <span className="font-semibold">©يلا يم2024  </span>
                 <span>
                   {" "}
-                  تم تطويره بواسطة | جميع الحقوق محفوظة
-                  <Link
+                  جميع الحقوق محفوظة
+                  {/* <Link
                     href="https://www.clicktap.ae/"
                     target="_blank"
                     className="text-[#fc4242] font-bold"
                   >
                     {"  "}
                     Clicktap Digital
-                  </Link>
+                  </Link> */}
                 </span>
               </p>
             </div>
@@ -446,9 +446,7 @@ const Footer = () => {
                     href={"/terms-and-conditions"}
                     className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
                   >
-                    {pathName === "/ar"
-                      ? "Terms of Service "
-                      : " Terms of Service"}
+                    {pathName === "/ar" ? "شروط الخدمة " : " Terms of Service"}
                   </Link>
                 </li>
                 <li className="text-center">
