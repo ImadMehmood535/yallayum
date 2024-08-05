@@ -4,14 +4,14 @@ import Blogs from "@/components/Home/Blogs";
 import Banner from "@/components/Home/Banner";
 import CustomSlider from "@/components/Home/CustomSlider/CustomSlider";
 import InstaFeeds from "@/components/Home/InstaFeeds";
-import ProductFeature from "@/components/general/ProductFeature";
 import FeedSlider from "@/components/Home/FeedSlider";
-import StoreFeatures from "@/components/general/StoreFeatures";
 import CategoryList from "@/components/shop/CategoryList";
 import { getAllBlogs, getCategories } from "@/cached-requests";
 import Link from "next/link";
 import { homeBannerSlideAR, slide1AR, slide2AR } from "@/data/slides";
 import OurImpactAr from "@/components/Home/OurImpactAr";
+import ProductFeatureAR from "@/components/general/ProductFeatureAR";
+import StoreFeaturesAR from "@/components/general/StoreFeaturesAR";
 
 export const metadata = {
   title: "Home | Yalla Yum",
@@ -39,7 +39,7 @@ export default async function HomeAr() {
 
   return (
     <>
-      <Banner slides={homeBannerSlideAR} />
+      <Banner arabic={true} slides={homeBannerSlideAR} />
       <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
         <Link href={"/shop"}>
           <CategoryList itemCount={4} data={transformedCategories} />
@@ -48,12 +48,17 @@ export default async function HomeAr() {
       <div className="hidden md:block">
         <OurImpactAr />
       </div>
-      <CustomSlider slide1={slide1AR} slide2={slide2AR} />
-      <InstaFeeds reviewData={reviewDataAR} />
+      <CustomSlider arabic={true} slide1={slide1AR} slide2={slide2AR} />
+      <InstaFeeds reviewData={reviewDataAR} arabic={true} />
       <Blogs blogsData={blogsData} />
-      <ProductFeature />
-      <FeedSlider feedlist={feedlist} />
-      <StoreFeatures />
+      <ProductFeatureAR />
+      <FeedSlider
+        feedlist={feedlist}
+        subHead={"يلا يم على الإنستغرام"}
+        head={"!أنت + يلا يم"}
+        follow={"تابعونا على الإنستغرام"}
+      />
+      <StoreFeaturesAR />
     </>
   );
 }

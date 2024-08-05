@@ -16,6 +16,7 @@ const Details = ({
   handlePrevIndex,
   slide1,
   slide2,
+  arabic,
 }) => {
   return (
     <div className="flex flex-col gap-8">
@@ -28,7 +29,11 @@ const Details = ({
         setCurrentIndex={setCurrentIndex}
       />
       <div>
-        <h1 className="text-3xl md:text-4xl GeneralSans font-semibold">
+        <h1
+          className={`text-3xl md:text-4xl GeneralSans font-semibold ${
+            arabic ? "text-right" : ""
+          } `}
+        >
           {slidesData[currentIndex]?.name}
         </h1>
       </div>
@@ -39,12 +44,19 @@ const Details = ({
         />
       </div> */}
       <div>
-        <p className="text-[16px] GeneralSans font-medium">
+        <p
+          className={`${
+            arabic ? "text-right" : ""
+          }  text-[16px] GeneralSans font-medium`}
+        >
           {slidesData[currentIndex]?.details}
         </p>
       </div>
-      <Link href={"/shop"}>
-        <AnimatedButton text={"BUY NOW"} />
+      <Link
+        href={"/shop"}
+        className={`w-full ${arabic ? "flex justify-end " : ""} `}
+      >
+        <AnimatedButton text={arabic ? " اشتري الآن " : " BUY NOW"} />
       </Link>
       <div className="flex justify-start px-3 items-center gap-4">
         <div

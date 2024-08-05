@@ -11,7 +11,7 @@ import AnimatedButton from "../general/AnimatedButton";
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 
-const Banner = ({slides}) => {
+const Banner = ({ slides, arabic }) => {
   const [active, setActive] = useState(false);
   let slidesData = [...slides];
   return (
@@ -22,11 +22,11 @@ const Banner = ({slides}) => {
           clickable: true,
         }}
         loop={true}
-        autoplay={{
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-          delay: 5000,
-        }}
+        // autoplay={{
+        //   disableOnInteraction: false,
+        //   pauseOnMouseEnter: true,
+        //   delay: 5000,
+        // }}
         modules={[Pagination, Autoplay]}
         className="BannnerSwiper"
       >
@@ -47,14 +47,16 @@ const Banner = ({slides}) => {
               <div className="container">
                 <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8">
                   <div
-                    className={`w-full md:w-2/4 content-area h-[400px] flex justify-center items-center md:h-[600px]`}
+                    className={`w-full ${
+                      arabic ? "text-right  " : ""
+                    } md:w-2/4 content-area h-[400px] flex justify-center items-center md:h-[600px]`}
                   >
                     {slide?.title ? (
                       <div className="pb-[15%]  ">
                         <h1 className="font-bold mb-6 Fedra-700">
                           {slide?.title}
                         </h1>
-                        <p className="max-w-[560px] mb-6 GeneralSans">
+                        <p className="  mb-6 GeneralSans">
                           {slide?.description}
                         </p>
                         {/* <AnimatedButton text={"BUY NOW"} shop={true} /> */}
@@ -63,7 +65,9 @@ const Banner = ({slides}) => {
                           onMouseEnter={() => setActive(true)}
                           onMouseLeave={() => setActive(false)}
                           href={slide?.link}
-                          className={`group max-w-[160px] Fedra-400 hover:max-w-[200px] transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
+                          className={`group max-w-[160px] ${
+                            arabic ? "float-right" : " "
+                          } Fedra-400 hover:max-w-[200px] transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
                             active ? "buttonShadow" : ""
                           }   `}
                         >

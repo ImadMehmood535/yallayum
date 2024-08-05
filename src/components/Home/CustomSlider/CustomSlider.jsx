@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Details from "./Details";
 
-const CustomSlider = ({ slide1, slide2 }) => {
+const CustomSlider = ({ slide1, slide2 , arabic }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesData, setSlidesData] = useState(slide1);
   const [activeSlides, setActiveSlides] = useState(1);
@@ -63,6 +63,7 @@ const CustomSlider = ({ slide1, slide2 }) => {
         <div className="slider-wrapper flex flex-col lg:flex-row justify-between items-center pl-[3%] pr-[3%] lg:pr-0">
           <div className="w-full lg:max-w-[30%]">
             <Details
+            arabic={arabic}
               slide1={slide1}
               slide2={slide2}
               setSlidesData={setSlidesData}

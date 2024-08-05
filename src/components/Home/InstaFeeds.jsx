@@ -5,7 +5,7 @@ import { videoData } from "@/data/videosData";
 import VideoItem from "./VideoItem";
 import VideoSlider from "./VideoSlider";
 
-const InstaFeeds = ({ reviewData }) => {
+const InstaFeeds = ({ reviewData, arabic }) => {
   return (
     <div className="InstaFeeds  pageLayout px-0  mx-auto bg-[#FAF4FA]">
       <div className="container ">
@@ -32,7 +32,15 @@ const InstaFeeds = ({ reviewData }) => {
                     </li>
                   </ul>
                   <h4 className="sub-heading text-sm GeneralSans ">
-                    <b>Over 100,000</b> happy customers
+                    {arabic ? (
+                      <>
+                        <b>عميل سعيد 100,000</b> أكثر من
+                      </>
+                    ) : (
+                      <>
+                        <b>Over 100,000</b> happy customers
+                      </>
+                    )}
                   </h4>
                 </div>
               </div>

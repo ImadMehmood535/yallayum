@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import LinkButton from "../general/LinkButton";
 
-const FeedSlider = ({ feedlist }) => {
+const FeedSlider = ({ feedlist, subHead, head, follow }) => {
   const swiperRef = useRef(null);
 
   return (
@@ -15,10 +15,10 @@ const FeedSlider = ({ feedlist }) => {
       <div className="heading-area text-center mb-12">
         <div className="w-full md:max-w-[760px] mx-auto">
           <h4 className="sub-heading kalamFont text-[#B051AC] text-xl uppercase">
-            yalla yum on instagram
+            {subHead ? subHead : "yalla yum on instagram"}
           </h4>
           <h2 className="GeneralSans text-5xl font-medium mb-4">
-            You + Yalla Yum!
+            {head ? head : "You + Yalla Yum!"}
           </h2>
         </div>
       </div>
@@ -64,7 +64,7 @@ const FeedSlider = ({ feedlist }) => {
       </div>
       <div className="!pt-10">
         <div className="btn-area flex justify-center">
-          <LinkButton text={"Follow us on Instagram"} />
+          <LinkButton text={follow ? follow : "Follow us on Instagram"} />
         </div>
       </div>
     </div>
