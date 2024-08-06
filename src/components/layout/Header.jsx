@@ -15,11 +15,10 @@ import {
 import { AcmeLogo } from "./AcmeLogo";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { LuUser2 } from "react-icons/lu";
-import { Input } from "@nextui-org/react";
-import { CiSearch } from "react-icons/ci";
+ 
 import CartSideBar from "../general/CartSideBar";
 import { getCookie } from "@/hooks/cookies";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import CustomAutocomplete from "./SeacrhModal";
 
 const Header = () => {
@@ -187,17 +186,6 @@ const Header = () => {
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex   gap-4 desktop-menu-item uppercase !justify-between text-white text-base">
-          {/* {DeskTopMenuItem.map((item, key) => (
-            <NavbarItem key={key}>
-              <Link
-                href={item.link}
-                className="GeneralSans text-sm font-medium"
-              >
-                {item.name}
-              </Link>
-            </NavbarItem>
-          ))} */}
-
           {pathname === "/ar" && (
             <>
               {DeskTopMenuItemAR.map((item, key) => (
@@ -209,7 +197,7 @@ const Header = () => {
                 >
                   <Link
                     href={item.link}
-                    className="GeneralSans whitespace-nowrap text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
+                    className="ArbiFont whitespace-nowrap text-sm font-medium text-white hover:text-[#fc4242] cursor-pointer"
                   >
                     {item.name}
                   </Link>
@@ -219,7 +207,7 @@ const Header = () => {
                         <Link
                           key={subKey}
                           href={subItem.link}
-                          className="GeneralSans  block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
+                          className="ArbiFont  block px-4 py-3 text-sm font-medium text-black hover:text-[#fc4242] cursor-pointer"
                         >
                           {subItem.name}
                         </Link>
@@ -273,15 +261,17 @@ const Header = () => {
         </NavbarContent>
 
         <NavbarContent justify="end">
-          <NavbarItem className="flex items-center flex-row-reverse gap-4">
+          <NavbarItem className="flex items-center flex-row-reverse gap-2 md:gap-4">
             <Link
-              href="/ar"
-              className="  cursor-pointer !text-[20px] ml-5 mb-2 text-[#FFF2F1] hover:text-[#FAF1DC]"
+              href={pathname === "/ar" ? "/" : "/ar"}
+              className={` ${
+                pathname === "/ar" ? " GeneralSans" : "ArbiFont"
+              }  cursor-pointer !text-[16px] md:ml-5  text-[#FFF2F1] hover:text-[#FAF1DC]`}
             >
-              عربي
+              {pathname === "/ar" ? "English" : "عربي"}
             </Link>
             <LiaShoppingBagSolid
-              className="text-white text-5xl md:text-[19px] cursor-pointer"
+              className="text-white   md:text-[19px] cursor-pointer"
               onClick={handleCartClick}
             />
 
@@ -307,7 +297,7 @@ const Header = () => {
               {additionalMenuItemsAR.map((item, index) => (
                 <NavbarMenuItem key={`${item}-${index}`}>
                   <Link
-                    className="GeneralSans w-full text-black hover:text-[#FC4242]"
+                    className="!ArbiFont w-full text-black hover:text-[#FC4242]"
                     href={item.link}
                     size="lg"
                   >

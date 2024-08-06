@@ -47,14 +47,14 @@ const ReviewSlider = ({ reviewData, arabic }) => {
                 </div>
                 <p
                   className={`${
-                    arabic ? "text-right" : ""
-                  } text-[#2E2E27] GeneralSans font-normal text-sm leading-5 mb-4`}
+                    arabic ? "text-right ArbiFont " : "GeneralSans"
+                  } text-[#2E2E27]  font-normal text-sm leading-5 mb-4`}
                 >
                   &quot;{review.comment}&quot;
                 </p>
                 <h6
-                  className={`font-bold text-base Fedra-400 ${
-                    arabic ? "text-right" : ""
+                  className={`font-bold text-base  ${
+                    arabic ? "text-right ArbiFont" : "Fedra-400"
                   }`}
                 >
                   {review.username}

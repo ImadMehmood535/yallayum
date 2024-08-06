@@ -14,10 +14,10 @@ const FeedSlider = ({ feedlist, subHead, head, follow }) => {
     <div className="FeedSlider pageLayout px-0 mx-auto  ">
       <div className="heading-area text-center mb-12">
         <div className="w-full md:max-w-[760px] mx-auto">
-          <h4 className="sub-heading kalamFont text-[#B051AC] text-xl uppercase">
+          <h4 className={`sub-heading ${subHead ? "ArbiFont" : "kalamFont"}  text-[#B051AC] text-xl uppercase`}>
             {subHead ? subHead : "yalla yum on instagram"}
           </h4>
-          <h2 className="GeneralSans text-5xl font-medium mb-4">
+          <h2 className={` text-5xl ${head ? "ArbiFont"  : "GeneralSans"} font-medium mb-4`}>
             {head ? head : "You + Yalla Yum!"}
           </h2>
         </div>

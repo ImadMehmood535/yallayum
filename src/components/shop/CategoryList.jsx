@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryItem from "./CategoryItem";
 
-const CategoryList = ({ itemCount, data, setFilter, setCategoryName }) => {
+const CategoryList = ({ itemCount, data, setFilter, setCategoryName , arabic }) => {
   const sortedData = [...data].sort((a, b) => {
     if (a.name === "All Products") return -1; // Prioritize "All Products"
     if (b.name === "All Products") return 1;
@@ -18,6 +18,7 @@ const CategoryList = ({ itemCount, data, setFilter, setCategoryName }) => {
               <CategoryItem
                 setFilter={setFilter}
                 data={item}
+                arabic={arabic}
                 setCategoryName={setCategoryName}
               />
             </div>

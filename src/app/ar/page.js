@@ -42,7 +42,7 @@ export default async function HomeAr() {
       <Banner arabic={true} slides={homeBannerSlideAR} />
       <div className="py-10 md:py-20 md:pb-10 px-0 md:px-[5%] mx-auto">
         <Link href={"/shop"}>
-          <CategoryList itemCount={4} data={transformedCategories} />
+          <CategoryList arabic={true} itemCount={4} data={transformedCategories} />
         </Link>
       </div>
       <div className="hidden md:block">

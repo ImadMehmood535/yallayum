@@ -13,11 +13,11 @@ const OurImpactAr = () => {
         <div className="  !pb-10">
           <div className="heading-area text-center">
             <div className="w-full md:max-w-[760px] mx-auto">
-              <h4 className="sub-heading uppercase kalamFont text-[#B051AC] text-xl">
+              <h4 className="sub-heading ArbiFont uppercase  text-[#B051AC] text-xl">
                 مستوحاة من حب تناول الوجبات الخفيفة
               </h4>
-              <h2 className="text-5xl GeneralSans font-medium mb-7">تأثيرنا</h2>
-              <p className="text-[#3C3C3B] font-regular GeneralSans">
+              <h2 className="text-5xl ArbiFont font-medium mb-7">تأثيرنا</h2>
+              <p className="text-[#3C3C3B] font-regular ArbiFont">
                 انغمس في أحدث منشورات مدونتنا واكتشف عالمًا من مغامرات الطهي،
                 ونصائح العافية، والنسيج الغني لثقافة دبي. ابق على اطلاع دائم،
                 وإلهام، وتفاعل من خلال الإشتراك في مدونتنا التي تعد بوابتك

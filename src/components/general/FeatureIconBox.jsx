@@ -25,13 +25,13 @@ const FeatureIconBox = ({
       </div>
       <div className={`content-area text-center md:text-${textposition}`}>
         <h4
-          className={`GeneralSans mb-4 md:mb-6 text-2xl   ${
-            bold ? "font-bold" : "font-medium"
+          className={` mb-4 md:mb-6 text-2xl   ${
+            bold ? "font-bold ArbiFont" : "font-medium GeneralSans"
           }`}
         >
           {title}
         </h4>
-        <p className="GeneralSans text-lg md:text-2xl text-black">{content}</p>
+        <p className={` ${bold ? "ArbiFont" : "GeneralSans md:text-2xl"}   text-lg  text-black`}>{content}</p>
       </div>
     </div>
   );

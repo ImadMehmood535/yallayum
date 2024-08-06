@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const CategoryItem = ({ data, setFilter, setCategoryName }) => {
+const CategoryItem = ({ data, setFilter, setCategoryName, arabic }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -30,8 +30,16 @@ const CategoryItem = ({ data, setFilter, setCategoryName }) => {
           loading="eager"
         />
       </div>
-      <div className="content-area text-center  GeneralSans">
-        <h2 className="text-2xl font-medium capitalize kalamFont">{data?.name}</h2>
+      <div
+        className={`content-area text-center  ${
+          arabic ? "ArbiFont" : "kalamFont "
+        } `}
+      >
+        <h2 className={`text-2xl font-medium capitalize ${
+          arabic ? "ArbiFont" : "kalamFont "
+        } `}>
+          {data?.name}
+        </h2>
       </div>
     </div>
   );

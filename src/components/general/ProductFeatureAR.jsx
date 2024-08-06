@@ -18,10 +18,10 @@ const ProductFeatureAR = () => {
       <div className="container">
         <div className="heading-area text-center">
           <div className="w-full md:max-w-[760px] mx-auto">
-            <h2 className="text-4xl kalamFont md:text-7xl text-bold mb-6 text-[#FC4242]  uppercase">
+            <h2 className="text-4xl ArbiFont md:text-7xl text-bold mb-6 text-[#FC4242]  uppercase">
               وجبات خفيفة صحية للأشخاص السعداء
             </h2>
-            <p className="text-[#3C3C3B] GeneralSans  font-regular">
+            <p className="text-[#3C3C3B] ArbiFont  font-regular">
               يتم تصنيع فواكهنا المجففة بالتجميد بعناية لتحتفظ بنكهتها الأصلية
               وتغذيتها، مما يجعلها خيارًا صحيًا ولذيذًا للوجبات الخفيفة. مع عدم
               إضافة سكريات أو مواد حافظة، يمكنك الاستمتاع بتناول وجبات خفيفة

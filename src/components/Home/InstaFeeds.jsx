@@ -31,7 +31,11 @@ const InstaFeeds = ({ reviewData, arabic }) => {
                       <MdOutlineStar />
                     </li>
                   </ul>
-                  <h4 className="sub-heading text-sm GeneralSans ">
+                  <h4
+                    className={`sub-heading text-sm ${
+                      arabic ? "ArbiFont" : " GeneralSans"
+                    }  `}
+                  >
                     {arabic ? (
                       <>
                         <b>أكثر من 100,000</b> عميل سعيد
@@ -46,7 +50,11 @@ const InstaFeeds = ({ reviewData, arabic }) => {
               </div>
 
               {arabic ? (
-                <h2 className="text-4xl kalamFont md:text-7xl text-bold uppercase font-bold ">
+                <h2
+                  className={`text-4xl ${
+                    arabic ? "ArbiFont" : " "
+                  }  md:text-6xl text-bold uppercase font-bold whitespace-nowrap `}
+                >
                   !لقد قامو بتجميد المذاااااق
                 </h2>
               ) : (

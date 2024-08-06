@@ -84,9 +84,9 @@ const CustomAutocomplete = () => {
                 <span className="text-gray-800 font-medium truncate mr-2">
                   {product?.name}
                 </span>
-                <span className="text-gray-600 text-sm whitespace-nowrap">
-                  ${product?.variation?.[0]?.salePrice?.toFixed(2)}
-                </span>
+                {/* <span className="text-gray-600 text-sm whitespace-nowrap">
+                  AED{product?.variation?.[0]?.salePrice?.toFixed(2)}
+                </span> */}
               </div>
             </Link>
           ))}

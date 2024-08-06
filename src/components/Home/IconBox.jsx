@@ -32,15 +32,15 @@ const IconBox = ({ position, textposition, icon, title, content, right }) => {
       >
         <h4
           className={`${
-            right ? "text-right" : " "
-          } GeneralSans mb-4 text-2xl font-medium`}
+            right ? "text-right ArbiFont" : "GeneralSans "
+          }  mb-4 text-2xl font-medium`}
         >
           {title}
         </h4>
         <p
           className={` ${
-            right ? "text-right" : " "
-          } "GeneralSans text-base leading-5"`}
+            right ? "text-right ArbiFont" : "GeneralSans "
+          } " text-base leading-5"`}
         >
           {content}
         </p>

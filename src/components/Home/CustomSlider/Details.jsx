@@ -30,19 +30,19 @@ const Details = ({
       />
       <div>
         <h1
-          className={`text-3xl md:text-4xl GeneralSans font-semibold ${
-            arabic ? "text-right" : ""
-          } `}
+          className={`text-3xl md:text-4xl ${
+            arabic ? "ArbiFont" : "GeneralSans"
+          } font-semibold ${arabic ? "text-right" : ""} `}
         >
           {slidesData[currentIndex]?.name}
         </h1>
       </div>
-   
+
       <div>
         <p
           className={`${
-            arabic ? "text-right" : ""
-          }  text-[16px] GeneralSans font-medium`}
+            arabic ? "text-right ArbiFont" : "GeneralSans"
+          }  text-[16px]  font-medium`}
         >
           {slidesData[currentIndex]?.details}
         </p>

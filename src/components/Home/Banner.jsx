@@ -11,7 +11,7 @@ import AnimatedButton from "../general/AnimatedButton";
 import { ShoppingBag } from "@/data/allSvgs";
 import Link from "next/link";
 
-const Banner = ({ slides, arabic }) => {
+const Banner = ({ slides, arabic = false }) => {
   const [active, setActive] = useState(false);
   let slidesData = [...slides];
   return (
@@ -48,16 +48,24 @@ const Banner = ({ slides, arabic }) => {
                 <div className="min-h-[630px] flex flex-col md:flex-row justify-between items-end gap-2 md:px-8 pt-16 md:pt-8">
                   <div
                     className={`w-full ${
-                      arabic ? "text-right  " : ""
+                      arabic ? "text-right ArbiFont  " : ""
                     } md:w-2/4 content-area h-[400px] flex justify-center items-center md:h-[600px]`}
                   >
                     {slide?.title ? (
                       <div className="pb-[15%]  ">
-                        <h1 className="font-bold mb-6 Fedra-700">
+                        <h1
+                          className={`font-bold mb-6 ${
+                            arabic ? "ArbiFont" : "Fedra-400"
+                          }`}
+                        >
                           {slide?.title}
                         </h1>
 
-                        <p className="  mb-6 GeneralSans">
+                        <p
+                          className={`  mb-6 ${
+                            arabic ? "ArbiFont" : "Fedra-400"
+                          }`}
+                        >
                           {slide?.description}
                         </p>
 
@@ -68,8 +76,8 @@ const Banner = ({ slides, arabic }) => {
                           onMouseLeave={() => setActive(false)}
                           href={slide?.link}
                           className={`group max-w-[160px] ${
-                            arabic ? "float-right" : " "
-                          } Fedra-400 hover:max-w-[200px] transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
+                            arabic ? "float-right ArbiFont" : "Fedra-400 "
+                          }  hover:max-w-[200px] transition-all text-[12px] hover:text-[13px] font-semibold  rounded-full flex justify-center items-center gap-0 hover:gap-2 w-full bg-black h-12 px-4   text-gray-100 hover:text-white cursor-pointer whitespace-nowrap ${
                             active ? "buttonShadow" : ""
                           }   `}
                         >

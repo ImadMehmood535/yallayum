@@ -63,7 +63,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-5">
           <div className="left-area w-full md:w-2/4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="useful-links">
+              <div className="useful-links w-full">
                 <h4
                   className={`${
                     pathName === "/ar" ? "text-right" : ""
@@ -73,12 +73,12 @@ const Footer = () => {
                 </h4>
 
                 {pathName === "/ar" ? (
-                  <ul className="flex flex-col gap-3 text-sm font-medium text-right">
+                  <ul className="flex flex-col gap-3 text-sm font-medium text-right justify-end">
                     {useful_linksAR.map((item, key) => (
                       <li key={key}>
                         <Link
                           href={item.link}
-                          className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                          className="ArbiFont text-sm font-medium hover:text-[#fc4242]"
                         >
                           {item.name}
                         </Link>
@@ -123,8 +123,10 @@ const Footer = () => {
                 <div className="max-w-[520px]">
                   <h4
                     className={`${
-                      pathName === "/ar" ? "text-right" : " "
-                    } uppercase GeneralSans font-semibold text-lg mb-4 `}
+                      pathName === "/ar"
+                        ? "text-right ArbiFont"
+                        : "GeneralSans "
+                    } uppercase  font-semibold text-lg mb-4 `}
                   >
                     {pathName === "/ar"
                       ? "معلومات الاتصال"
@@ -132,8 +134,10 @@ const Footer = () => {
                   </h4>
                   <p
                     className={`${
-                      pathName === "/ar" ? "text-right" : " "
-                    } mb-3 GeneralSans   `}
+                      pathName === "/ar"
+                        ? "text-right ArbiFont"
+                        : " GeneralSans"
+                    } mb-3    `}
                   >
                     {pathName === "/ar"
                       ? "شكرا لإختيارك يلا يم. تابعونا على وسائل التواصل الجتماعي لتبقى على اطلاع بأحدث منتجاتنا وعروضنا الترويجية"
@@ -146,15 +150,15 @@ const Footer = () => {
                         <li className="flex flex-row gap-1 items-center justify-end">
                           <Link
                             href={"/"}
-                            className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                            className="ArbiFont text-right text-sm font-medium hover:text-[#fc4242]"
                           >
                             شارع 86, مجمع دبي للإستثمار1, دبي , دولة الإمارات
                             العربية المتحدة
                           </Link>
 
                           <svg
-                            width="20"
-                            height="20"
+                            width="30"
+                            height="30"
                             viewBox="0 0 20 20"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +175,7 @@ const Footer = () => {
                         <li className="flex flex-row gap-1 items-center justify-end">
                           <Link
                             href={"/"}
-                            className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                            className="ArbiFont text-sm font-medium hover:text-[#fc4242]"
                           >
                             (971) الهاتف:527254899
                           </Link>
@@ -195,7 +199,7 @@ const Footer = () => {
                         <li className="flex flex-row gap-1 items-center justify-end">
                           <Link
                             href={"/"}
-                            className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                            className="ArbiFont text-sm font-medium hover:text-[#fc4242]"
                           >
                             info@yallayum.ae : البريد الإلكتروني{" "}
                           </Link>
@@ -301,15 +305,15 @@ const Footer = () => {
             <div className="newsletter">
               <h4
                 className={`${
-                  pathName === "/ar" ? "text-right" : " "
-                } uppercase GeneralSans font-semibold text-lg mb-4`}
+                  pathName === "/ar" ? "text-right ArbiFont" : "GeneralSans "
+                } uppercase  font-semibold text-lg mb-4`}
               >
                 {pathName === "/ar" ? " النشرة الإخبارية" : "Newsletter"}
               </h4>
               <p
                 className={`${
-                  pathName === "/ar" ? "text-right" : " "
-                } mb-3 GeneralSans font-medium text-base`}
+                  pathName === "/ar" ? "text-right ArbiFont" : "GeneralSans "
+                } mb-3  font-medium text-base`}
               >
                 {pathName === "/ar"
                   ? " انضم إلينا على وسائل التواصل الاجتماعي للحصول على معلومات ونصائح صحية والمزيد"
@@ -319,9 +323,9 @@ const Footer = () => {
                 <div className="field-wrapper mb-4">
                   <input
                     type="text"
-                    className={`GeneralSans rounded-full py-3 px-6 focus:border-none focus:outline-none w-full ${
+                    className={` rounded-full py-3 px-6 focus:border-none focus:outline-none w-full ${
                       isDarkMode ? "bg-white text-black" : "bg-white text-black"
-                    }`}
+                    } ${pathName === "/ar" ? "text-right ArbiFont" : "GeneralSans"}`}
                     placeholder={
                       pathName === "/ar"
                         ? "بريدك الإلكتروني , رجاءً"
@@ -335,6 +339,7 @@ const Footer = () => {
                       },
                     })}
                   />
+
                   {errors.email && (
                     <span className="error text-red-500 text-sm mt-1">
                       {errors.email.message}
@@ -343,8 +348,10 @@ const Footer = () => {
                 </div>
                 <div
                   className={` ${
-                    pathName === "/ar" ? "justify-end" : " justify-start"
-                  }  button-wrapper GeneralSans flex gap-5 sm:gap-0 flex-col lg:flex-row items-center  `}
+                    pathName === "/ar"
+                      ? "justify-end ArbiFont"
+                      : " justify-start GeneralSans"
+                  }  button-wrapper  flex gap-5 sm:gap-0 flex-col lg:flex-row items-center  `}
                 >
                   <input
                     disabled={loading}
@@ -361,7 +368,9 @@ const Footer = () => {
               <div className="social-list mt-5">
                 <ul
                   className={`flex flex-row gap-2 justify-center ${
-                    pathName === "/ar" ? "md:justify-end" : "md:justify-start"
+                    pathName === "/ar"
+                      ? "md:justify-end ArbiFont"
+                      : "md:justify-start"
                   }`}
                 >
                   <li
@@ -401,8 +410,8 @@ const Footer = () => {
         <div className="bottom-footer w-full flex flex-col justify-between md:flex-row pt-10 md:pt-36 items-center">
           {pathName === "/ar" ? (
             <div className="rights-text">
-              <p className="GeneralSans flex flex-col md:flex-row gap-4 text-base">
-                <span className="font-semibold">©يلا يم2024  </span>
+              <p className="ArbiFont flex flex-col md:flex-row gap-4 text-base">
+                <span className="font-semibold">©يلا يم2024 </span>
                 <span>
                   {" "}
                   جميع الحقوق محفوظة
@@ -444,7 +453,9 @@ const Footer = () => {
                 <li className="text-center">
                   <Link
                     href={"/terms-and-conditions"}
-                    className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                    className={` ${
+                      pathName === "/ar" ? "ArbiFont" : "GeneralSans"
+                    }  text-sm font-medium hover:text-[#fc4242]`}
                   >
                     {pathName === "/ar" ? "شروط الخدمة " : " Terms of Service"}
                   </Link>
@@ -452,7 +463,9 @@ const Footer = () => {
                 <li className="text-center">
                   <Link
                     href={"/privacy-policy"}
-                    className="GeneralSans text-sm font-medium hover:text-[#fc4242]"
+                    className={` ${
+                      pathName === "/ar" ? "ArbiFont" : "GeneralSans"
+                    }  text-sm font-medium hover:text-[#fc4242]`}
                   >
                     {pathName === "/ar" ? "سياسة الخصوصية " : "Privacy policy"}
                   </Link>
