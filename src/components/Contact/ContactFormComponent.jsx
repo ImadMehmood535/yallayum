@@ -6,6 +6,8 @@ import { Controller, useForm } from "react-hook-form";
 import { contactSchema } from "@/validations/contactUs";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ButtonComponent from "../general/ButtonComponent";
+import { errorToast, successToast } from "@/hooks/useToast";
+import { API } from "@/api";
 
 const ContactFormComponent = () => {
   const {
@@ -18,22 +20,18 @@ const ContactFormComponent = () => {
   } = useForm({
     resolver: yupResolver(contactSchema),
   });
+  const [loading, setLoading] = useState(false);
   const onSubmit = async (data) => {
     setLoading(true);
+
     try {
-      await API.sendContactQuery(data);
-      successToast(
-        "We have received your query! Someone will get in touch with you soon."
-      );
+      const response = await API.contact(data);
+      successToast(response?.data?.message);
       reset();
-      setValue("name", "");
-      setValue("email", "");
-      setValue("subject", "");
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      errorToast(error, "Can not submit your query! Try again letter");
-      console.log(error);
+      errorToast(error, "Can not submit Form");
     }
   };
   return (

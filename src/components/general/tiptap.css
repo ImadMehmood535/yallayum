@@ -1,0 +1,44 @@
+.tiptap {
+    margin-top: 0;
+  }
+  
+  .tiptap ul,
+  .tiptap ol {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+  }
+  
+  .tiptap ul li,
+  .tiptap ol li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .tiptap ul li::before,
+  .tiptap ol li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: black; /* Change to desired color */
+  }
+  
+  .tiptap ul li p,
+  .tiptap ol li p {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+  
+  .tiptap a {
+    color: #C70048; /* Set to red color */
+    cursor: pointer;
+  }
+  
+  .tiptap a:hover {
+    color: #B30040; /* Optional: Change color on hover */
+  }
+  

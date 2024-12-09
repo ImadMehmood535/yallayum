@@ -7,11 +7,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #FFF5F5;
+  background-color: #fff5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ecb0b0; 
+  background: #ecb0b0;
   /* background: #FFF5F5;  */
 }
 
@@ -39,6 +39,15 @@
   font-family: "Kalam";
   src: url("../assets/fonts/Kalam/Kalam-Bold.ttf");
 }
+@font-face {
+  font-family: "arbi";
+  src: url("../assets/fonts/arbi/GE_SS_Two_Medium.otf");
+}
+
+.ArbiFont {
+  font-family: "arbi", sans-serif;
+}
+
 .Fedra-100 {
   font-family: "Fedra-100";
 }
@@ -86,7 +95,7 @@ h3 {
 h4 {
   @apply lg:text-xl text-lg font-medium GeneralSans;
 }
-p{
+p {
   @apply GeneralSans text-base md:text-lg font-normal;
 }
 

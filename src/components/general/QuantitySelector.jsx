@@ -14,7 +14,7 @@ const QuantitySelector = ({ setQuantity, quantity }) => {
   };
 
   return (
-    <div className="QuantitySelector">
+    <div className="QuantitySelector GeneralSans">
       <div className="w-fit rounded-full flex justify-center items-center gap-2 px-2 py-1 bg-themeGray-0 border-[2.5px] border-[#E4E7ED]">
         <button
           type="button"
@@ -24,7 +24,7 @@ const QuantitySelector = ({ setQuantity, quantity }) => {
           <FaMinus className="text-[#FC4242] group-hover:text-white" />
         </button>
         <input
-          className="w-10 py-2 text-center bg-transparent border-0"
+          className="w-10 py-2 text-center bg-transparent border-0 GeneralSans font-semibold"
           type="text"
           value={quantity}
           readOnly

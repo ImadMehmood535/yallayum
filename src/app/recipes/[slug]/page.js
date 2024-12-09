@@ -1,19 +1,22 @@
-"use client";
+import { getSingleReceipe } from "@/cached-requests";
 import SingleRecipe from "@/components/recipes/SingleRecipe";
-import { recipesData } from "@/data/recipesData";
-import { useSearchParams } from "next/navigation";
 import React from "react";
 
-const Page = ({ params }) => {
-  const recipe = recipesData.find((recipe) => recipe.slug === params.slug);
+export async function generateMetadata({ params }, parent) {
+  const { data: data } = await getSingleReceipe(params.slug);
 
-  if (!recipe) {
-    return <div>Recipe not found</div>;
-  }
+  return {
+    title: data?.name,
+    description: data?.shortDescription,
+  };
+}
+
+const Page = async ({ params }) => {
+  const { data: data } = await getSingleReceipe(params.slug);
 
   return (
     <div className="single-recipe">
-      <SingleRecipe data={recipe} />
+      <SingleRecipe data={data} />
     </div>
   );
 };

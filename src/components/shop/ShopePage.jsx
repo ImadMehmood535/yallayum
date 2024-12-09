@@ -15,30 +15,36 @@ const ShopePage = ({ categories, products }) => {
   }, [filter]);
 
   const filterProductsByCategory = (cateid) => {
-    const allProducts = products?.flatMap((product) =>
-      product?.variation?.map((variation) => ({
+    const allProducts = products?.map((product) => {
+      const variation = product?.variation; // Get the only variation
+      return {
         ...variation,
         id: product?.id,
-        variationId: variation.id,
+        variationId: variation?.id,
         name: product?.name,
         slug: product?.slug,
-      }))
-    );
-
-    const filtered = products?.flatMap((product) =>
-      product.variation
-        .filter((variation) => variation?.categoryId === cateid)
-        .map((variation) => ({
+      };
+    });
+  
+    const filtered = products?.map((product) => {
+      const variation = product?.variation; // Get the only variation
+      if (variation?.categoryId === cateid) {
+        return {
           ...variation,
           id: product?.id,
-          variationId: variation.id,
+          variationId: variation?.id,
           name: product?.name,
           slug: product?.slug,
-        }))
-    );
-
+        };
+      }
+      return null;
+    }).filter(Boolean); // Remove null entries
+  
     setFilteredProducts(filtered?.length === 0 ? allProducts : filtered);
   };
+  
+
+  const [categoryName, setCategoryName] = useState("All Products");
 
   return (
     <div className="shop-page">
@@ -49,8 +55,13 @@ const ShopePage = ({ categories, products }) => {
               itemCount={4}
               data={categories}
               setFilter={setFilter}
+              setCategoryName={setCategoryName}
             />
           </div>
+
+          <h1 className="text-center kalamFont mt-12 md:-mt-8y font-medium  text-[#FC4242]  flex justify-center items-center max-w-[300px] md:max-w-[500px] w-full mx-auto rounded-[25px]">
+            {categoryName}
+          </h1>
 
           <ProductList
             filteredProducts={filteredProducts}

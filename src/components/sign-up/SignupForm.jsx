@@ -2,11 +2,12 @@
 import { Button } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
 import { errorToast, successToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
+import { setCookie } from "@/hooks/cookies";
+import { API } from "@/api";
 
 const SignupForm = () => {
   const {
@@ -20,29 +21,32 @@ const SignupForm = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const response = await API.logInUser(data);
-      successToast(response?.data?.message);
+      // Remove +971 from the phone number before sending it to the API
+      data.phoneNumber = data.phoneNumber.replace("+971", "");
+
+      const response = await API.registerUser(data);
+      successToast("You can continue shopping now");
       setLoading(false);
       setCookie("token", response?.data?.data?.token);
-      loginUser({ ...response?.data?.data, authorized: true });
 
-      router.push("/");
+      router.push("/shop");
     } catch (error) {
       setLoading(false);
-      errorToast(error, "Can not log In at the moment");
+      errorToast(error, "Can not sign up at the moment");
     }
   };
 
   const [isShow, setIsShow] = useState(false);
 
-  const handleShow = (isShow) => {
+  const handleShow = () => {
     setIsShow(!isShow);
   };
+
   return (
     <div className="signup-from pageLayout px-0 mx-auto">
       <div className="container">
         <div className="max-w-[500px] mx-auto">
-          <h2 className="text-5xl Fedra-500 font-semibold mb-10 text-center">
+          <h2 className="text-5xl Fedra-500  mb-10 text-center">
             Sign up
           </h2>
           <div className="formarea GeneralSans">
@@ -52,11 +56,13 @@ const SignupForm = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Full Nmae"
+                    placeholder="Full Name"
                     {...register("name", { required: true })}
                   />
-                  {errors?.email && (
-                    <p className="text-sm text-red-800">Email is required</p>
+                  {errors?.name && (
+                    <p className="text-sm text-red-800">
+                      Full name is required
+                    </p>
                   )}
                 </div>
               </div>
@@ -78,11 +84,14 @@ const SignupForm = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="phone"
-                    {...register("phone", { required: true })}
+                    placeholder="Phone"
+                    defaultValue="+971"
+                    {...register("phoneNumber", { required: true })}
                   />
-                  {errors?.email && (
-                    <p className="text-sm text-red-800">Email is required</p>
+                  {errors?.phoneNumber && (
+                    <p className="text-sm text-red-800">
+                      Phone number is required
+                    </p>
                   )}
                 </div>
               </div>
@@ -94,15 +103,15 @@ const SignupForm = () => {
                     placeholder="Password"
                     {...register("password", { required: true })}
                   />
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center  leading-5 text-3xl">
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center leading-5 text-3xl">
                     {isShow ? (
                       <FaEye
-                        onClick={() => handleShow(isShow)}
+                        onClick={handleShow}
                         className="cursor-pointer"
                       />
                     ) : (
                       <FaEyeSlash
-                        onClick={() => handleShow(isShow)}
+                        onClick={handleShow}
                         className="cursor-pointer"
                       />
                     )}
@@ -124,16 +133,15 @@ const SignupForm = () => {
               </div>
               <div className="field-wrapper">
                 <div className="flex justify-center gap-2">
-                  <label className="block text-[#A0A0A0] font-normal mt-4 ">
-                    <span className="py-2 text-sm  leading-snug  ">
-                      {" "}
-                      Already have an account? {" "}
+                  <label className="block text-[#A0A0A0] font-normal mt-4">
+                    <span className="py-2 text-sm leading-snug">
+                      Already have an account?
                     </span>
                   </label>
-                  <label className="block text-gray-500  mt-4">
+                  <label className="block text-gray-500 mt-4">
                     <Link
                       href="/login"
-                      className="cursor-pointer tracking-tighter text-[#FC4242]   hover:text-[#000]"
+                      className="cursor-pointer tracking-tighter text-[#FC4242] hover:text-[#000]"
                     >
                       Login
                     </Link>

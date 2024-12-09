@@ -1,8 +1,24 @@
+"use client";
 import React from "react";
-import RecipesItem from "../recipes/RecipesItem";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import ProductItem from "../general/ProductItem";
 
 const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
+  const allProducts = data?.map((product) => {
+    const variation = product?.variation; // Get the only variation
+    return {
+      ...variation,
+      id: product?.id,
+      variationId: variation?.id,
+      name: product?.name,
+      slug: product?.slug,
+    };
+  });
+  
+
   return (
     <div className="RelatedProduct pageLayout">
       <div className="container">
@@ -23,12 +39,41 @@ const RelatedProduct = ({ data, itemCount, btntext, btnlink, title }) => {
             )}
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {data.slice(0, itemCount).map((item, key) => (
-            <div key={key} className="item-wrapper">
-              <RecipesItem data={item} />
-            </div>
-          ))}
+        <div className="item-wrapper">
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+              clickable: true,
+            }}
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            breakpoints={{
+              540: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+            }}
+            className="feature_product_slider featuredProduct"
+          >
+            {allProducts.map((product, productkey) => (
+              <SwiperSlide key={productkey}>
+                <ProductItem
+                  data={product}
+                  variation={productkey}
+                  slider={true}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

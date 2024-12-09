@@ -36,14 +36,14 @@ const ProductFeature = () => {
               textposition="left"
               icon={NoShugar}
               title="No Added Sugar"
-              content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
+              content="At YallaYum, we prioritize your health by offering snacks with no added sugar, preserving the authentic flavors of Dubai. Enjoy the natural sweetness of our ingredients, ensuring a delightful and guilt-free snacking experience. Taste the essence of wellness with every bite."
             />
             <IconBox
               position="start"
               textposition="left"
               icon={PremiumQuality}
               title="Premium Quality"
-              content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
+              content="At YallaYum, we deliver premium quality snacks that embody the rich culinary heritage of Dubai. Each bite promises superior taste and exceptional standards, crafted from the finest ingredients. Elevate your snacking experience with YallaYum's unmatched excellence."
             />
           </div>
 
@@ -86,14 +86,14 @@ const ProductFeature = () => {
               textposition="right"
               icon={NonGmo}
               title="Non-GMO"
-              content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
+              content="At YallaYum, we are committed to your well-being with our Non-GMO snacks, crafted from the finest, naturally sourced ingredients. Enjoy the true taste of Dubai with the assurance of no genetic modifications. Snack healthy and feel the difference!"
             />
             <IconBox
               position="end"
               textposition="right"
               icon={GlutenFree}
               title="Gluten Free"
-              content="Our freeze-dried fruits retain their natural nutrients, vitamins, and minerals, providing you with a wholesome snack option."
+              content="At YallaYum, we cater to your dietary needs with our delicious gluten-free snacks. Savor the authentic flavors of Dubai without compromising on health. Enjoy guilt-free snacking that's both tasty and safe for your gluten-free lifestyle."
             />
           </div>
         </div>

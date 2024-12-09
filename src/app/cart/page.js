@@ -1,30 +1,15 @@
-import { single_product_image } from "@/assets";
-import CartComponent from "@/components/Cart/CartComponent";
-import InnerpageHeader from "@/components/general/InnerpageHeader";
-import React from "react";
+import CartPageComponent from "@/components/Cart/CartPageComponent";
+
+export const metadata = {
+  title: 'Cart-Yallayum',
+  description: 'This is a log in page',
+}
+ 
+
 
 const Index = () => {
-  const cartitem = [
-    {
-      id: 1,
-      name: "test",
-      imageUrl: single_product_image,
-      price: 25,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "test",
-      imageUrl: single_product_image,
-      price: 25,
-      quantity: 1,
-    },
-  ];
   return (
-    <div className="Cart">
-      <InnerpageHeader pagetitle="Cart" />
-      <CartComponent cartitem={cartitem} />
-    </div>
+    <CartPageComponent />
   );
 };
 
